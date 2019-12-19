@@ -1,0 +1,5 @@
+<view class="imgBox">
+  <image src='{{src}}'></image>
+</view>
+<!-- <button hover-class="none">转发给朋友或群聊</button> -->
+<button hover-class="none" bindtap="click">保存图片到相册</button>

@@ -1,0 +1,54 @@
+page {
+  background-color: #fff;
+  padding-bottom: 95rpx;
+  box-sizing: border-box;
+}
+
+.box {
+  width: 100%;
+  height: 300rpx;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.img {
+  width: 200rpx;
+  height: 200rpx;
+  margin: auto;
+  margin-bottom: 20rpx;
+}
+
+.img image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.text {
+  text-align: center;
+}
+
+.name {
+  font-size: 32rpx;
+  margin-bottom: 5rpx;
+}
+
+.time {
+  font-size: 28rpx;
+}
+
+.btn {
+  width: 100%;
+  height: 95rpx;
+  line-height: 95rpx;
+  text-align: center;
+  background-color: #ef7e20;
+  color: #fff;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}

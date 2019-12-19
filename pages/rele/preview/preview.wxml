@@ -1,0 +1,9 @@
+<swiper indicator-dots>
+  <swiper-item class="pic1">
+    <image src="{{temp1}}" bindlongpress='loadFn' data-url="{{temp1}}"></image>
+  </swiper-item>
+  <swiper-item class="pic2">
+    <image src="{{temp2}}" bindlongpress='loadFn' data-url="{{temp2}}"></image>
+  </swiper-item>
+</swiper>
+<view class="desc">长按以上图片,保存到相册</view>

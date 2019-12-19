@@ -1,0 +1,33 @@
+page{
+  padding: 0 40rpx;
+  box-sizing: border-box;
+  background-color: #efefef;
+}
+.item{
+  width: 100%;
+  height: 250rpx;
+  position: relative;
+  color: #333;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  text-indent: 40rpx;
+  margin-top: 20rpx;
+  overflow: hidden;
+}
+.item image{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.top{
+  margin-top: 40rpx;
+  margin-bottom: 30rpx;
+}
+.sub{
+  font-size: 24rpx;
+  line-height: 24rpx;
+  color: #999;
+}

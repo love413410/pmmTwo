@@ -1,0 +1,15 @@
+<view class="tle">
+  我的评价
+</view>
+<view class="date">
+  评价时间:{{data.ctime}}
+</view>
+<view class="imgBoxs" wx:if="{{data.discuss_type==1}}">
+  <image src=" {{baseSrc}}hp.png"></image>
+</view>
+<view class="imgBoxs" wx:if="{{data.discuss_type==2}}">
+  <image src=" {{baseSrc}}cp.png"></image>
+</view>
+<view class="desc">
+  {{data.content}}
+</view>

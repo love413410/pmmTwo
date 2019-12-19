@@ -1,0 +1,103 @@
+page {
+  background-color: #efefef;
+}
+
+
+.item_top {
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+
+.state {
+  width: 85rpx;
+  height: 35rpx;
+  line-height: 35rpx;
+  text-align: center;
+  font-size: 18rpx;
+  background-color: #fb7313;
+  color: #fff;
+  border-radius: 8rpx;
+  margin-top: 32rpx;
+}
+.state2{
+  width: 85rpx;
+  height: 35rpx;
+  line-height: 35rpx;
+  text-align: center;
+  font-size: 18rpx;
+  background-color: #b5b5b5;
+  color: #fff;
+  border-radius: 8rpx;
+  margin-top: 32rpx;
+}
+
+.tle {
+  font-size: 28rpx;
+  color: #353535;
+}
+
+.tles {
+  margin: 0 10rpx;
+}
+
+.desc {
+  color: #b2b2b2;
+  float: left;
+}
+
+.desc2 {
+  width: 325rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rt_box {
+  width: 145rpx;
+  font-size: 20rpx;
+  color: #e48383;
+}
+
+.item_top image {
+  width: 26rpx;
+  height: 26rpx;
+  margin-top: 37rpx;
+}
+
+.item_top .route {
+  transform: rotate(90deg);
+}
+
+.look {
+  width: 100%;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+}
+
+.lookBox {
+  width: 100%;
+  padding: 40rpx 30rpx;
+  border-left: 2px solid #fb7313;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.look_tle {
+  font-size: 28rpx;
+  color: #353535;
+}
+.look_desc{
+  color: #6f6f6f;
+}
+.look_img image{
+  width: 100rpx;
+  height: 100rpx;
+  margin-top: 10rpx;
+  margin-right: 10rpx;
+}

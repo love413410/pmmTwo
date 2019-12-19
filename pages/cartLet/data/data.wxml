@@ -1,0 +1,74 @@
+<view class="item" bindtap="rouTo" wx:for="{{list}}">
+  <view class="itemBox">
+    <image src="{{item.userAvatar}}" class="lt img"></image>
+    <view class="lt item-text">
+      <view>
+        <view class="lt">
+          联系人:
+        </view> {{item.userName}}
+      </view>
+
+      <view>
+        <view class="lt">
+          联系方式:
+        </view> {{item.userMobile}}
+      </view>
+
+      <view>
+        <view class="lt">
+          常住地址:
+        </view>
+        {{item.provincename}} {{item.cityname}}
+      </view>
+    </view>
+
+    <view class="rt btn" catchtap="send" data-id="{{item.id}}" wx:if="{{item.status!=4}}">
+      <!-- <view class="rt btn" catchtap="getLoca" data-id="{{item.id}}" wx:if="{{item.status!=4}}"> -->
+      改派
+    </view>
+    <view class="rt btn" wx:if="{{staff==1&&item.status==4}}" catchtap="rediFn" data-item="{{item}}">
+      反馈单
+    </view>
+    <view class="rt btn" wx:if="{{item.feedback==1&&item.status==4&&officer==1}}" catchtap="rediFn" data-item="{{item}}">
+      反馈单
+    </view>
+
+
+    <!-- <navigator hover-class="none" open-type='redirect' url="../feedDate/feedDate?id={{item.taskid}}&source=2&buserid={{item.buserid}}" class="rt btn" wx:if="{{staff==1&&item.status==4}}">
+      反馈单
+    </navigator>
+    <navigator hover-class="none" open-type='redirect' url="../feedDate/feedDate?id={{item.taskid}}&source=2&buserid={{item.buserid}}" class="rt btn" wx:if="{{item.feedback==1&&item.status==4&&officer==1}}">
+      反馈单
+    </navigator> -->
+
+
+  </view>
+</view>
+<navigator url="../eval/eval?id={{taskid}}" hover-class="none" class="footBtn" wx:if="{{opinion==1}}">
+  查看评价
+</navigator>
+
+
+<view class="mask" catchtouchmove bindtap="move" hidden="{{mask?false:true}}">
+  <view class="not_maskBox">
+    <image src="{{baseSrc}}qxa.png" class="qxa" bindtap="move"></image>
+    <checkbox-group catchtap bindchange="checkboxChange">
+      <view class="info">
+        <view class="info-item" wx:for="{{user}}">
+          <view class="lt idx">
+            {{index+1}}
+          </view>
+          <view class="lt text">
+            {{item.name}}
+          </view>
+          <view class="rt">
+            <checkbox value="{{item.id}}" checked="{{item.checked}}" disabled="{{item.dibd}}" />
+          </view>
+        </view>
+      </view>
+      <view class="send" bindtap="toRou">
+        改派
+      </view>
+    </checkbox-group>
+  </view>
+</view>

@@ -1,0 +1,99 @@
+page{
+  background-color: #efefef;
+}
+.head {
+  width: 100%;
+  padding: 46rpx;
+  box-sizing: border-box;
+  display: flex;
+  background-color: #fff;
+  margin-bottom: 20rpx;
+}
+
+.imgBox {
+  width: 128rpx;
+  height: 128rpx;
+  margin-right: 30rpx;
+}
+
+.top_ {
+  height: 65rpx;
+  overflow: hidden;
+}
+
+.top_ .lt {
+  margin-right: 15rpx;
+}
+
+.name {
+  font-size: 38rpx;
+  font-weight: 700;
+  line-height: 75rpx;
+  color: #1a1a1a;
+}
+
+.rz {
+  font-size: 24rpx;
+  height: 65rpx;
+  line-height: 65rpx;
+  color: #808080;
+}
+.rzAdd{
+  color: #fb7313;
+}
+
+.rz-h {
+  font-size: 24rpx;
+  height: 65rpx;
+  line-height: 65rpx;
+  color: #fb7313;
+  margin-right: 15rpx;
+}
+
+.renzImg {
+  line-height: 75rpx;
+}
+
+.vipImg {
+  width: 40rpx;
+  height: 46rpx;
+  margin-top: 15rpx;
+}
+
+.renzImg image, .vipImg image {
+  width: 100%;
+  height: 100%;
+}
+
+
+.item {
+  height: 100rpx;
+  line-height: 100rpx;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #efefef;
+  position: relative;
+  background-color: #fff;
+  padding-left: 30rpx;
+  box-sizing: border-box;
+}
+.item image{
+  width: 14rpx;
+  height: 22rpx;
+  position: absolute;
+  right: 30rpx;
+  top: 39rpx;
+}
+.out{
+  position: fixed;
+  bottom: 90rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  background-color: #ef7e20;
+  color: #fff;
+  border-radius: 10rpx;
+}

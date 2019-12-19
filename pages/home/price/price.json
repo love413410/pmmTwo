@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "抢单报价",
+  "usingComponents": {
+    "paymen": "../../../components/paymen/paymen"
+  }
+}

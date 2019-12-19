@@ -1,0 +1,286 @@
+<picker range="{{pick1}}" value="{{pickIdx1}}" bindchange='pickFn' data-pick="pick1" data-idx='pickIdx1' data-val='pickVal1'>
+  <view class="item">
+    <view>
+      <view class="lt">
+        <image src="{{baseSrc}}x.png"></image>
+      </view>
+      <view class="lt">
+        使用环境
+      </view>
+    </view>
+    <view>
+      <view class="lt {{pickVal1=='请选择' ? 'gray' : ''}}">
+        {{pickVal1}}
+      </view>
+      <view class="lt">
+        <image src="{{baseSrc}}r.png"></image>
+      </view>
+    </view>
+  </view>
+</picker>
+
+<picker range="{{pick2}}" value="{{pickIdx2}}" bindchange='pickFn' data-pick="pick2" data-idx='pickIdx2' data-val='pickVal2'>
+  <view class="item">
+    <view>
+      <view class="lt">
+        <image src="{{baseSrc}}x.png"></image>
+      </view>
+      <view class="lt">
+        屏幕型号
+      </view>
+    </view>
+    <view>
+      <view class="lt {{pickVal2=='请选择' ? 'gray' : ''}}">
+        {{pickVal2}}
+      </view>
+      <view class="lt">
+        <image src="{{baseSrc}}r.png"></image>
+      </view>
+    </view>
+  </view>
+</picker>
+
+
+<view class="item">
+  <view>
+    <view class="lt">
+      <image src="{{baseSrc}}x.png"></image>
+    </view>
+    <view class="lt">
+      预计面积（m²）
+    </view>
+  </view>
+  <view class="ipt">
+    <input placeholder="请输入" type="digit" bindinput="valFn" data-val='squ'></input>
+  </view>
+</view>
+
+<picker range="{{pick3}}" value="{{pickIdx3}}" bindchange='pickFn' data-pick="pick3" data-idx='pickIdx3' data-val='pickVal3'>
+  <view class="item">
+    <view>
+      <view class="lt">
+        <image src="{{baseSrc}}x.png"></image>
+      </view>
+      <view class="lt">
+        使用场景
+      </view>
+    </view>
+    <view>
+      <view class="lt {{pickVal3=='请选择' ? 'gray' : ''}}">
+        {{pickVal3}}
+      </view>
+      <view class="lt">
+        <image src="{{baseSrc}}r.png"></image>
+      </view>
+    </view>
+  </view>
+</picker>
+
+<picker mode="date" value="{{date}}" start="{{start}}" bindchange='dateFn'>
+  <view class="item">
+    <view>
+      <view class="lt">
+        <image src="{{baseSrc}}x.png"></image>
+      </view>
+      <view class="lt">
+        使用日期
+      </view>
+    </view>
+    <view>
+      <view class="lt {{pickVal1=='请选择' ? 'gray' : ''}}">
+        {{date}}
+      </view>
+      <view class="lt">
+        <image src="{{baseSrc}}r.png"></image>
+      </view>
+    </view>
+  </view>
+</picker>
+
+
+<view class="item">
+  <view>
+    <view class="lt">
+      <image src="{{baseSrc}}x.png"></image>
+    </view>
+    <view class="lt">
+      使用天数
+    </view>
+  </view>
+  <view class="ipt">
+    <input placeholder="请输入" type="number" bindinput="valFn" data-val='num'></input>
+  </view>
+</view>
+
+<view class="item">
+  <view>
+    <view class="lt">
+      <image src="{{baseSrc}}x.png"></image>
+    </view>
+    <view class="lt">
+      联系人
+    </view>
+  </view>
+  <view class="ipt">
+    <input placeholder="请输入" bindinput="valFn" data-val='con'></input>
+  </view>
+</view>
+
+<view class="item">
+  <view>
+    <view class="lt">
+      <image src="{{baseSrc}}x.png"></image>
+    </view>
+    <view class="lt">
+      联系方式
+    </view>
+  </view>
+  <view class="ipt">
+    <input placeholder="请输入" type="number" bindinput="valFn" data-val='mod'></input>
+  </view>
+</view>
+
+
+
+
+<view class="item" style="border-bottom:none;" bindtap="link">
+  <view>
+    <view class="lt">
+      <image src="{{baseSrc}}x.png"></image>
+    </view>
+    <view class="lt">
+      所在地区
+    </view>
+  </view>
+  <view>
+    <view class="lt {{regStr=='选择省、市、区' ? 'gray' : ''}}">
+      {{regStr}}
+    </view>
+    <view class="lt">
+      <image src="{{baseSrc}}r.png"></image>
+    </view>
+  </view>
+</view>
+<link bind:linkFn="linkFn" bool='{{is}}'></link>
+
+
+<view class="item">
+  <view class="ipts">
+    <input placeholder="请填写详细地址(街道、楼牌号等)" value="{{idtName}}" bindinput="valFn" data-val='idtName'></input>
+  </view>
+  <view>
+    <view class="lt">
+      <image src="{{baseSrc}}ionc1.png"></image>
+    </view>
+    <view class="lt" style="color:#fb7f33" bindtap="getLoca">
+      自动定位
+    </view>
+  </view>
+</view>
+
+
+<view class="up">
+  <view class="up-top">
+    现场实图
+    <text>(上传图片可以让更多商家积极抢单)</text>
+  </view>
+  <view class="up-bot">
+
+    <view class="pic" wx:key="id" wx:for="{{photos}}" bindlongpress='showDel' data-cid="{{index}}" bindtap="preview" data-url="{{item.src}}">
+      <view class="dele" wx:if="{{item.del}}" catchtap='delPhoto' data-cid="{{index}}">
+        <image src="{{baseSrc}}close.png"></image>
+      </view>
+      <image src="{{item.src}}"></image>
+    </view>
+
+    <view hidden='{{photos.length >= 5}}' class="pic" bindtap='upPhoto'>
+      <image src="{{baseSrc}}pub-add.png"></image>
+    </view>
+  </view>
+</view>
+
+
+<view class="desc">
+  <view class="tle">
+    情况阐述
+  </view>
+
+  <view class="desc-b">
+    <textarea wx:if="{{eye==1}}" placeholder="请具体阐述需求详情(0-50字)" value="{{ela}}" maxlength="50" bindinput="valFn" data-val='ela' bindblur="bindblurFn" data-is="2" auto-focus></textarea>
+    <view wx:if="{{eye==2}}" bindtap="bindblurFn" data-is="1" class="desc_text">{{ela==''?'请具体阐述需求详情(0-50字)':ela}}</view>
+  </view>
+</view>
+
+<view class="foot">
+  <view class="foot-head">
+    <text class="line">“租赁大屏需求”类发布须知</text>
+  </view>
+  <view>
+    1.个人用户不可发布此类订单,需通过企业认证;
+  </view>
+  <view>
+    2.认证企业、VIP诚企均可免费发布;
+  </view>
+  <view>
+    2.发布后,当有人抢单获取到联系方式,抢单者会主动联系负责人;
+  </view>
+  <view>
+    3.认证企业、VIP诚企发布的单子成交后,抢单者打赏金额的一半补贴给发布者。
+  </view>
+</view>
+
+<button class="footBtn" bindtap="releFn" disabled="{{isDis}}">
+  {{releText}}
+</button>
+
+<view class="mask" catchtouchmove bindtap="move" wx:if="{{mask==1?true:false}}">
+  <view class="maskBox">
+    <view class="ms_top">
+      <image src="{{baseSrc}}qy.png"></image>
+    </view>
+    <view class="ms_text">
+      个人用户需要通过企业认证才可发布此类订单！
+    </view>
+    <view class="ms_btn" catchtap="auth">
+      去认证
+    </view>
+    <image src="{{baseSrc}}c.png" class="c" bindtap="move"></image>
+  </view>
+</view>
+
+
+<paymen bind:payFn="payFn" bool='{{payIs}}'></paymen>
+<view class="mask" catchtouchmove bindtap="move" wx:if="{{mask==2?true:false}}">
+  <view class="pay_box">
+    <view class="pay_head">
+      <image src="{{baseSrc}}gb.png" class="pay_img" catchtap="move"></image>
+      请输入支付密码
+    </view>
+    <view class="pay_text">
+      携牛平台-信保资金
+    </view>
+    <view class="pay_text pay_texts">
+      ￥5
+    </view>
+
+    <view class="pay_type">
+      <view class='pay_lt'>
+        支付方式
+      </view>
+
+      <view class='pay_rt'>
+        <image src="{{baseSrc}}lq.png" class="pay_lq"></image>
+        <view class='pay_lt pay_lqt'>
+          零钱
+        </view>
+      </view>
+    </view>
+
+    <view class='pay_contents'>
+      <block wx:for="{{6}}" wx:key="item">
+        <input class='pay_iptbox' value="{{Value.length>=index+1?Value[index]:''}}" disabled password catchtap='Tap'></input>
+      </block>
+    </view>
+    <input name="password" password type="number" class='pay_ipt_s' maxlength="6" focus="{{isFocus}}" bindinput="Focus"></input>
+  </view>
+</view>

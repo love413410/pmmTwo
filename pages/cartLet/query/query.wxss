@@ -1,0 +1,91 @@
+page {
+  background-color: #efefef;
+}
+
+.item-head {
+  width: 100%;
+  height: 58rpx;
+  line-height: 58rpx;
+  margin: 20rpx 0;
+  font-size: 24rpx; 
+  color: #333;
+  padding: 0 27rpx;
+  box-sizing: border-box;
+}
+
+.sub {
+  width: 220rpx;
+  height: 100%;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 8rpx;
+  margin-right: 18rpx;
+  padding: 0 17rpx;
+  box-sizing: border-box;
+}
+
+.tle_ {
+  width: 160rpx;
+  float: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.item-head image {
+  width: 16rpx;
+  height: 9rpx;
+  float: right;
+  margin-left: 10rpx;
+  margin-bottom: 5rpx;
+  margin-top: 24rpx;
+}
+
+.item {
+  width: 100%;
+  height: 200rpx;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  margin-bottom: 20rpx;
+}
+
+.item_box {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 8rpx;
+  padding: 40rpx;
+  box-sizing: border-box;
+}
+
+.item_box image.lt {
+  width: 110rpx;
+  height: 110rpx;
+  margin-top: 5rpx;
+  margin-right: 40rpx;
+}
+
+.item_box view.lt {
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  color: #808080;
+}
+
+.item_box text {
+  color: #515151;
+}
+
+
+.item_box .bohao{
+  width: 100rpx;
+  margin-top: 15rpx;
+  font-size: 24rpx;
+  color: #22ac38;
+  text-align: center;
+}
+
+.item_box image.dh {
+  width: 61rpx;
+  height: 61rpx;
+}

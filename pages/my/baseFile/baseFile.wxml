@@ -1,0 +1,20 @@
+<view class="box">
+  <view class="img">
+    <image src="{{task.img}}"></image>
+  </view>
+  <view class="text name">
+    {{task.name}}
+  </view>
+  <view class="text time">
+    {{task.ctime}}
+  </view>
+</view>
+<view class="btn" bindtap="isFn" wx:if="{{is}}">
+  授权预览
+</view>
+<view class="btn" bindtap="lookFn" wx:if="{{!is}}">
+  在线预览
+</view>
+
+
+<popup bind:popupFn="popupFn" hide='{{is}}'></popup>

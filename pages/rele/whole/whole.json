@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "发布维修需求",
+  "usingComponents": {
+    "link": "../../../components/link/link"
+  }
+}

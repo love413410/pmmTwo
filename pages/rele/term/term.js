@@ -1,0 +1,337 @@
+const app = getApp();
+const {
+  _post,
+  _get
+} = require('../../../utils/http.js')
+const {
+  baseSrc,
+  decr,
+  getCity,
+  upload,
+  myDeta
+} = require('../../../utils/urls.js');
+Page({
+  data: {
+    baseSrc: baseSrc,
+    is: true,
+    pick1: ['室内', '半户外', '户外'],
+    pickIdx1: 0,
+    pickVal1: '请选择',
+    pick2: ['单色', '双基色', '全彩色'],
+    pickIdx2: 0,
+    pickVal2: '请选择',
+    pick3: ['P10', 'P8', 'P6', 'P5', 'P4', 'P3', 'P2.5', 'P2', '求推荐'],
+    pickIdx3: 0,
+    pickVal3: '请选择',
+    regStr: '选择省、市、区',
+    photos: [],
+    preview: [],
+    ela: '',
+    eye:2,
+    isDis:false,
+    releText: '立即发布'
+  },
+  onLoad: function(o) {
+
+  },
+  pickFn(e) {
+    this.setData({
+      [e.currentTarget.dataset.idx]: e.detail.value,
+      [e.currentTarget.dataset.val]: this.data[e.currentTarget.dataset.pick][
+        [e.detail.value]
+      ]
+    })
+  },
+  valFn(e) {
+    const key = e.currentTarget.dataset.val;
+    const val = e.detail.value;
+
+    this.setData({
+      [key]: val
+    });
+  },
+  elaFn(e) {
+    const val = e.detail.value;
+    if (val.length > 50) {
+      const ela = val.slice(0, 50);
+      this.setData({
+        ela: ela
+      });
+      app.toast('情况阐述字数请保持在50字以内！');
+      return
+    }
+    this.setData({
+      ela: val
+    });
+  },
+  link() {
+    this.setData({
+      is: false
+    })
+  },
+  linkFn(e) {
+    this.setData({
+      regStr: e.detail.val,
+      idp: e.detail.idp,
+      idc: e.detail.idc,
+      idd: e.detail.idd,
+    })
+    this.getLocat()
+  },
+  // 上传图片
+  upPhoto() {
+    var _this = this;
+    wx.chooseImage({
+      count: 5,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success(res) {
+        var tempFilePaths = res.tempFilePaths;
+        for (let i = 0; i < tempFilePaths.length; i++) {
+          _this.uploadFn(tempFilePaths[i])
+        }
+      }
+    })
+  },
+  uploadFn(e) {
+    const _this = this;
+    wx.uploadFile({
+      url: upload,
+      filePath: e,
+      name: 'file',
+      formData: null,
+      success(res) {
+        var temp = [];
+        var picTemp = [];
+        const r = JSON.parse(res.data);
+        if (r.code == -1) {
+          app.toast("上传图片失败")
+        } else if (r.code == 1) {
+          var obj = {
+            del: false,
+            src: r.content.data.url
+          }
+          temp.push(obj);
+          picTemp.push(r.content.data.url);
+          const pic = [..._this.data.photos, ...temp];
+          const img = [..._this.data.preview, ...picTemp];
+          _this.setData({
+            photos: pic,
+            preview: img
+          })
+        }
+      }
+    })
+  },
+  // 删除图片
+  showDel(e) {
+    var cid = e.currentTarget.dataset.cid;
+    var str = "photos[" + cid + "]del";
+    this.setData({
+      [str]: true
+    });
+  },
+  delPhoto(e) {
+    var cid = e.currentTarget.dataset.cid;
+    var photos = this.data.photos;
+    photos.splice(cid, 1);
+    this.setData({
+      photos: photos
+    });
+  },
+  preview(e) {
+    const _this = this;
+    wx.previewImage({
+      current: e.currentTarget.dataset.url,
+      urls: _this.data.preview
+    })
+  },
+  //发布
+  releFn() {
+    const _this=this;
+    const a = this.data.pickIdx1;
+    const b = this.data.pickIdx2;
+    const c = this.data.pickIdx3;
+    const d = this.data.squ;
+    const e = this.data.con;
+    const f = this.data.mod;
+    const g = this.data.regStr;
+    const h = this.data.idtName;
+    if (a === 0) {
+      app.toast('请选择使用环境！')
+      return;
+    }
+    if (b === 0) {
+      app.toast('请选择显示颜色！')
+      return;
+    }
+    if (c === 0) {
+      app.toast('请选择产品型号！')
+      return;
+    }
+
+    if (!app.trim(d)) {
+      app.toast('请输入预计面积！')
+      return;
+    }
+    if (!app.trim(e) || !app.regex(e)) {
+      app.toast('请输入正确的联系人！')
+      return;
+    }
+    if (!app.trim(f) || !app.regmp(f)) {
+      app.toast('请输入正确联系方式')
+      return;
+    }
+    if (g == '选择省、市、区') {
+      app.toast('请选择所在地区！')
+      return;
+    }
+    if (!app.trim(h)) {
+      app.toast('请填写详细地址')
+      return;
+    }
+    const photos = this.data.photos;
+    var tempPic = [];
+    for (let i = 0; i < photos.length; i++) {
+      tempPic.push(photos[i].src)
+    }
+    const str = tempPic.join(',');
+    const isis = this.data.isis;
+    if(isis!=2){
+      this.setData({
+        mask:1
+      })
+      return false;
+    };
+    const data = {
+      userid: app.globalData.uid,
+      id: 0,
+      type: 1,
+      ambient: a,
+      colorshow: b,
+      modelnumber: c,
+      acreage: d,
+      link: e,
+      linkphone: f,
+      province: this.data.idp,
+      city: this.data.idc,
+      area: this.data.idd,
+      address: h,
+      longitude: this.data.loc.lng,
+      latitude: this.data.loc.lat,
+      pic: str,
+      overview: this.data.ela
+    };
+    _this.setData({
+      isDis: true,
+      releText: '发布中'
+    })
+    _post(decr, data).then(res => {
+      if (res.code == 1) {
+        setTimeout(function () {
+          wx.switchTab({
+            url: '../../tabbar/home/home',
+          })
+        }, 1000);
+        app.toast('发布成功', 'success')
+      }else{
+        app.toast(res.msg);
+        _this.setData({
+          isDis: false,
+          releText: '立即发布'
+        })
+      }
+    })
+  },
+  move() {
+    this.setData({
+      mask: -1
+    })
+  },
+  auth() {
+    var src = this.data.isis == 0 ? '../auth/auth' : '../auth2/auth2';
+    wx.navigateTo({
+      url: src
+    })
+  },
+  //获取用户当前位置
+  getLoca() {
+    const _this = this;
+    app.getLoca().then(res => {
+      let lat = res.latitude;
+      let lng = res.longitude;
+      const loc = {
+        lat: lat,
+        lng: lng
+      }
+      _this.setData({
+        loc: loc
+      })
+      _this.getLocal()
+    })
+  },
+  // 经纬度转换成城市
+  getLocal() {
+    const _this = this;
+    app.getLocal(this.data.loc).then(res => {
+      const data = res.result.address_component;
+      _this.setData({
+        regStr: `${data.province}${data.city}${data.district}`,
+        idtName: data.street_number
+      })
+      _this.getCity('idp', data.province);
+      _this.getCity('idc', data.city);
+      _this.getCity('idd', data.district);
+    })
+  },
+  // 城市转换成经纬度
+  getLocat() {
+    const _this = this;
+    app.getLocat(this.data.regStr).then(res => {
+      const loc = {
+        lat: res.lat,
+        lng: res.lng,
+      }
+      _this.setData({
+        loc: loc
+      })
+    })
+  },
+
+  /*
+    获取城市的ID
+  */
+  getCity(u, d) {
+    const _this = this;
+    _get(getCity, {
+      name: d
+    }).then(res => {
+      const id = res.content.detail[0].region_id;
+      _this.setData({
+        [u]: id
+      })
+    })
+  },
+  bindblurFn(e) {
+    this.setData({
+      eye: e.currentTarget.dataset.is
+    })
+  },
+  onShow:function(){
+    this.myDeta();
+  },
+  myDeta() {
+    _get(myDeta, {
+      userid: app.globalData.uid
+    }).then(res => {
+      const isis = res.content.user.is_approve;
+      this.setData({
+        isis: isis
+      })
+    })
+  },
+  
+  onShareAppMessage: function() {
+
+  }
+})

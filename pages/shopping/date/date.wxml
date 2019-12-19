@@ -1,0 +1,47 @@
+<view class="top">
+  <view class="top_img">
+    <swiper autoplay interval='3000'>
+      <swiper-item wx:for="{{good.pic}}" wx:key="{{index}}" wx:for-item="itemPic">
+        <image src="{{itemPic}}"></image>
+      </swiper-item>
+    </swiper>
+  </view>
+
+  <view class="name">
+    <view class="lt">
+      {{good.need}}积分
+    </view>
+    <view class="lt shop">
+      市场价￥{{good.price}}
+    </view>
+  </view>
+</view>
+
+
+<view class="text">
+  {{good.name}}
+</view>
+
+<view class="dateVal">
+  <rich-text nodes="{{dateVal}}"></rich-text>
+</view>
+<view class="duihuan" bindtap="excFn">
+  立即兑换
+</view>
+
+<view class="mask" catchtouchmove bindtap="move" data-x='-1' wx:if="{{mask==2?true:false}}">
+  <view class="shop_box">
+    <view class="shop_top">
+      <image src="{{baseSrc}}vip1.png" class="bg"></image>
+      <image src="{{baseSrc}}cc.png" class="bg2" catchtap="move" data-x='-1'></image>
+    </view>
+    <view class="shop_b">
+      <view class="shop_text">
+        普通用户升级成VIP才能兑换商品哦~
+      </view>
+      <view class="btn" bindtap="rouTo" data-url="../../my/vip/vip">
+        去升级
+      </view>
+    </view>
+  </view>
+</view>

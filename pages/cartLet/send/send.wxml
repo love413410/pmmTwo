@@ -1,0 +1,30 @@
+<view class="head">
+  <view class="head-item" bindtap="swta" data-idx='1'>
+    <view class="{{idx==1?'adds':''}}">
+      未完成
+    </view>
+  </view>
+
+  <view class="head-item" bindtap="swta" data-idx='2'>
+    <view class="{{idx==2?'adds':''}}">
+      已完成
+    </view>
+  </view> 
+</view>
+
+<view class="item" bindtap="rouTo" data-id="{{item.id}}" wx:for="{{list}}">
+  <view class="top_">
+    <view class="lt">
+      {{item.title}}
+    </view>
+    <view class="rt time">
+      {{item.ctime}}
+    </view>
+  </view>
+  <view class="desbox">
+    {{item.des}}
+  </view>
+  <view class="rt btn btn2" catchtap="send" data-id="{{item.id}}">
+    查看派单
+  </view>
+</view>

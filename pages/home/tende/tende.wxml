@@ -1,0 +1,47 @@
+<view class="head">
+  <image src="{{baseSrc}}zbbn.png"></image>
+</view>
+
+<view class="item" wx:for="{{list}}" wx:key="{{index}}" bindtap="navTo" data-item="{{item}}">
+  <view class="top">
+    <view class="lt">
+      <view class="lt name">
+        {{item.tenderee}}
+      </view>
+    </view>
+    <view class="rt">
+      {{item.date}} 发布
+    </view>
+  </view>
+
+  <view class="item-t">
+    <view class="lt">
+      <view class="tle">
+        {{item.type}}
+      </view>
+      <view class="add mar">
+        <image src="{{baseSrc}}ionc1.png"></image>
+        <text>{{item.province}}{{item.city}}</text>
+      </view>
+      <view class="add">
+        <image src="{{baseSrc}}ionc2.png" class="lt"></image>
+        <view class="lt">
+          {{item.environment}}-{{item.color}}-{{item.model}}-{{item.area}}
+        </view>
+      </view>
+    </view>
+    <view class="cro_left_bottom"></view>
+    <view class="cro_right_bottom"></view>
+  </view>
+
+  <view class="item-b">
+    <view class="ltext">
+      备注:
+    </view>
+    <view class="rtext">
+     {{item.brief}}
+    </view>
+    <div class="cro_left_top"></div>
+    <div class="cro_right_top"></div>
+  </view>
+</view>

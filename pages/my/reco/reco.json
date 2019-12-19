@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "服务商企业名录",
+  "usingComponents": {
+    "idp": "../../../components/idp/idp",
+    "paymen": "../../../components/paymen/paymen",
+    "level": "../../../components/level/level"
+  }
+}

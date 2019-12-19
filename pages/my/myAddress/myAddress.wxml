@@ -1,0 +1,22 @@
+<view class="item" wx:for="{{list}}" wx:key="{{index}}" bindlongpress='isFn' data-idx="{{index}}">
+  <view class="lt_text">
+    <view class="_top">
+      <text>{{item.sjr}}</text>
+      <text class="phone">{{item.sjr_mobile}}</text>
+    </view>
+
+    <view class="_btm">
+      {{item.true_address}}
+    </view>
+  </view>
+
+  <view class="rt_edits" catchtap="delClick" data-id="{{item.id}}">
+    删除
+  </view>
+  <view class="rt_edit" catchtap="addTo" data-id="{{item.id}}">
+    编辑 
+  </view>
+</view>
+<navigator hover-class="none" open-type="redirectTo" url="../address/address" class="addNew">
+  添加新地址
+</navigator>

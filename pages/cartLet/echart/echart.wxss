@@ -1,0 +1,115 @@
+.canvas-container {
+  width: 98%;
+  height: 200px;
+  overflow: auto;
+}
+
+.canvas-container canvas {
+  min-width: 100%;
+  height: 200px;
+}
+
+.title {
+  text-align: center;
+  position: relative;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.back-btn {
+  position: absolute;
+  left: 20rpx;
+  top: 0;
+}
+
+.choice {
+  display: flex;
+  background: #efefef;
+  padding: 16rpx 28rpx;
+}
+
+.btn {
+  /* width: 300rpx; */
+  height: 60rpx;
+  background: #fff;
+  position: relative;
+  padding-left: 20rpx;
+  padding-right: 40rpx;
+  margin-right: 20rpx;
+  line-height: 60rpx;
+  font-size: 24rpx;
+  border-radius: 8rpx;
+}
+
+.pickVal {
+  width: 200rpx;
+  height: 60rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.arrow {
+  position: absolute;
+  right: 20rpx;
+  top: -4rpx;
+}
+
+.arrow image {
+  width: 18rpx;
+  height: 10rpx;
+}
+
+.nav {
+  display: flex;
+  line-height: 90rpx;
+  font-size: 30rpx;
+  border-bottom: solid 1px #eef0f3;
+}
+
+.naver {
+  display: flex;
+  line-height: 90rpx;
+  font-size: 30rpx;
+  border-bottom: solid 1px #eef0f3;
+  margin-top: 30rpx;
+}
+
+.menu {
+  width: 10rpx;
+  height: 26rpx;
+  background: #5181ff;
+  margin: 30rpx 20rpx 0 30rpx;
+}
+
+.nice {
+  width: 10rpx;
+  height: 26rpx;
+  background: #fb7313;
+  margin: 30rpx 20rpx 0 30rpx;
+}
+
+.left {
+  width: 400rpx;
+  height: 400rpx;
+  margin: auto;
+}
+.canvas{
+  width: 100%;
+  height: 100%;
+}
+
+.white {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  background-color: #fff;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  line-height: 180rpx;
+  color: #777c85;
+}

@@ -1,0 +1,62 @@
+<view class="box">
+  <view class="tip">
+    提现金额
+  </view>
+  <view class="payNum">
+    ￥
+    <input type="digit" value="{{val}}" bindinput="inpt"></input>
+  </view>
+  <view class="tips {{sty?'red':''}}">
+    {{moneys}}
+    <text hidden="{{sty}}" bindtap="all">全部提现</text>
+  </view>
+  <view class="btn {{opac?'btn1':''}}" bindtap="btn">
+    提现
+  </view>
+
+  <view class="bot_tips">
+    提现收取1%手续费,提现至微信账户
+  </view>
+
+</view>
+
+
+<view class="mask" catchtouchmove bindtap="move" wx:if="{{mask==2?true:false}}">
+  <view class="pay_box">
+    <view class="pay_head">
+      <image src="{{baseSrc}}gb.png" class="pay_img" catchtap="move"></image>
+      请输入支付密码
+    </view>
+    <view class="pay_text">
+      零钱提现
+    </view>
+    <view class="pay_text pay_texts">
+      ￥{{val}}
+    </view>
+
+    <view class="pay_ pay_s">
+      <view class="lt">
+        服务费
+      </view>
+      <view class="rt">
+        服务费￥{{cost}}
+      </view>
+    </view>
+
+    <view class="pay_">
+      <view class="lt">
+        费率
+      </view>
+      <view class="rt">
+        1%(最低￥0.10)
+      </view>
+    </view>
+
+    <view class='pay_contents'>
+      <block wx:for="{{6}}" wx:key="item">
+        <input class='pay_iptbox' value="{{Value.length>=index+1?Value[index]:''}}" disabled password catchtap='Tap'></input>
+      </block>
+    </view>
+    <input name="password" password type="number" class='pay_ipt_s' maxlength="6" focus="{{isFocus}}" bindinput="Focus"></input>
+  </view>
+</view>

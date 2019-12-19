@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "发布项目信息",
+  "usingComponents": {
+    "link": "../../../components/link/link"
+  }
+}

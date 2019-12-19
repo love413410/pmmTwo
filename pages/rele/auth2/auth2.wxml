@@ -1,0 +1,67 @@
+<view class="top">
+  <view class="item" wx:if="{{user.is_approve==1}}">
+    <view class="lt">
+      审核进度
+    </view>
+    <view class="rt">
+      审核中
+    </view>
+  </view>
+  <view wx:if="{{user.is_approve==3}}">
+    <view class="item _top">
+      <view class="lt">
+        审核进度
+      </view>
+      <view class="rt">
+        审核驳回
+      </view>
+    </view>
+    <view class="item_">
+      <view class="tle">驳回理由</view>
+      <view>
+        {{user.fcontent}}
+      </view>
+    </view>
+  </view>
+</view>
+<view class="item">
+  <view class="lt">
+    企业类型
+  </view>
+  <view class="rt">
+    {{user.tyep_txt}}
+  </view>
+</view>
+
+<view class="item">
+  <view class="lt">
+    公司全称
+  </view>
+  <view class="rt">
+    {{user.company}}
+  </view>
+</view>
+<view class="item">
+  <view class="lt">
+    运营人
+  </view>
+  <view class="rt">
+    {{user.operation_people}}
+  </view>
+</view>
+<view class="item">
+  <view class="lt">
+    联系方式
+  </view>
+  <view class="rt">
+    {{user.operation_mobile}}
+  </view>
+</view>
+<view class="pic">
+  <image src="{{user.business_licence}}" bindtap="preview" data-url="{{user.business_licence}}"></image>
+  <image src="{{user.warrant}}" bindtap="preview" data-url="{{user.warrant}}"></image>
+</view>
+
+<button class="footBtn" wx:if="{{user.is_approve==3}}" bindtap="to">
+  重新提交
+</button>

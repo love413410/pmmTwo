@@ -1,0 +1,96 @@
+page {
+  background-color: #f3f3f3;
+  overflow: hidden; 
+} 
+  
+.box {
+  width: 96%;
+  height: 100%;
+  background-color: #fff;
+  padding: 0 60rpx;
+  box-sizing: border-box;
+  margin: auto;
+  margin-top: 30rpx;
+  border-radius: 5rpx;
+}
+
+.tip {
+  color: #333;
+  font-size: 30rpx;
+  height: 100rpx;
+  line-height: 130rpx;
+}
+
+.payNum {
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  border-bottom: 1px solid #e5e5e5;
+  font-size: 72rpx;
+  color: #333;
+  position: relative;
+}
+
+.payNum input {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-left: 85rpx;
+}
+
+.tips {
+  width: 100%;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #808080;
+}
+
+.red {
+  color: red !important;
+}
+
+.tips text {
+  color: #f19351;
+}
+
+.btn {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #fff;
+  background-color: #ef7e20;
+  border-radius: 10rpx;
+  margin: 40rpx 0;
+  opacity: 0.5;
+}
+
+.btn1 {
+  opacity: 1;
+}
+
+.bot_tips{
+  font-size: 18rpx;
+  
+  width: 100%;
+  margin-top: 100rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  color: #808080;
+}
+.pay_text{
+  margin: 10rpx 0;
+}
+.pay_{
+  width: 100%;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 24rpx;
+
+}
+.pay_s{
+  border-top: 1px solid #efefef;
+}

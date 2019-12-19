@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "需求大厅",
+  "usingComponents": {
+    "popup": "../../../components/popup/popup",
+    "level": "../../../components/level/level"
+  }
+}  

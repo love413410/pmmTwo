@@ -1,0 +1,20 @@
+<view class="num_tle">
+  积分明细
+</view>
+<view class="list">
+  <view class="item" wx:for="{{list}}">
+    <image src="{{baseSrc}}t1.png" class="lt ionc" wx:if="{{item.type==1}}"></image>
+    <image src="{{baseSrc}}t2.png" class="lt ionc" wx:if="{{item.type==2}}"></image>
+    <view class="lt">
+      <view class="lt-top">
+        {{item.memo}}
+      </view>
+      <view class="lt-btm">
+        {{item.createtime}}
+      </view>
+    </view>
+    <view class="rt">
+      {{item.score}}
+    </view>
+  </view>
+</view>

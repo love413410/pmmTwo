@@ -1,0 +1,45 @@
+@import '../../home/releDeta/releDeta.wxss';
+page{
+  position: relative;
+  padding-bottom: 100rpx;
+}
+.bgp{
+  width: 400rpx;
+  height: 400rpx;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+.bgp image{
+  width: 100%;
+  height: 100%;
+}
+
+.footBtn {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  /* text-align: center; */
+  color: #fff;
+  font-size: 36rpx;
+  
+}
+.footBtn button{
+  float: left;
+  width: 50%;
+  height: 100%;
+  border-radius: 0;
+  background-color: #fb7313;
+  color: #fff;
+  box-sizing: border-box;
+}
+.rtBtn{
+  border-left: 1px solid #fff;
+}
+.ltBtn{
+  border-right: 1px solid #fff;
+}

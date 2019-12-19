@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "发布技术预约",
+  "usingComponents": {
+    "link": "../../../components/link/link"
+  }
+}

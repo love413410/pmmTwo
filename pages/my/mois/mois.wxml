@@ -1,0 +1,72 @@
+<view class="tip">
+  <view class="tipText" hidden="{{is}}">
+    分润金额不可低于50元
+  </view>
+</view>
+<view class="headBox">
+  <view class="head">
+    <view>
+      分润金额
+    </view>
+    <view class="box">
+      <input type="digit" placeholder="0.00" bindinput="subFn" data-i='1' class="ipt"></input>
+      <view>
+        元
+      </view>
+    </view>
+  </view>
+</view>
+<view class="num">
+  ￥{{val}} 
+</view>
+<button class="btn {{!isDi?'opct':''}}" disabled="{{isDi}}" bindtap="subFn" data-i='2'>
+  立即分润
+</button>
+<view class="footTip">
+分润金归平台和发布者所有
+</view>
+
+
+<paymen bind:payFn="payFn" bool='{{payIs}}'></paymen>
+<view class="mask" catchtouchmove bindtap="move" wx:if="{{mask==2?true:false}}">
+  <view class="pay_box">
+    <view class="pay_head">
+      <image src="{{baseSrc}}gb.png" class="pay_img" catchtap="move"></image>
+      请输入支付密码
+    </view>
+    <view class="pay_text">
+      屏买卖平台-信保资金
+    </view>
+    <view class="pay_text pay_texts">
+      ￥{{val}}
+    </view>
+
+    <view class="pay_type">
+      <view class='pay_lt'>
+        支付方式
+      </view>
+
+      <view class='pay_rt'>
+        <image src="{{baseSrc}}lq.png" class="pay_lq"></image>
+        <view class='pay_lt pay_lqt'>
+          零钱
+        </view>
+      </view>
+    </view>
+
+    <view class='pay_contents'>
+      <block wx:for="{{6}}" wx:key="item">
+        <input class='pay_iptbox' value="{{Value.length>=index+1?Value[index]:''}}" disabled password catchtap='Tap'></input>
+      </block>
+    </view>
+    <input name="password" password type="number" class='pay_ipt_s' maxlength="6" focus="{{isFocus}}" bindinput="Focus"></input>
+  </view>
+</view>
+
+<view class="mask" catchtouchmove bindtap="back" wx:if="{{mask==3?true:false}}">
+  <view class="frBox">
+    <image src="{{baseSrc}}fr.png" class="c"></image>
+    <view class="frQx" bindtap="move"></view>
+    <view class="frbtn" catchtap="toRou" data-url='../mois/mois?id={{id}}'></view>
+  </view>
+</view>

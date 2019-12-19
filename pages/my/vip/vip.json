@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "会员中心",
+  "usingComponents": {
+    "paymen": "../../../components/paymen/paymen",
+    "popup": "../../../components/popup/popup"
+  }
+}

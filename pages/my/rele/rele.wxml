@@ -1,0 +1,116 @@
+<view class="head">
+  <view class="head-item" bindtap="swta" data-idx='1'>
+    <view class="{{idx==1?'adds':''}}">
+      已发布
+    </view>
+  </view>
+
+  <view class="head-item" bindtap="swta" data-idx='0'>
+    <view class="{{idx==0?'adds':''}}">
+      草稿箱
+    </view>
+  </view>
+</view>
+<view class="item-head" hidden="{{idx==0}}">
+  <view class="lt sub">
+    <picker mode="date" fields="month" bindchange="pickFn">
+      <view>
+        {{pick1}}
+      </view>
+    </picker>
+  </view>
+
+  <view class="lt  {{hide==1?'subs':'sub'}}" catchtap="scr" data-id='1'>
+    <view class="tle_">
+      {{tle1}}
+    </view>
+    <image src="{{baseSrc}}down.png"></image>
+  </view>
+  <view class="lt sb {{hide==2?'subs':'sub'}}" catchtap="scr" data-id='2'>
+    <view class="tle_">
+      {{tle2}}
+    </view>
+    <image src="{{baseSrc}}down.png"></image>
+  </view>
+
+</view>
+
+<!-- 需求类型筛选 -->
+<view class="mask" catchtouchmove bindtap="move" hidden="{{hide==1?false:true}}">
+  <view class="mask-box">
+    <view class="item-box">
+      <view class="itm {{index==idx1?'add':''}}" wx:for="{{arr}}" catchtap="add" data-idx='idx1' data-idxs='{{index}}'>
+        {{item}}
+      </view>
+    </view>
+
+    <view class="subBtn" catchtap="subFn" data-name='tle1' data-arr='arr' data-idx='idx1'>确定</view>
+
+  </view>
+</view>
+
+<!-- 需求状态筛选 -->
+<view class="mask" catchtouchmove bindtap="move" hidden="{{hide==2?false:true}}">
+  <view class="mask-box">
+    <view class="item-box">
+      <view class="itm {{index==idx2?'add':''}}" wx:for="{{arr2}}" catchtap="add" data-idx='idx2' data-idxs='{{index}}'>
+        {{item}}
+      </view>
+    </view>
+
+    <view class="subBtn" catchtap="subFn" data-name='tle2' data-arr='arr2' data-idx='idx2'>确定</view>
+
+  </view>
+</view>
+
+<view hidden="{{idx==0}}">
+  <view class="item" wx:for="{{list}}" bindtap="rouTo" data-item="{{item}}">
+    <view class="lt tle">
+      {{item.title}}
+    </view>
+
+    <view class="rt lht zd" wx:if="{{item.type==1||item.type==5||item.type==7}}">
+      {{item.ctime}}
+    </view>
+
+    <view class="rt lht th" wx:if="{{item.type==2||item.type==3||item.type==4}}">
+      <view class="rt-t">
+        <view class="lt">
+          抢单:
+          <text class="red">{{item.robnum}}</text>
+        </view>
+
+        <view class="lt">
+          联系:
+          <text class="red">{{item.contract_num}}</text>
+        </view>
+      </view>
+      <view class="rt-b" wx:if="{{item.type==2||item.type==3||item.type==4}}">
+        {{item.ctime}}
+      </view>
+    </view>
+
+    <view class="rt lht zd" wx:if="{{item.type==6}}">
+      <text class="red">{{item.contract_num}}</text>人联系过
+    </view>
+    <image src="{{baseSrc}}ionc-a.png" class="state" wx:if="{{item.overdue==1}}"></image>
+    <image src="{{baseSrc}}ionc-b.png" class="state" wx:if="{{item.is_end==1&&item.overdue==0}}"></image>
+    <image src="{{baseSrc}}ionc-c.png" class="state" wx:if="{{item.type==7&&item.status==3}}"></image>
+    <image src="{{baseSrc}}ionc-d.png" class="state" wx:if="{{item.type==7&&item.status==1}}"></image>
+  </view>
+</view>
+
+
+
+<view class="dra" hidden="{{idx==1}}">
+  <view class="item" wx:for="{{list}}" bindtap="toRou" data-id="{{item.id}}">
+    <view class="lt tle">
+      {{item.title}}
+    </view>
+
+    <view class="rt lht zd">
+      {{item.ctime}}
+    </view>
+  </view>
+</view>
+<popup bind:popupFn="popupFn" hide='{{is}}'></popup>

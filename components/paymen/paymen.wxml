@@ -1,0 +1,55 @@
+<cover-view class="macks" hidden="{{bool}}" catchtouchmove bindtap="move">
+  <cover-view class="foot_btn">
+    <cover-view class="head">
+      <cover-view class="lt" catchtap="move">
+        取消
+      </cover-view>
+      <cover-view class="rt" catchtap="conf">
+        确认
+      </cover-view>
+    </cover-view>
+
+
+
+    <cover-view class="box">
+      <cover-view class="list" catchtap="pays" data-id='1'>
+        <cover-view class="imgBox lt">
+          <cover-image src="{{baseSrc}}wx.png" class="img"></cover-image>
+        </cover-view>
+
+        <cover-view class="lt">
+          微信支付
+        </cover-view>
+
+        <cover-view class="imgBox rt" wx:if="{{contr==1}}">
+          <cover-image src="{{baseSrc}}xz.png" class="img"></cover-image>
+        </cover-view>
+
+        <cover-view class="imgBox rt" wx:else="{{contr==2}}">
+          <cover-image src="{{baseSrc}}wxz.png" class="img"></cover-image>
+        </cover-view>
+
+      </cover-view>
+
+
+      <cover-view class="list" catchtap="pays" data-id='2'>
+        <cover-view class="imgBox lt">
+          <cover-image src="{{baseSrc}}qb.png" class="img"></cover-image>
+        </cover-view>
+        <cover-view class="lt">
+          我的账户
+        </cover-view>
+
+        <cover-view class="imgBox rt" wx:if="{{contr==2}}">
+          <cover-image src="{{baseSrc}}xz.png" class="img"></cover-image>
+        </cover-view>
+
+        <cover-view class="imgBox rt" wx:else="{{contr==1}}">
+          <cover-image src="{{baseSrc}}wxz.png" class="img"></cover-image>
+        </cover-view>
+
+      </cover-view>
+
+    </cover-view>
+  </cover-view>
+</cover-view>

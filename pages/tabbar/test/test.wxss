@@ -1,0 +1,25 @@
+.tle-head {
+  width: 100vw;
+  height: 130rpx;
+  line-height: 100rpx;
+  position: fixed;
+  z-index: 5000;
+  top: 0;
+  left: 0;
+  padding-top: 30rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.tle-tle {
+  width: 600rpx;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ss{
+  width: 750rpx;
+  padding-left:72rpx; 
+  box-sizing: border-box;
+}

@@ -1,0 +1,19 @@
+<view class="macks" style="height:{{h}}" hidden="{{bool}}" catchtap="cancel">
+  <view class="time" catchtap>
+    <view class="tle">
+      <view catchtap="cancel">取消</view>
+      <view class="righ" catchtap="comp">完成 </view>
+    </view>
+    <picker-view indicator-style="height: 50px;" value="{{value}}" bindchange="bindChange">
+      <picker-view-column>
+        <view wx:for="{{idpArr}}">{{item.region_name}}</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{idcArr}}">{{item.region_name}}</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{iddArr}}">{{item.region_name}}</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+</view>

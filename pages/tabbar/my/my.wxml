@@ -1,0 +1,160 @@
+<view class="head">
+  <view class="imgBox" bindtap="rouTo" data-url="../../my/info/info">
+    <image src="{{avatar}}"></image>
+  </view>
+  <view hidden="{{hide}}">
+    <view class="top_">
+      <view class="lt name">
+        {{nickName}}
+      </view>
+      <view class="lt vipImg" hidden="{{user.is_vip==0}}">
+        <image src="{{baseSrc}}3.png"></image>
+      </view>
+    </view>
+    <view class="rz {{user.is_approve==2?'rzAdd':''}}" catchtap="renzTo">
+      {{str}}
+    </view>
+  </view>
+  <view style="line-height:130rpx;font-size:38rpx" bindtap="popup" hidden="{{hide==true?false:true}}">
+    点击进行登录
+  </view>
+
+
+  <view class="sign" bindtap="signFn" wx:if="{{hide!=true&&sign==0}}">
+    签到领积分
+  </view>
+  <view class="sign" wx:if="{{hide!=true&&sign==1}}">
+    今日已签到
+  </view>
+</view>
+
+<view class="mask" wx:if="{{mask==1}}">
+  <view class="signImg">
+    <image src="{{baseSrc}}mysign.png"></image>
+    <view class="signtext">
+      <view class="t1">恭喜你今日签到成功！</view>
+      <view class="t2">+1积分</view>
+    </view>
+
+  </view>
+  <view class="signqxa" catchtap="move">
+    <image src="{{baseSrc}}qxa.png"></image>
+  </view> 
+</view>
+
+
+
+
+<view class="neck">
+  <image src="{{baseSrc}}mbg.png" class="mbg"></image>
+  <image src="{{baseSrc}}line.png" class="line"></image>
+  <view class="neck-item" bindtap="rouTo" data-url="../../my/pay/pay">
+    <view class="to">
+      我的账户
+    </view>
+    <view class="to to-b">
+      ￥{{balance}}
+    </view>
+    <image src="{{baseSrc}}you-white.png" class="to-img"></image>
+  </view>
+  <view class="neck-item" bindtap="rouTo" data-url="../../my/vip/vip">
+    <view class="to">
+      会员中心
+      <image src="{{baseSrc}}hot.png" class="hot"></image>
+    </view>
+    <view class="to to-b">
+      {{vip}}
+    </view>
+    <image src="{{baseSrc}}you-white.png" class="to-img"></image>
+  </view>
+</view>
+
+
+<view class="list">
+  <view class="item" bindtap="rouTo" data-url="../../my/rele/rele">
+    <view>
+      我的发布
+    </view>
+    <view class="pic">
+      <image src="{{baseSrc}}r.png"></image>
+    </view>
+  </view>
+  <view class="item" bindtap="rouTo" data-url="../../my/robs/robs">
+    <!-- <view class="item" bindtap="rouTo" data-url="../../my/rob/rob"> -->
+    <view>
+      我的抢单
+    </view>
+    <view class="pic">
+      <image src="{{baseSrc}}r.png"></image>
+    </view>
+  </view>
+</view>
+
+<view class="list" wx:if="{{user.is_vip==1}}">
+  <view class="item" bindtap="rouTo" data-url="../../my/rech/rech">
+    <view>
+      积分套餐
+    </view>
+    <view class="pic">
+      <image src="{{baseSrc}}r.png"></image>
+    </view>
+  </view>
+  
+</view>
+
+
+
+<view class="list">
+  <view class="item" bindtap="rouTo" data-url="../../my/query/query">
+    <view>
+      厂家技术查询
+    </view>
+    <view class="pic">
+      <image src="{{baseSrc}}r.png"></image>
+    </view>
+  </view>
+
+  <view class="item" bindtap="rouTo" data-url="../../my/reco/reco">
+    <view>
+      服务商企业名录
+    </view>
+    <view class="pic">
+      <image src="{{baseSrc}}r.png"></image>
+    </view>
+  </view>
+</view>
+
+
+
+<view class="list">
+  <view class="item" bindtap="rouTo" data-url="../../my/feed/feed?t=1">
+    <view>
+      问题反馈
+    </view>
+    <view class="pic">
+      <image src="{{baseSrc}}r.png"></image>
+    </view>
+  </view>
+
+  <view class="item" bindtap="rouTo" data-url="../../my/safe/safe">
+    <view>
+      账号与安全
+    </view>
+    <view class="pic">
+      <image src="{{baseSrc}}r.png"></image>
+    </view>
+  </view>
+  <view class="item" bindtap="rouTo" data-url="../../my/edition/edition">
+    <view>
+      关于
+    </view>
+    <view class="pic">
+      <image src="{{baseSrc}}r.png"></image>
+    </view>
+  </view>
+</view>
+
+<!-- <view class="edition">
+  {{edition}}
+</view> -->
+<popup bind:popupFn="popupFn" hide='{{is}}'></popup>

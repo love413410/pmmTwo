@@ -1,0 +1,54 @@
+/* pages/backform/backform.wxss */
+
+.page {
+  color: #4d4d4d;
+  font-size: 30rpx;
+}
+
+.header {
+  widows: 100%;
+  height: 94rpx;
+  line-height: 94rpx;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: solid 1px #e9e9e9;
+  padding: 0 40rpx;
+}
+
+.uploadPhotos {
+  padding: 20rpx 40rpx;
+  border-bottom: solid 1px #e9e9e9;
+}
+
+.upFont {
+  line-height: 50rpx;
+}
+
+.upImageg {
+  margin-top: 20rpx;
+  display: flex;
+}
+
+.up_photo {
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 20rpx;
+}
+
+.up_photo image {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.remarks {
+  padding: 20rpx 40rpx;
+}
+
+.remarksContent {
+  line-height: 50rpx;
+}
+
+.content {
+  margin-top: 20rpx;
+  line-height: 50rpx;
+}

@@ -1,0 +1,56 @@
+<!-- <view class="item" bindtap="rotTo" data-id="{{item.id}}" wx:for="{{list}}">
+  <view class="lt">
+    {{item.title}}
+  </view>
+
+  <view class="lt time">
+    {{item.ctime}}
+  </view>
+  <view class="rt btn" catchtap="send" data-id="{{item.id}}">
+    派单
+  </view>
+</view>   -->
+<view class="item" bindtap="rotTo" data-id="{{item.id}}" wx:for="{{list}}">
+  <view class="top_">
+    <view class="lt">
+      {{item.title}}
+    </view>
+    <view class="rt time">
+      {{item.ctime}}
+    </view>
+  </view>
+  <view class="desbox">
+    {{item.des}}
+  </view>
+  <view class="rt btn btn1" catchtap="myDeta" data-id="{{item.id}}">
+    派单
+  </view>
+</view>
+
+<view class="masks" bindtap="move" hidden="{{mask?false:true}}">
+<!-- <view class="masks" catchtouchmove bindtap="move" hidden="{{mask?false:true}}"> -->
+  <view class="not_maskBox">
+    <image src="{{baseSrc}}qxa.png" class="qxa" catchtap="move"></image>
+    <checkbox-group  catchtap bindchange="checkboxChange">
+      <view class="info">
+        <view class="info-item" wx:for="{{user}}">
+          <view class="lt idx">
+            {{index+1}}
+          </view>
+          <view class="lt text">
+            {{item.name}}
+          </view>
+          <view class="rt">
+            <checkbox value="{{item.id}}" checked="{{item.checked}}" />
+          </view>
+        </view>
+      </view>
+      <view class="send" catchtap="toRou" wx:if="{{is}}">
+        派单
+      </view>
+      <view class="sends" hidden="{{is}}">
+        派单中,请耐心等待
+      </view>
+    </checkbox-group>
+  </view>
+</view>

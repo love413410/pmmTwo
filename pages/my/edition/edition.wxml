@@ -1,0 +1,8 @@
+<view class="item">
+  <view>
+    版本号
+  </view>
+  <view class="edition">
+    {{edition}}
+  </view>
+</view>

@@ -1,0 +1,200 @@
+page {
+  background-color: #efefef;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+
+.head-tle {
+  width: 100%;
+  height: 100rpx;
+  padding: 20rpx 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+}
+
+.head-item {
+  width: 220rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  background-color: #fff;
+  display: flex;
+  font-size: 24rpx;
+  color: #333;
+  border-radius: 8rpx;
+}
+
+.head-txt {
+  width: 170rpx;
+  text-indent: 30rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.head-img {
+  width: 50rpx;
+}
+
+.head-img image {
+  display: inline-block;
+  width: 17rpx;
+  height: 9rpx;
+  vertical-align: middle;
+}
+
+.item {
+  width: 100%;
+  height: 370rpx;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+  margin-bottom: 20rpx;
+  border-radius: 8rpx;
+}
+
+.item .head {
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 30rpx;
+  color: #515151;
+  position: relative;
+  padding-right: 125rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  
+}
+
+.item .mosaic {
+  color: transparent;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.par {
+  width: 85rpx;
+  height: 100rpx;
+  position: absolute;
+  top: 0;
+  right: 20rpx;
+  line-height: 18rpx;
+  text-align: center;
+  font-size: 18rpx;
+  color: #fff;
+}
+
+.par text.per {
+  font-size: 24rpx;
+  color: #fff;
+}
+
+.info {
+  width: 100%;
+  height: 160rpx;
+  display: flex;
+  font-size: 24rpx;
+  color: #515151;
+}
+
+.info .img {
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 30rpx;
+  
+}
+.info .imgs{
+filter: blur(15rpx);
+}
+
+.in view {
+  height: 50rpx;
+  line-height: 50rpx;
+}
+.call{
+  margin-left: 20rpx;
+  color: #22ac38;
+}
+.btn {
+  width: 350rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  font-size: 24rpx;
+  border-radius: 30rpx;
+  margin: auto;
+  margin-top: 20rpx;
+}
+
+.btn1 {
+  color: #fb7313;
+  border: 2rpx solid #fb7313;
+}
+
+.btn2 {
+  color: #fff;
+  border: 2rpx solid #808080;
+  background-color: #808080;
+}
+
+
+
+.shop_box {
+  width: 550rpx;
+  height: 565rpx;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+
+.shop_top {
+  width: 100%;
+  height: 285rpx;
+  position: relative;
+}
+
+.shop_top .bg {
+  width: 100%;
+  height: 100%;
+}
+
+.shop_top .bg2 {
+  width: 80rpx;
+  height: 80rpx;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.shop_b{
+  width: 100%;
+  height: 280rpx;
+}
+.shop_text{
+  font-size: 24rpx;
+  line-height: 40rpx;
+  color: #afafaf;
+  width: 260rpx;
+  margin: auto;
+  text-align: center;
+  margin-top: 50rpx;
+  margin-bottom: 50rpx;
+}
+.shop_b .btn{
+  width: 310rpx;
+  height:65rpx;
+  line-height: 65rpx;
+  text-align: center;
+  color: #fff;
+  border-radius: 8rpx;
+  background-color: #ff921d;
+  margin: auto;
+  font-size: 28rpx;
+}

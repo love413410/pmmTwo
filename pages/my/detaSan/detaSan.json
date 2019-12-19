@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "需求详情",
+  "usingComponents": {
+    "link": "../../../components/link/link",
+    "paymen": "../../../components/paymen/paymen"
+  }
+}

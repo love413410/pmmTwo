@@ -1,0 +1,22 @@
+<checkbox-group class="radio-group" bindchange="checkFn">
+  <view class="item" wx:for="{{list}}" wx:key="{{item.id}}" >
+    <view class="item-box">
+      <image src="{{item.img}}" class="lt" catchtap="navTo" data-item="{{item}}"></image>
+      <view class="lt center" catchtap="navTo" data-item="{{item}}">
+        <view class="tle">
+          {{item.name}}
+        </view> 
+
+        <view class="date">
+          {{item.ctime}}
+        </view>
+      </view>
+      <view class="rt check">
+        <checkbox value="{{item.id}}" checked="{{item.check}}"/>
+      </view>
+    </view>
+  </view>
+</checkbox-group>
+<button open-type="share" class="share" wx:if="{{is}}">分享给好友</button>
+<button class="share" bindtap="isFn" wx:if="{{iss}}">授权预览</button>
+<popup bind:popupFn="popupFn" hide='{{iss}}'></popup>

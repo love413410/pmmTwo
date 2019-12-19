@@ -1,0 +1,136 @@
+<view class="head">
+  <view class="banner">
+    <view class="top_swiper">
+      <swiper autoplay interval='3000'>
+        <swiper-item wx:for="{{banner}}" wx:key="{{index}}" wx:for-item="itemPic">
+          <image src="{{itemPic.pic}}" bindtap="ToUrl" data-url="{{itemPic.url}}" data-type="{{itemPic.link_type}}"></image>
+        </swiper-item>
+      </swiper>
+    </view>
+  </view>
+</view>
+
+<view class="nav-head">
+  <navigator class="lt navTo" hover-class="none" url="../../home/tende/tende">
+    <image src="{{baseSrc}}zhaobiao.png" class="lt nav-img"></image>
+    <view class="lt">招标信息</view>
+  </navigator>
+
+  <navigator class="rt navTo" hover-class="none" url="../../home/prom/prom">
+    <image src="{{baseSrc}}cuxiao.png" class="lt nav-img"></image>
+    <view class="lt">促销活动</view>
+  </navigator>
+</view>
+
+
+<level bind:levelFn="levelFn" bool='{{leve}}'></level>
+
+<view class="list">
+  <view class="item-head">
+    <view class="lt sub" bindtap="leveFn">
+      <view class="tle_">
+        {{city}}
+      </view>
+      <image src="{{baseSrc}}down.png"></image>
+    </view>
+
+    <view class="lt  {{hide==1?'subs':'sub'}}" catchtap="scr" data-id='1'>
+      <view class="tle_">
+        {{tle1}}
+      </view>
+      <image src="{{baseSrc}}down.png"></image>
+    </view>
+    <view class="lt sb {{hide==2?'subs':'sub'}}" catchtap="scr" data-id='2'>
+      <view class="tle_">
+        {{tle2}}
+      </view>
+      <image src="{{baseSrc}}down.png"></image>
+    </view>
+  </view>
+
+  <!-- 遮罩层 -->
+  <view class="mask" catchtouchmove bindtap="move" hidden="{{hide==0}}"></view>
+  <!-- 类型筛选 -->
+  <view class="mask-box" hidden="{{hide==1?false:true}}">
+    <view class="item-box">
+      <view class="itm {{index==idx1?'add':''}}" wx:for="{{arr}}" wx:key="{{index}}" catchtap="add" data-idx='idx1' data-idxs='{{index}}'>
+        {{item}}
+      </view>
+    </view>
+    <view class="subBtn" catchtap="subFn" data-name='tle1' data-arr='arr' data-idx='idx1'>确定</view>
+  </view>
+  <!-- 状态筛选 -->
+  <view class="mask-box" hidden="{{hide==2?false:true}}">
+    <view class="item-box">
+      <view class="itm {{index==idx2?'add':''}}" wx:for="{{arr2}}" wx:key="{{index}}" catchtap="add" data-idx='idx2' data-idxs='{{index}}'>
+        {{item}}
+      </view>
+    </view>
+    <view class="subBtn" catchtap="subFn" data-name='tle2' data-arr='arr2' data-idx='idx2'>确定</view>
+  </view>
+</view>
+
+
+
+<view class="list">
+  <view class="item" wx:for="{{list}}" wx:key="{{item.id}}" bindtap="rouTo" data-id="{{item.id}}" data-ty="{{item.type}}">
+    <view class="top">
+      <view class="lt">
+        <image src="{{item.avatar}}" class="lt"></image>
+        <view class="lt name">
+          {{item.link==''?item.nickname:item.link}}
+        </view>
+        <view class="lt renzImg" wx:if="{{item.is_approve==2}}">
+          <image src="{{baseSrc}}qiye.png"></image>
+        </view>
+
+        <view class="lt vipImg" wx:if="{{item.is_vip==1}}">
+          <image src="{{baseSrc}}3.png"></image>
+        </view>
+
+      </view>
+      <view class="rt">
+        {{item.ctime}} 发布
+      </view>
+      <image src="{{baseSrc}}ionc-a.png" class="state" wx:if="{{item.overdue==1}}"></image>
+      <image src="{{baseSrc}}ionc-b.png" class="state" wx:if="{{item.is_end==1&&item.overdue==0}}"></image>
+    </view>
+
+    <view class="item-t">
+      <view class="lt">
+        <view class="tle">
+          {{item.title}}
+        </view>
+        <view class="add mar">
+          <image src="{{baseSrc}}ionc1.png"></image>
+          <text wx:if="{{item.type==6}}">未知</text>
+          <text wx:if="{{item.type!=6}}">{{item.provincename}}{{item.cityname}}</text>
+        </view>
+        <view class="add">
+          <image src="{{baseSrc}}ionc2.png" class="lt"></image>
+          <view class="lt">
+            {{item.des}}
+          </view>
+          <!-- <text>{{item.des}}</text> -->
+        </view>
+      </view>
+      <image src="{{baseSrc}}q.png" class="rt" wx:if="{{item.is_end==0&&item.overdue==0&&item.is_show==0}}"></image>
+
+      <view class="cro_left_bottom"></view>
+      <view class="cro_right_bottom"></view>
+    </view>
+
+    <view class="item-b">
+      <view class="ltext">
+        备注:
+      </view>
+      <view class="rtext">
+        {{item.overview}}
+      </view>
+
+      <div class="cro_left_top"></div>
+      <div class="cro_right_top"></div>
+    </view>
+  </view>
+</view>
+<popup bind:popupFn="popupFn" hide='{{is}}'></popup>

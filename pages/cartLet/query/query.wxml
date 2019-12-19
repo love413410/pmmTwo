@@ -1,0 +1,39 @@
+<idp bind:idpFn="idpFn" bool='{{leve}}'>
+</idp>
+
+<view class="item-head">
+  <view class="lt  sub" bindtap="idFn" data-id='1'>
+    <view class="tle_">
+      {{city}}
+    </view>
+    <image src="{{baseSrc}}down.png"></image>
+  </view>
+</view>
+
+
+<view class="item" wx:for="{{list}}">
+  <view class="item_box">
+    <image src="{{item.avatar}}" class="lt"></image>
+    <view class="lt">
+      <view>联系人:
+        <text>{{item.nickname}}</text>
+      </view>
+      <view>联系方式:
+        <text>{{item.mobile}}</text>
+      </view>
+      <view>常驻地址:
+        <text>{{item.provincename}} {{item.cityname}}</text>
+      </view>
+    </view>
+
+    <view class="rt bohao" bindtap="callFn" data-num="{{item.mobile}}">
+      <view>
+        <image src="{{baseSrc}}bohao.png" class="dh"></image>
+      </view>
+      <view>
+        立即拨号
+      </view>
+    </view>
+
+  </view>
+</view>

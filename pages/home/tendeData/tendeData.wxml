@@ -1,0 +1,85 @@
+<view class="item">
+  <view>
+    招标单位
+  </view>
+  <view class="r">
+    {{task.tenderee}}
+  </view>
+</view>
+
+<view class="item">
+  <view>
+    招标类型
+  </view>
+  <view class="r">
+    {{task.type}}
+  </view>
+</view>
+
+<view class="item">
+  <view>
+    使用环境
+  </view>
+  <view class="r">
+    {{task.environment}}
+  </view>
+</view>
+
+<view class="item">
+  <view>
+    显示颜色
+  </view>
+  <view class="r">
+    {{task.color}}
+  </view>
+</view>
+
+<view class="item">
+  <view>
+    产品型号
+  </view>
+  <view class="r">
+    {{task.model}}
+  </view>
+</view>
+
+<view class="item">
+  <view>
+    预计面积
+  </view>
+  <view class="r">
+    {{task.area}}
+  </view>
+</view>
+
+<view class="item">
+  <view>
+    联系电话
+  </view>
+  <view class="r">
+    {{task.telephone}}
+  </view>
+</view>
+
+<view class="pic">
+  所在地区
+</view>
+<view class="desc">
+  {{task.province}}{{task.city}}{{task.address}}
+</view>
+
+<view class="pic">
+  情况阐述
+</view>
+<view class="desc">
+  {{task.brief}}
+</view>
+
+<!-- <view class="item">
+  <view>
+    详情链接
+  </view>
+  <view class="r">
+    <text id="url">点击查看招标详情</text> >
+  </view>
+</view> -->

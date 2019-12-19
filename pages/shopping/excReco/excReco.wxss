@@ -1,0 +1,86 @@
+page {
+  background-color: #efefef;
+}
+
+.head {
+  width: 100%;
+  height: 76rpx;
+  line-height: 76rpx;
+  background-color: #fff;
+  display: flex;
+  text-align: center;
+  font-size: 30rpx;
+}
+
+.head-item {
+  flex: 1;
+  height: 76rpx;
+}
+
+.head-item .add {
+  width: 150rpx;
+  display: inline-block;
+  height: 74rpx;
+  border-bottom: 2px solid #fd8c67;
+  color: #fc5922;
+}
+
+.item {
+  width: 100%;
+  height: 230rpx;
+  background-color: #fff;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+}
+
+.item_lt {
+  /* width: 400rpx; */
+}
+
+.item_top {
+  height: 85rpx;
+  line-height: 85rpx;
+  color: #3c3c3c;
+  font-size: 22rpx;
+}
+.item_btm{
+  height: 118rpx;
+}
+.imgBox{
+  width: 140rpx;
+  height: 118rpx;
+}
+.textBox{
+  font-size: 26rpx;
+  line-height: 26rpx;
+  margin-left: 20rpx;
+}
+.texTop{
+  margin-bottom: 30rpx; 
+}
+.num{
+  font-size: 20rpx;
+  line-height:20rpx;
+  color: #969696;
+}
+.item .add{
+  height: 30rpx;
+  font-size: 20rpx;
+  line-height:30rpx;
+  color: #fc9d6d;
+}
+.item .add image{
+  width: 24rpx;
+  height: 24rpx;
+  margin-top: 3rpx;
+}
+.rt_top{
+  font-size: 22rpx;
+  color: #969696;
+  text-align: right;
+}
+.tr_text{
+  font-size: 24rpx;
+  color: #ff0000;
+}

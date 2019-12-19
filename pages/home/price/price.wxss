@@ -1,0 +1,153 @@
+page{
+  background-color: #efefef;
+  padding-bottom: 100rpx;
+}
+.top{
+  width: 100%;
+  padding: 40rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+.tle{
+  width: 100%;
+  font-size: 24rpx;
+  font-weight: 700;
+}
+.ul{
+  margin: 10rpx;
+  font-size: 24rpx;
+}
+.li{
+  height: 60rpx;
+  line-height: 60rpx;
+  display: flex;
+}
+.radio{
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  background-color: #fb7313;
+  margin-top: 20rpx;
+  margin-right: 20rpx;
+}
+.pric{
+  height: 70rpx;
+  line-height: 70rpx;
+  margin-top: 20rpx;
+}
+.pric input{
+  width: 200rpx;
+  height: 70rpx;
+  background-color: #eeeeee;
+  color: #333333;
+  text-align: right;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  border-radius: 10rpx;
+  margin-right: 30rpx;
+  font-size: 28rpx;
+}
+.price{
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-indent: 40rpx;
+  margin-top: 25rpx;
+  font-size: 24rpx;
+  font-weight: 700;
+  background-color: #fff;
+}
+.price image{
+  width: 26rpx;
+  height: 26rpx;
+  margin-top: 37rpx;
+  margin-right: 20rpx;
+  transform: rotate(90deg);
+
+}
+.price .img{
+  transform: rotate(-90deg);
+}
+.tab{
+  height: 340rpx;
+  background-color: #fff;
+  padding: 30rpx 40rpx;
+  box-sizing: border-box;
+}
+.tabBox{  
+  width: 100%;
+  height: 100%;
+  border:1px solid #000;
+}
+.tab-item{
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  font-size: 16rpx;
+}
+.left{
+  width:140rpx;/*670*/
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 22rpx;
+  font-weight: 700;
+}
+
+.item-top{
+  height: 120rpx;
+}
+
+.item-top .left{
+  line-height: 120rpx;
+}
+
+.center{
+  width: 370rpx;/*530*/
+}
+.center view{
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+}
+.b-bor{
+  border-bottom: 1px  solid #000;
+  box-sizing: border-box;
+}
+.l-r-bor{
+  border:1px solid #000;
+  border-bottom: none;
+  border-top: none;
+  box-sizing: border-box;
+}
+.t-b-bor{
+  border:1px solid #000;
+  border-right: none;
+  border-left: none;
+  box-sizing: border-box;
+}
+.rgt{
+  width: 160rpx;
+}
+.rgt view{
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+}
+.rgt text{
+  color: #fe4b4b;
+}
+
+
+.footBtn {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  background-color: #fb7313;
+  color: #fff;
+  font-size: 36rpx;
+  border-radius: 0;
+}

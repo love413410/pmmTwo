@@ -1,0 +1,23 @@
+@import '../notSend/notSend.wxss';
+.head {
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  text-align: center;
+  font-size: 30rpx;
+  margin-bottom: 10rpx;
+}
+
+.head-item {
+  flex: 1;
+  height: 76rpx;
+  line-height: 76rpx;
+}
+
+.adds {
+  width: 150rpx;
+  display: inline-block;
+  height: 76rpx;
+  border-bottom: 2px solid #fc612b;
+  color: #fc612b;
+}

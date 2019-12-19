@@ -1,0 +1,189 @@
+<view class="item">
+  <view>
+    需求类型
+  </view>
+  <view class="r">
+    {{task.title}}
+  </view>
+</view>
+
+<view class="item">
+  <view>
+    使用环境
+  </view>
+  <view class="r">
+    {{task.ambient_txt}}
+  </view>
+</view>
+
+
+<view class="item">
+  <view>
+    屏幕型号
+  </view>
+  <view class="r">
+    {{task.screen_txt}}
+  </view>
+</view>
+
+<view class="item">
+  <view>
+    预计面积
+  </view>
+  <view class="r sup">
+    {{task.acreage}}m
+  </view>
+</view>
+
+<view class="item">
+  <view>
+    使用场景
+  </view>
+  <view class="r">
+    {{task.scene_txt}}
+  </view>
+</view>
+
+<view class="item">
+  <view>
+    使用日期
+  </view>
+  <view class="r">
+    {{task.btime}}
+  </view>
+</view>
+
+<view class="item">
+  <view>
+    使用时间
+  </view>
+  <view class="r">
+    {{task.usenum}}天
+  </view>
+</view>
+
+
+
+<view class="item">
+  <view>
+    所在地区
+  </view>
+  <view class="r">
+    {{task.provincename}} {{task.cityname}} {{task.areaname}}
+  </view>
+</view>
+
+<view class="item">
+  <view>
+    详细地址
+  </view>
+  <view class="r">
+    {{task.address}}
+  </view>
+</view>
+
+
+
+<view class="pic">
+  现场实图
+</view>
+
+<view class="pics">
+  <image src="{{item}}" wx:for="{{task.pics}}" bindtap="preview" data-url="{{item}}"></image>
+</view>
+
+<view class="pic">
+  情况阐述
+</view>
+<view class="desc">
+  {{task.overview}}
+</view>
+
+<!-- <button class="footBtn bg1" wx:if="{{btn}}" bindtap="authFn">
+  分享
+</button> -->
+<view wx:if="{{btn}}" class="footBtn">
+  <button class="ltBtn" hover-class="none" open-type='share'>转发给好友/群聊</button>
+  <button class="rtBtn" hover-class="none" bindtap="authFn">分享到朋友圈</button>
+</view>
+<button class="footBtn bg1" wx:if="{{task.btn_type==1&&!btn}}" bindtap="robFn">
+  立即抢单
+</button>
+
+<button class="footBtn bg2" wx:if="{{task.btn_type==3}}">
+  已结束
+</button>
+
+<button class="footBtn bg3" wx:if="{{task.btn_type==2}}" bindtap="dialFn">
+  立即拨号
+</button>
+<popup bind:popupFn="popupFn" hide='{{is}}'></popup>
+
+<!-- bg1 立即抢单
+bg2 已结束
+bg3 立即拨号 -->
+
+
+<view class="mask" catchtouchmove bindtap="move" wx:if="{{mask==1?true:false}}">
+  <view class="maskBox">
+    <view class="ms_top">
+      <image src="{{baseSrc}}qy.png"></image>
+    </view>
+    <view class="ms_text">
+      个人用户需要通过企业认证才可参与此类订单的抢单！
+    </view>
+    <view class="ms_btn" catchtap="auth">
+      去认证
+    </view>
+    <image src="{{baseSrc}}c.png" class="c" bindtap="move"></image>
+  </view>
+</view>
+
+
+<view class="mask" catchtouchmove bindtap="move" wx:if="{{mask==2?true:false}}">
+  <view class="rewa" catchtap>
+    <view class="rew_top">
+      <image src="{{baseSrc}}qd.png"></image>
+      <view class='move' bindtap="move"></view>
+    </view>
+    <view class="rew_btm">
+      <view class="top_text">
+        {{msg}}
+      </view>
+      <view class="rouTo" catchtap="rouTo">
+        去打赏
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="foot">
+  <view class="foot-head">
+    <text class="line">“租赁大屏需求”类抢单须知</text>
+  </view>
+
+  <view>
+    1.个人用户无法参与抢单,需通过企业认证;
+  </view>
+
+  <view>
+    2.认证企业、VIP诚企均可免费抢单;
+  </view>
+
+  <view>
+    3.抢单成功后,可以通过平台立即拨号联系对方;
+  </view>
+  <view>
+    4.成功抢单的订单会出现在“我的-我的订单-询价/租赁”,成功抢单的订单需完成“打赏”(金额不限,最低5元)
+  </view>
+  <view>
+    5.认证企业可允许同时存在 两笔未打赏抢单,VIP诚企允许同时存在5笔未打赏抢单。
+  </view>
+</view>
+<view class="bgp" wx:if="{{task.btn_type==5}}">
+  <image src="{{baseSrc}}gq.png"></image>
+</view>
+
+<view class="bgp" wx:if="{{task.btn_type==3}}">
+  <image src="{{baseSrc}}js.png"></image>
+</view>

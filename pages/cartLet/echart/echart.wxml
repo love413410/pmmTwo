@@ -1,0 +1,50 @@
+<view class="choice">
+  <picker mode="date" class="pickerPaent" value="{{date}}" start="1970-01" end="{{date}}" fields="month" bindchange="datePickFn">
+    <view class="picker btn">
+    <view class="pickVal">
+    {{date}}
+    </view>
+      
+      <view class="arrow">
+        <image src="{{baseSrc}}arr.png"></image>
+      </view>
+    </view>
+  </picker>
+
+
+
+  <picker class="picker btn" bindchange="namePickFn" value="{{index}}" range="{{nameScree}}" range-key="nickname">
+    <view class="pickVal">
+      {{nameScree[index].nickname}}
+    </view>
+    <view class="arrow">
+      <image src="{{baseSrc}}arr.png"></image>
+    </view>
+  </picker>
+</view>
+
+
+
+<view class="nav">
+  <view class="menu"></view>
+  <view>接单数</view>
+</view>
+
+
+<scroll-view class='canvas-container' scroll-x='{{true}}' bindscroll="scroll">
+  <view style='width:{{dataLength*70}}px;min-width:100%;translateX:-{{scrollLeft}}px'>
+    <canvas style='width:{{dataLength*70}}px;' canvas-id="lineCanvas" disable-scroll="true"></canvas>
+  </view>
+</scroll-view>
+
+
+
+<view class="naver">
+  <view class="nice"></view>
+  <view>好评率</view>
+</view>
+
+
+<view class="left">
+  <canvas canvas-id="ring" class="canvas"></canvas>
+</view>

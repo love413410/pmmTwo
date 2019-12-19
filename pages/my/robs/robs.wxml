@@ -1,0 +1,186 @@
+<view class="head">
+  <view class="head-top">
+    <view class="head-item" bindtap="headFn" data-idx='1'>
+      <view class="{{idx==1?'add':''}}">
+        询价/租赁
+      </view>
+    </view>
+
+    <view class="head-item" bindtap="headFn" data-idx='2'>
+      <view class="{{idx==2?'add':''}}">
+        促销
+      </view>
+    </view> 
+
+    <view class="head-item" bindtap="headFn" data-idx='3'>
+      <view class="{{idx==3?'add':''}}">
+        其他
+      </view>
+    </view>
+  </view>
+
+
+  <view class="sub-head" hidden="{{idx==1}}">
+
+
+    <view class="lts {{sub==0?'add':''}}" bindtap="subFn" data-sub='0'>
+      <view>全部</view>
+      <view>
+        <image src="{{baseSrc}}y1.png" wx:if="{{sub==1}}"></image>
+        <image src="{{baseSrc}}y2.png" wx:else></image>
+      </view>
+      <view>{{ztotal}}</view>
+    </view>
+
+    <view class="lts {{sub==1?'add':''}}" bindtap="subFn" data-sub='1'>
+      <view>待付款</view>
+      <view>
+        <image src="{{baseSrc}}y1.png" wx:if="{{sub==1}}"></image>
+        <image src="{{baseSrc}}y2.png" wx:else></image>
+      </view>
+      <view>{{wtotal}}</view>
+    </view>
+
+    <view class="lts {{sub==2?'add':''}}" bindtap="subFn" data-sub='2'>
+      <view>已付款</view>
+      <view>
+        <image src="{{baseSrc}}y1.png" wx:if="{{sub==1}}"></image>
+        <image src="{{baseSrc}}y2.png" wx:else></image>
+      </view>
+      <view>{{ytotal}}</view>
+    </view>
+  </view>
+</view>
+
+
+<view class="item" wx:for="{{list}}" wx:for-item="item" wx:key="{{index}}" bindtap="rouTo" data-id="{{item.taskid}}" data-ty="{{item.type}}">
+  <view class="tle">
+    <view class="lt">
+      <view>
+        {{item.title}}
+      </view>
+
+      <view class="sub_tle1" wx:if="{{idx==1}}">
+        <text wx:if="{{item.reward==1}}">已打赏{{item.reward_money}}元</text>
+        <text wx:if="{{item.reward==1&&item.profit==1}}">|</text>
+        <text wx:if="{{item.profit==1}}">已分润{{item.profit_money}}元</text>
+      </view>
+      <view class="sub_tle2" wx:if="{{idx!=1}}">
+        我的报价:{{item.price}}
+        <text wx:if="{{item.contract==1}}">(对方已联系)</text>
+      </view>
+
+    </view>
+    <view class="rt">{{item.ctime}}</view>
+  </view>
+  <view class="desc">
+    {{item.des}}
+  </view>
+  <view class="btnBox">
+    <view class="btn" wx:for="{{item.btn_type}}" wx:for-item="btn">
+
+      <view class="col1" wx:if="{{btn==1}}" catchtap="lookFn" data-look="{{item.discuss_name}}">
+        已评价
+      </view>
+
+      <view class="col1" wx:if="{{btn==2}}" catchtap="move" data-x='3' data-id="{{item.id}}">
+        评价
+      </view>
+
+      <view class="col2" wx:if="{{btn==3}}" catchtap="toRou" data-url='../rewa/rewa?id={{item.id}}'>
+        打赏
+      </view>
+      <view class="col2" wx:if="{{btn==4}}" catchtap="toRou" data-url='../mois/mois?id={{item.id}}'>
+        成交分润
+      </view>
+      <view class="col2" wx:if="{{btn==5}}" catchtap="toPrFn" data-id="{{item.taskid}}">
+        去付款
+      </view>
+
+    </view>
+  </view>
+
+
+
+</view>
+
+<!-- <view class="item">
+  <view class="tle">
+    <view class="lt">
+      <view>
+        终端客户询价
+      </view>
+
+      <view class="sub_tle1">已打赏5元|已分润100元</view>
+      <view class="sub_tle2">
+        我的报价:
+        <text>(对方已联系)</text>
+      </view>
+
+    </view>
+    <view class="rt">2019-09-26</view>
+  </view>
+  <view class="desc">
+    室内-单色-P10-22m2
+  </view>
+  <view class="btn">
+    <view class="col1">
+      评价
+    </view>
+    <view class="col1">
+      已评价
+    </view>
+
+    <view class="col2">
+      打赏
+    </view>
+    <view class="col2">
+      成交分润
+    </view>
+    <view class="col2">
+      去付款
+    </view>
+
+  </view>
+</view> -->
+
+
+
+<view class="mask" catchtouchmove bindtap="move" data-x='-1' wx:if="{{mask==3?true:false}}">
+  <view class="frBox">
+    <view class="frQx" bindtap="move">
+      <image src="{{baseSrc}}c.png" class="c"></image>
+    </view>
+    <view class="r_tle">
+      感谢您的评价
+    </view>
+    <view class="r_img">
+      <view class="lt r_lt" catchtap="swtaImg" data-t='1'>
+        <image src="{{baseSrc}}r1.png" class="t" hidden="{{isTrue==1}}"></image>
+        <image src="{{baseSrc}}r2.png" class="t" hidden="{{isTrue!=1}}"></image>
+      </view>
+      <view class="lt r_lt" catchtap="swtaImg" data-t='2'>
+        <image src="{{baseSrc}}r3.png" class="t" hidden="{{isTrue!=1}}"></image>
+        <image src="{{baseSrc}}r4.png" class="t" hidden="{{isTrue==1}}"></image>
+      </view>
+    </view>
+    <view class="r_btn" catchtap="r_subFn">
+      提交
+    </view>
+  </view>
+</view>
+
+<view class="mask" catchtouchmove bindtap="move" data-x='-1' wx:if="{{mask==4?true:false}}">
+  <view class="frBox">
+    <view class="frQx" bindtap="move">
+      <image src="{{baseSrc}}c.png" class="c"></image>
+    </view>
+    <view class="r_tle">
+      我的评价
+    </view>
+    <view class="m_img">
+      <image src="{{baseSrc}}r2.png" class="t" wx:if="{{good==1}}"></image>
+      <image src="{{baseSrc}}r4.png" class="t" wx:if="{{good==2}}"></image>
+    </view>
+  </view>
+</view>

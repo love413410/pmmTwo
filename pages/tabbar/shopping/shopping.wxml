@@ -1,0 +1,81 @@
+<view class="head">
+  <image src="{{baseSrc}}jfbg.png" class="head_bg"></image>
+  <image src="{{baseSrc}}jfzq.png" class="head_jf" bindtap="rouTo" data-url="../../shopping/how/how?is={{vip}}"></image>
+
+  <view class="jf_num">
+    <view class="auto">
+      <view class="num">
+        {{score}}
+      </view> 
+      <!-- <view class="num_text">
+        <navigator url="../../my/rech/rech" hover-class="none">充值</navigator>
+      </view> -->
+      <view class="num_text" wx:if="{{vip}}">
+        <navigator url="../../my/rech/rech" hover-class="none">充值</navigator>
+      </view>
+    </view>
+  </view>
+
+  <view class="head_btn">
+    <view class="lt_view">
+      <view class="rt btn_" bindtap="rouTo" data-url="../../shopping/numDate/numDate">
+        积分明细
+      </view>
+    </view>
+
+    <view class="rt_view">
+      <view class="btn_" bindtap="rouTo" data-url="../../shopping/excReco/excReco">
+        兑换记录
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view class="list">
+
+  <view class="item" wx:for="{{list}}" bindtap="rouTo" data-url="../../shopping/date/date" data-id="{{item.id}}">
+    <!-- <view class="item_top">
+      <view class="item_tle">
+        {{item.name}}
+      </view>
+      <view class="item_img">
+        <image src="{{item.pic}}"></image>
+      </view>
+    </view> -->
+    <view class="img_top">
+      <image src="{{item.pic}}"></image>
+    </view>
+    <view class="item_name">
+    {{item.name}}
+    </view>
+    <view class="item_btm">
+      <view class="lt">
+        {{item.need}}积分
+      </view>
+      <view class="rt" catchtap="excFn" data-num="{{item.need}}" data-id="{{item.id}}">
+        立即兑换
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view class="mask" catchtouchmove bindtap="move" data-x='-1' wx:if="{{mask==2?true:false}}">
+  <view class="shop_box">
+    <view class="shop_top">
+      <image src="{{baseSrc}}vip1.png" class="bg"></image>
+      <image src="{{baseSrc}}cc.png" class="bg2" catchtap="move" data-x='-1'></image>
+    </view>
+    <view class="shop_b">
+      <view class="shop_text">
+        普通用户升级成VIP才能兑换商品哦~
+      </view>
+      <view class="btn" bindtap="rouTo" data-url="../../my/vip/vip">
+        去升级
+      </view>
+    </view>
+  </view>
+</view>
+
+<popup bind:popupFn="popupFn" hide='{{is}}'></popup>

@@ -1,0 +1,17 @@
+<view class="feed_top"></view>
+<view class="item" bindtap="rouTo" data-url="../../my/opinion/opinion?t={{t}}">
+  <view>
+    提交问题反馈
+  </view>
+  <view class="pic">
+    <image src=" {{baseSrc}}r.png"></image>
+  </view>
+</view>
+<view class="item" bindtap="rouTo" data-url="../../my/myFeed/myFeed">
+  <view>
+    我的反馈
+  </view>
+  <view class="pic">
+    <image src=" {{baseSrc}}r.png"></image>
+  </view>
+</view>

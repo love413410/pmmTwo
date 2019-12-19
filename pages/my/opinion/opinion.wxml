@@ -1,0 +1,38 @@
+<view class="tle">
+  你的意见或者建议
+</view>
+
+<view class="box">
+  <textarea placeholder="感谢你的建议~" bindinput="inpt" data-id='val'></textarea>
+</view>
+
+<view class="pub-photos">
+  <view class="po" wx:key="id" wx:for="{{photos}}" bindlongpress='showDel' data-cid="{{index}}" bindtap="preview" data-url="{{item.src}}">
+    <view class="del" wx:if="{{item.del}}" catchtap='delPhoto' data-cid="{{index}}">
+      <image src="{{baseSrc}}close.png"></image>
+    </view>
+    <image src="{{item.src}}"></image>
+  </view>
+  <view hidden='{{photos.length >= 5}}' class="add" bindtap='upPhoto'>
+    <image src="{{baseSrc}}up.png"></image>
+  </view>
+</view>
+
+
+
+
+
+
+<view class="tle">
+  你的联系方式
+</view>
+
+<view class="inpt">
+  <input placeholder="请输入您的手机号码" type="number" bindinput="inpt" data-id='phone'></input>
+</view>
+<view class="tips">
+  请留下您的联系方式,以便我们能够方便了解问题以及反馈给你问题处理结果。
+</view>
+<view class="btn" bindtap="btn">
+  提交反馈
+</view>

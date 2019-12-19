@@ -1,0 +1,131 @@
+{
+  "pages": [
+    "pages/tabbar/home/home",
+    "pages/tabbar/my/my",
+    "pages/tabbar/rele/rele",
+    "pages/login/login",
+    "pages/userReg/userReg",
+    "pages/rele/term/term",
+    "pages/rele/colle/colle",
+    "pages/rele/count/count",
+    "pages/rele/whole/whole",
+    "pages/rele/lease/lease",
+    "pages/rele/new/new",
+    "pages/rele/fact/fact",
+    "pages/my/info/info",
+    "pages/my/rele/rele",
+    "pages/home/releDeta/releDeta",
+    "pages/home/colleDeta/colleDeta",
+    "pages/my/opinion/opinion",
+    "pages/my/detaYi/detaYi",
+    "pages/my/detaEr/detaEr",
+    "pages/my/detaSan/detaSan",
+    "pages/rele/auth/auth",
+    "pages/home/whoDeta/whoDeta",
+    "pages/home/couDeta/couDeta",
+    "pages/home/leaDeta/leaDeta",
+    "pages/home/newDeta/newDeta",
+    "pages/home/price/price",
+    "pages/my/safe/safe",
+    "pages/my/modify/modify",
+    "pages/my/retrieve/retrieve",
+    "pages/my/setting/setting",
+    "pages/my/pay/pay",
+    "pages/my/vip/vip",
+    "pages/my/pres/pres",
+    "pages/my/reco/reco",
+    "pages/my/query/query",
+    "pages/cartLet/cartLet/cartLet",
+    "pages/cartLet/notSend/notSend",
+    "pages/cartLet/send/send",
+    "pages/cartLet/sendData/sendData",
+    "pages/cartLet/data/data",
+    "pages/cartLet/myOrder/myOrder",
+    "pages/cartLet/query/query",
+    "pages/my/rewa/rewa",
+    "pages/my/mois/mois",
+    "pages/tabbar/shopping/shopping",
+    "pages/shopping/how/how",
+    "pages/shopping/numDate/numDate",
+    "pages/shopping/excReco/excReco",
+    "pages/shopping/date/date",
+    "pages/my/feed/feed",
+    "pages/my/myFeed/myFeed",
+    "pages/my/payDate/payDate",
+    "pages/rele/auth2/auth2",
+    "pages/my/share/share",
+    "pages/rele/preview/preview",
+    "pages/cartLet/eval/eval",
+    "pages/my/eval/eval",
+    "pages/my/myEval/myEval",
+    "pages/cartLet/addFeed/addFeed",
+    "pages/cartLet/feedDate/feedDate",
+    "pages/cartLet/echart/echart",
+    "pages/cartLet/echarts/echarts",
+    "pages/my/edition/edition",
+    "pages/my/address/address",
+    "pages/my/myAddress/myAddress",
+    "pages/my/myAddress2/myAddress",
+    "pages/my/robs/robs",
+    "pages/tabbar/test/test",
+    "pages/my/rech/rech",
+    "pages/home/prom/prom",
+    "pages/home/tende/tende",
+    "pages/my/base/base",
+    "pages/my/baseData/baseData",
+    "pages/home/tendeData/tendeData",
+    "pages/my/baseFile/baseFile",
+    "pages/my/baseData2/baseData2",
+    "pages/tabbar/web/web"
+  ],
+  "tabBar": {
+    "color": "#aaaaaa",
+    "selectedColor": "#fb7313",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/tabbar/home/home",
+        "iconPath": "static/home-n.png",
+        "selectedIconPath": "static/home-c.png",
+        "text": "需求大厅"
+      },
+      {
+        "pagePath": "pages/tabbar/rele/rele",
+        "iconPath": "static/rele-n.png",
+        "selectedIconPath": "static/rele-c.png",
+        "text": "我要发布"
+      },
+      {
+        "pagePath": "pages/tabbar/shopping/shopping",
+        "iconPath": "static/inte-n.png",
+        "selectedIconPath": "static/inte-c.png",
+        "text": "积分商城"
+      },
+      {
+        "pagePath": "pages/tabbar/my/my",
+        "iconPath": "static/my-n.png",
+        "selectedIconPath": "static/my-c.png",
+        "text": "我的后台"
+      }
+    ]
+  },
+  "plugins": {
+    "route-plan": {
+      "version": "1.0.0",
+      "provider": "wx50b5593e81dd937a"
+    }
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序定位"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}

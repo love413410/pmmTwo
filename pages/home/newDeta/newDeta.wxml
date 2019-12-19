@@ -1,0 +1,183 @@
+<view class="item">
+  <view>
+    需求类型
+  </view>
+  <view class="r">
+    {{task.title}}
+  </view>
+</view>
+
+<view class="item">
+  <view>
+    产品品牌
+  </view>
+  <view class="r">
+    {{task.brand}}
+  </view>
+</view>
+
+
+<view class="item">
+  <view>
+    产品名称
+  </view>
+  <view class="r">
+    {{task.goodname}}
+  </view>
+</view>
+
+<view class="item">
+  <view>
+    促销方式
+  </view>
+  <view class="r">
+    {{task.sale_txt}}
+  </view>
+</view>
+
+<view class="item">
+  <view>
+    活动总价
+  </view>
+  <view class="r">
+    {{task.price}}元
+  </view>
+</view>
+
+<view class="item">
+  <view>
+    是否包邮
+  </view>
+  <view class="r">
+    {{task.postage_txt}}
+  </view>
+</view>
+
+<view class="item">
+  <view>
+    是否含税
+  </view>
+  <view class="r">
+    {{task.tax_txt}}
+  </view>
+</view>
+
+<view class="item">
+  <view>
+    截止时间
+  </view>
+  <view class="r">
+    {{task.btime}}
+  </view>
+</view>
+
+
+
+<view class="pic">
+  产品图片
+</view>
+
+<view class="pics">
+  <image src="{{item}}" wx:for="{{task.pics}}" bindtap="preview" data-url="{{item}}"></image>
+</view>
+
+<view class="pic">
+  活动详情
+</view>
+<view class="desc">
+  {{task.overview}}
+</view>
+
+<!-- <button class="footBtn bg1" wx:if="{{btn}}" bindtap="authFn">
+  分享
+</button> -->
+<view wx:if="{{btn}}" class="footBtn">
+  <button class="ltBtn" hover-class="none" open-type='share'>转发给好友/群聊</button>
+  <button class="rtBtn" hover-class="none" bindtap="authFn">分享到朋友圈</button>
+</view>
+<cover-view class="footBtn bg1" wx:if="{{task.btn_type==1&&!btn}}" bindtap="robFn">
+  立即抢单
+</cover-view>
+
+<cover-view class="footBtn bg2" wx:if="{{task.btn_type==3}}">
+  已结束
+</cover-view>
+
+<cover-view class="footBtn bg3" wx:if="{{task.btn_type==2}}" bindtap="dialFn">
+  立即拨号
+</cover-view>
+
+<cover-view class="footBtn bg3" wx:if="{{i==1}}" bindtap="fuFn">
+  去付款
+</cover-view>
+
+<cover-view class="footBtn bg4" wx:if="{{i==2}}" bindtap="back">
+  评价
+</cover-view>
+
+<popup bind:popupFn="popupFn" hide='{{is}}'></popup>
+
+
+<!-- bg1 立即抢单
+bg2 已结束  
+bg3 立即拨号 -->
+<paymen bind:payFn="payFn" bool='{{payIs}}'></paymen>
+<view class="mask" catchtouchmove bindtap="move" wx:if="{{mask==2?true:false}}">
+  <view class="pay_box">
+    <view class="pay_head">
+      <image src="{{baseSrc}}gb.png" class="pay_img" catchtap="move"></image>
+      请输入支付密码
+    </view>
+    <view class="pay_text">
+      屏买卖平台-信保资金
+    </view>
+    <view class="pay_text pay_texts">
+      ￥5
+    </view>
+
+    <view class="pay_type">
+      <view class='pay_lt'>
+        支付方式
+      </view>
+
+      <view class='pay_rt'>
+        <image src="{{baseSrc}}lq.png" class="pay_lq"></image>
+        <view class='pay_lt pay_lqt'>
+          零钱
+        </view>
+      </view>
+    </view>
+
+    <view class='pay_contents'>
+      <block wx:for="{{6}}" wx:key="item">
+        <input class='pay_iptbox' value="{{Value.length>=index+1?Value[index]:''}}" disabled password catchtap='Tap'></input>
+      </block>
+    </view>
+    <input name="password" password type="number" class='pay_ipt_s' maxlength="6" focus="{{isFocus}}" bindinput="Focus"></input>
+  </view>
+</view>
+
+
+
+
+<view class="foot">
+  <view class="foot-head">
+    <text class="line">“新品促销/尾货处理”类抢单须知</text>
+  </view>
+
+  <view>
+    1.截止日期,个人用户、认证企业、VIP诚企均可参与抢单;
+  </view>
+
+  <view>
+    2.抢单需支付5元,即可通过平台联系发布者。
+  </view>
+</view>
+
+<view class="bgp" wx:if="{{task.btn_type==5}}">
+  <image src="{{baseSrc}}gq.png"></image>
+</view>
+
+<view class="bgp" wx:if="{{task.btn_type==3}}">
+  <image src="{{baseSrc}}js.png"></image>
+</view>

@@ -1,0 +1,148 @@
+<level bind:levelFn="levelFn" bool='{{leve}}'></level>
+<view class="head-tle">
+  <view class="head-item" bindtap="idFn">
+    <view class="head-txt">
+      {{city}}
+    </view>
+    <view class="head-img">
+      <image src="{{baseSrc}}down.png"></image>
+    </view>
+  </view>
+
+  <view class="head-item">
+    <picker range="{{pick1}}" bindchange='pickFn1' data-idx='pickIdx1' range-key="name">
+      <view class="head-txt">
+      {{qiye}}
+        <!-- {{pick1[pickIdx1].name}} -->
+      </view>
+    </picker>
+    <view class="head-img">
+      <image src="{{baseSrc}}down.png"></image>
+    </view>
+  </view>
+
+  <view class="head-item">
+    <picker range="{{pick2}}" bindchange='pickFn' data-idx='pickIdx2' range-key="name">
+      <view class="head-txt">
+        {{pick2[pickIdx2].name}}
+      </view>
+    </picker>
+    <view class="head-img">
+      <image src="{{baseSrc}}down.png"></image>
+    </view>
+  </view>
+</view>
+
+<view class="item" wx:for="{{list}}" wx:key="{{item.id}}">
+  <view class="head {{item.btn_type!=2?'mosaic':''}}">
+    {{item.company}}
+    <image src="{{baseSrc}}biao.png" class="par"></image>
+    <view class="par">
+      <text>
+      好评
+      </text>
+      <text class="per">
+      {{item.percent}}
+      </text>
+    </view>
+  </view> 
+  <view class="info">
+    <image src="{{item.business_licence}}" class="img {{item.btn_type!=2?'imgs':''}}" bindtap="preview" data-item="{{item}}"></image>
+    <view class="in">
+      <view>
+        公司类型:{{item.tyep_txt}}
+      </view> 
+      <view>
+        联系人:
+        <text class="{{item.btn_type!=2?'mosaic':''}}">{{item.operation_people}}</text>
+      </view>
+
+      <view wx:if="{{item.btn_type!=2}}">
+        联系方式:
+        <text class="mosaic">{{item.operation_mobile}}</text>
+      </view>
+
+      <view wx:if="{{item.btn_type==2}}">
+        联系方式:
+        <text>{{item.operation_mobile}}</text>
+        <text class="call" bindtap="callFn" data-num="{{item.operation_mobile}}">立即联系</text>
+      </view>
+
+    </view>
+  </view>
+
+  <view class="btn btn1" wx:if="{{user.is_vip==0}}" bindtap="authFn">
+    成为VIP免费查看
+  </view>
+
+  <view class="btn btn1" bindtap="free" data-id="{{item.id}}" wx:if="{{user.is_vip==1&&item.btn_type==1}}">
+    {{item.btn_name}}
+  </view> 
+
+  <view class="btn btn1" catchtap="look" data-id="{{item.id}}" wx:if="{{user.is_vip==1&&item.btn_type==3}}">
+    {{item.btn_name}}
+  </view>
+
+  <view class="btn btn2" wx:if="{{user.is_vip==1&&item.btn_type==2}}">
+  <!-- 剩余6天23时59分隐藏 -->
+  <!-- 免费查看至2019-12-17 -->
+    {{item.btn_name}}
+  </view>
+
+</view>
+
+<view class="mask" catchtouchmove bindtap="move" wx:if="{{mask==1?true:false}}">
+  <view class="shop_box">
+    <view class="shop_top">
+      <image src="{{baseSrc}}vip1.png" class="bg"></image>
+      <image src="{{baseSrc}}cc.png" class="bg2" catchtap="move"></image>
+    </view>
+    <view class="shop_b">
+      <view class="shop_text">
+        普通用户升级成VIP才能查看名录哦~
+      </view>
+      <view class="btn" bindtap="rouTo" data-url="../vip/vip">
+        去升级
+      </view>
+    </view>
+  </view>
+</view>
+
+
+
+
+<paymen bind:payFn="payFn" bool='{{payIs}}'></paymen>
+<view class="mask" catchtouchmove bindtap="move" wx:if="{{mask==2?true:false}}">
+  <view class="pay_box">
+    <view class="pay_head">
+      <image src="{{baseSrc}}gb.png" class="pay_img" catchtap="move"></image>
+      请输入支付密码
+    </view>
+    <view class="pay_text">
+      屏买卖平台-查看企业名录
+    </view>
+    <view class="pay_text pay_texts">
+      ￥{{val}}
+    </view>
+
+    <view class="pay_type">
+      <view class='pay_lt'>
+        支付方式
+      </view>
+
+      <view class='pay_rt'>
+        <image src="{{baseSrc}}lq.png" class="pay_lq"></image>
+        <view class='pay_lt pay_lqt'>
+          零钱
+        </view>
+      </view>
+    </view>
+
+    <view class='pay_contents'>
+      <block wx:for="{{6}}" wx:key="item">
+        <input class='pay_iptbox' value="{{Value.length>=index+1?Value[index]:''}}" disabled password catchtap='Tap'></input>
+      </block>
+    </view>
+    <input name="password" password type="number" class='pay_ipt_s' maxlength="6" focus="{{isFocus}}" bindinput="Focus"></input>
+  </view>
+</view>

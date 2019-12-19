@@ -1,0 +1,8 @@
+<view class="mask" catchtouchmove wx:if="{{hide}}">
+  <view class="box">
+    <image src="{{baseSrc}}bg.png" class="pic"></image>
+    <view class="cancel" bindtap="cancel"></view>
+    <button class='lognBtn' open-type="getUserInfo" bindgetuserinfo="getUserInfo"></button>
+    <view class="canc" bindtap="cancel"></view>
+  </view>
+</view>  

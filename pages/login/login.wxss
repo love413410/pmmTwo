@@ -1,0 +1,90 @@
+
+.imgBox{
+  width: 100%;
+  height: 450rpx;
+  background: linear-gradient(#f4d63a, #ef8121);
+  overflow: hidden;
+}
+.imgBox image{
+  display: block;
+  width: 200rpx;
+  height: 200rpx;
+  margin-top: 65rpx;
+  margin-left: 50%;
+  transform: translate(-50%);
+}
+.name{
+  font-size: 32rpx;
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  line-height: 32rpx;
+  /* font-weight: 700; */
+  margin-top: 40rpx;
+}
+
+.login{
+  padding:55rpx 0;
+  width:610rpx;
+  margin:0 auto;
+}
+.mobile{
+  height:84rpx;
+  margin:76rpx auto 0 auto;
+  position: relative;
+}
+.mobile .ico{
+  display:block;
+  width:36rpx;
+  height:50rpx;
+  position: absolute;
+  left:0;
+  top:50%;
+  margin-top:-25rpx;
+}
+.mobile .text{
+  width:520rpx;
+  height:84rpx;
+  line-height:84rpx;
+  display: block;
+  margin:0 auto;
+  padding-left:20rpx;
+  border-bottom:1px solid #ddd;
+}
+.mobile .close{
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  right: 34rpx;
+  top:22rpx;
+  z-index: 9999;
+}
+.mobile .code{
+  height:84rpx;
+  line-height:84rpx;
+  color:#ef7e20;
+  position: absolute;
+  right:40rpx;
+  top:0;
+  font-size:24rpx;
+  z-index:20;
+}
+.check{
+  width: 100%;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size:24rpx;
+  margin-top: 60rpx;
+}
+.loginBtn{
+  display:block;
+  width:100%;
+  height:80rpx;
+  line-height:80rpx;
+  margin:60rpx 0 0 0;
+  text-align: center;
+  border-radius:40rpx;
+  background:#ef7e20;
+  font-size:32rpx;
+  color:#fff;
+}

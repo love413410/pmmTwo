@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "新品促销/尾货处理",
+  "usingComponents": {
+    "link": "../../../components/link/link",
+    "paymen": "../../../components/paymen/paymen"
+  }
+}

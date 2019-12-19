@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "厂家技术查询",
+  "usingComponents": {
+    "idp": "../../../components/idp/idp"
+  }
+}

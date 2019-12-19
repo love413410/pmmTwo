@@ -1,0 +1,74 @@
+page {
+  padding: 0 40rpx;
+  box-sizing: border-box;
+}
+
+.tle {
+  font-size: 46rpx;
+  line-height: 46rpx;
+  text-align: center;
+  margin-top: 115rpx;
+  margin-bottom: 40rpx;
+}
+
+.date {
+  font-size: 28rpx;
+  line-height: 28rpx;
+  text-align: center;
+  color: #8a8a8a;
+}
+
+.img {
+  width: 100%;
+  text-align: center;
+}
+.imgBoxs{
+  width: 76rpx;
+  height: 121rpx;
+  margin: auto;
+  margin-top: 110rpx;
+  margin-bottom: 80rpx;
+}
+.imgBoxs image{
+  width: 100%;
+  height: 100%;
+}
+
+.imgBox {
+  display: inline-block;
+  width: 76rpx;
+  height: 121rpx;
+  margin: auto;
+  margin-top: 110rpx;
+  margin-bottom: 80rpx;
+}
+
+.l_img {
+  margin-right: 100rpx;
+}
+
+.r_img {
+  margin-left: 100rpx;
+}
+
+.desc {
+  width: 100%;
+  height: 300rpx;
+  padding: 35rpx;
+  box-sizing: border-box;
+  border: 1px solid #bfbfbf;
+  border-radius: 8rpx;
+}
+.desc textarea{
+  width: 100%;
+  height: 100%;
+}
+.footBtn{
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  background-color: #fb7313;
+  color: #fff;
+  font-size: 36rpx;
+  margin-top: 180rpx;
+}

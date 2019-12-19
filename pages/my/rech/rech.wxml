@@ -1,0 +1,181 @@
+<view class="head">
+  <view class="banner">
+    <view class="top_swiper">
+      <swiper autoplay interval='3000'>
+        <swiper-item wx:for="{{banner}}" wx:key="{{index}}" wx:for-item="itemPic">
+          <image src="{{itemPic.pic}}"></image>
+        </swiper-item>
+      </swiper>
+    </view>
+  </view>
+</view>
+
+
+<view class="heads">
+  <view class="top_">
+    套餐充值
+  </view>
+  <view class="btm_">
+    积分余量:{{score}}
+  </view>
+
+
+  <view class="tle">
+    <view>
+      套餐
+    </view>
+    <view>
+      积分
+    </view> 
+    <view>
+      价格
+    </view>
+  </view>
+
+  <view class="box">
+    <view class="li" wx:for="{{list}}" wx:key="{{index}}">
+      <view>
+        {{index+1}}
+      </view>
+      <view>
+        {{item.score}}积分
+      </view>
+      <view>
+        <text class="num">{{item.price}}</text>元
+      </view>
+      <view class="purc" bindtap="purcFn" data-item="{{item}}" data-idx="{{index+1}}">
+        购买
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="dibu">
+  <view class="top"></view>
+  <view class="title">
+    套餐使用说明
+  </view>
+  <view>
+    1、您可以根据个人使用情况选取适合您的套餐,套餐额度可叠加
+  </view>
+  <view>
+    2、套餐所含积分可用于积分商城商品兑换
+  </view>
+  <view>
+    3、积分使用不设期限,永不清零
+  </view>
+  <view>
+    4、付款成功不支持退款
+  </view>
+  <view>
+    5、本套餐使用说明最终解释权归“屏买卖”所有
+  </view>
+</view>
+
+
+<view class="mask" wx:if="{{mask==1}}">
+  <view class="mask_box">
+    <image src="{{baseSrc}}c.png" class="img" catchtap="move"></image>
+    <view class="mask_tle">
+      请选择数量
+    </view>
+    <view class="type">
+      {{tle}} :
+    </view>
+
+    <view class="style">
+      <view class="redu" catchtap="reduFn">
+        -
+      </view>
+      <input value="{{num}}" type="number" bindinput="valFn" class="num"></input>
+      <view class="add" catchtap="addFn">
+        +
+      </view>
+    </view>
+
+    <view class="type types">
+      合计:{{total_num}}积分
+    </view>
+
+    <view class="type">
+      需支付:{{total_mon}}元
+    </view>
+
+    <view class="sub_btm" catchtap="conFn">
+      确认
+    </view>
+  </view>
+</view>
+
+<paymen bind:payFn="payFn" bool='{{payIs}}'></paymen>
+<popup bind:popupFn="popupFn" hide='{{is}}'></popup>
+<view class="mask" catchtouchmove bindtap="move" wx:if="{{mask==2?true:false}}">
+  <view class="pay_box">
+    <view class="pay_head">
+      <image src="{{baseSrc}}gb.png" class="pay_img" catchtap="move"></image>
+      请输入支付密码
+    </view>
+    <view class="pay_text">
+      屏买卖平台-信保资金
+    </view>
+    <view class="pay_text pay_texts">
+      ￥5
+    </view>
+
+    <view class="pay_type">
+      <view class='pay_lt'>
+        支付方式
+      </view>
+
+      <view class='pay_rt'>
+        <image src="{{baseSrc}}lq.png" class="pay_lq"></image>
+        <view class='pay_lt pay_lqt'>
+          零钱
+        </view>
+      </view>
+    </view>
+
+    <view class='pay_contents'>
+      <block wx:for="{{6}}" wx:key="item">
+        <input class='pay_iptbox' value="{{Value.length>=index+1?Value[index]:''}}" disabled password catchtap='Tap'></input>
+      </block>
+    </view>
+    <input name="password" password type="number" class='pay_ipt_s' maxlength="6" focus="{{isFocus}}" bindinput="Focus"></input>
+  </view>
+</view>
+
+
+<view class="mask" catchtouchmove bindtap="move" wx:if="{{mask==2?true:false}}">
+  <view class="pay_box">
+    <view class="pay_head">
+      <image src="{{baseSrc}}gb.png" class="pay_img" catchtap="move"></image>
+      请输入支付密码
+    </view>
+    <view class="pay_text">
+      屏买卖平台-积分充值
+    </view>
+    <view class="pay_text pay_texts">
+      ￥{{total_mon}}
+    </view>
+
+    <view class="pay_type">
+      <view class='pay_lt'>
+        支付方式
+      </view>
+
+      <view class='pay_rt'>
+        <image src="{{baseSrc}}lq.png" class="pay_lq"></image>
+        <view class='pay_lt pay_lqt'>
+          零钱
+        </view>
+      </view>
+    </view>
+
+    <view class='pay_contents'>
+      <block wx:for="{{6}}" wx:key="item">
+        <input class='pay_iptbox' value="{{Value.length>=index+1?Value[index]:''}}" disabled password catchtap='Tap'></input>
+      </block>
+    </view>
+    <input name="password" password type="number" class='pay_ipt_s' maxlength="6" focus="{{isFocus}}" bindinput="Focus"></input>
+  </view>
+</view>

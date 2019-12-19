@@ -1,0 +1,24 @@
+<view class="tle">
+  订单已完成
+</view>
+<view class="date">
+  请对本次服务做出评价吧！
+</view>
+
+<view class="img">
+  <view class="imgBox l_img" bindtap="isFn" data-is='1'>
+    <image src=" {{baseSrc}}hp.png" wx:if="{{isTrue==1}}"></image>
+    <image src=" {{baseSrc}}hp1.png" wx:if="{{isTrue==2}}"></image>
+  </view>
+  <view class="imgBox r_img" bindtap="isFn" data-is='2'>
+    <image src=" {{baseSrc}}cp.png" wx:if="{{isTrue==2}}"></image>
+    <image src=" {{baseSrc}}cp1.png" wx:if="{{isTrue==1}}"></image>
+  </view>
+</view>
+
+<view class="desc">
+  <textarea maxlength="50" placeholder="请填写您的其他建议或意见~" bindinput="iptFn"></textarea>
+</view>
+<button class="footBtn" bindtap="subFn">
+  提交
+</button>

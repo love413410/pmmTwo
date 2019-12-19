@@ -1,0 +1,46 @@
+<view class="item">
+  <image src="{{baseSrc}}bg1.png"></image>
+  <view class="top">
+    发布/抢单时支付信保资金
+  </view>
+  <view class="sub">
+    1元=1积分
+  </view>
+</view>
+
+
+<view class="item">
+  <image src="{{baseSrc}}bg2.png"></image>
+  <view class="top">
+    抢单后打赏(仅针对询价/租赁订单)
+  </view>
+  <view class="sub">
+    1元=1积分
+  </view>
+</view>
+
+
+
+<view class="item">
+  <image src="{{baseSrc}}bg3.png"></image>
+  <view class="top">
+    抢单后分润(仅针对询价/租赁订单)
+  </view>
+  <view class="sub">
+    1元=1积分
+  </view>
+</view>
+
+
+
+<view class="item" wx:if="{{is=='true'}}">
+  <navigator url="../../my/rech/rech" hover-class="none">
+    <image src="{{baseSrc}}bg4.png"></image>
+    <view class="top">
+      选择积分套餐进行充值
+    </view>
+    <view class="sub">
+      详情见套餐
+    </view>
+  </navigator>
+</view>

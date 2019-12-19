@@ -1,0 +1,213 @@
+page{
+  background-color: #efefef;
+}
+.head {
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  text-align: center;
+  font-size: 30rpx;
+  margin-bottom: 10rpx;
+}
+
+.head-item {
+  flex: 1;
+  height: 76rpx;
+  line-height: 76rpx;
+}
+
+.adds {
+  width: 150rpx;
+  display: inline-block;
+  height: 76rpx;
+  border-bottom: 2px solid #fc612b;
+  color: #fc612b;
+}
+
+
+
+.item-head {
+  width: 100%;
+  height: 58rpx;
+  line-height: 58rpx;
+  margin: 20rpx 0;
+  font-size: 24rpx;
+  color: #333;
+  padding: 0 27rpx;
+  box-sizing: border-box;
+}
+
+.sub {
+  width: 220rpx;
+  height: 100%;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 8rpx;
+  margin-right: 18rpx;
+  padding: 0 17rpx;
+  box-sizing: border-box;
+}
+
+.subs { 
+  z-index: 99;
+  width: 220rpx;
+  height: 100%;
+  text-align: center;
+  background-color: #fff;
+  margin-right: 18rpx;
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+  position: relative;
+  padding: 0 17rpx;
+  box-sizing: border-box;
+}
+.sb{
+  margin-right: 0; 
+}
+.tle_ {
+  width: 160rpx;
+  float: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.item-head image {
+  width: 16rpx;
+  height: 9rpx;
+  float: right;
+  margin-left: 10rpx;
+  margin-bottom: 5rpx;
+  margin-top: 24rpx;
+}
+
+
+
+
+
+
+.item {
+  width: 100%;
+  height: 121rpx;
+  border-bottom: 1px solid #efefef;
+  padding-left: 40rpx;
+  padding-right: 50rpx;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.item .tle {
+  line-height: 120rpx;
+  font-size: 30rpx;
+  color: #4d4d4d;
+}
+
+.item .lht {
+  height: 120rpx;
+  font-size: 20rpx;
+  color: #b3b3b3;
+}
+
+.zd {
+  /*终端*/
+  line-height: 120rpx;
+}
+
+.item .th {
+  /*同行*/
+  font-size: 24rpx;
+  color: #4d4d4d;
+}
+
+.th .lt {
+  margin-left: 20rpx;
+}
+
+.th .rt-t {
+  margin-top: 30rpx;
+  margin-bottom: 10rpx;
+  overflow: hidden;
+}
+.th .rt-b {
+  font-size: 20rpx;
+  text-align: right;
+}
+
+.item .red {
+  color: #ed3e3a;
+}
+
+
+
+.state {
+  width: 73rpx;
+  height: 73rpx;
+  position: absolute;
+  right: 0rpx;
+  top: 0rpx;
+}
+.dra{
+  margin-top: 10rpx;
+}
+
+/* 遮罩层部分样式 */
+
+
+.mask-box {
+  width: 100%;
+  padding: 40rpx 25rpx;
+  background-color: #fff;
+  margin-top: 134rpx;
+  border-radius: 10rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+.item-box{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+
+.mask-box .itm {
+  float: left;
+   width: 220rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background-color: #f7f7f7;
+  color: #4d4d4d;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+  font-size: 24rpx;
+  box-sizing: border-box;
+  border-radius: 4rpx;
+  border: 1px solid #ebebeb;
+}
+
+.item-box .add {
+  background-color: #ffebe0;
+  color: #fb7313;
+  border: 1px solid #fb7313;
+  box-sizing: border-box;
+  line-height: 78rpx;
+  border-radius: 4rpx;
+}
+
+.itm:nth-child(3n) {
+  margin-right: 0;
+}
+.subBtn{
+  width: 450rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 30rpx;
+  border-radius: 8rpx;
+  background-color: #fb7313;
+  margin:auto;
+  margin-top: 60rpx;
+}

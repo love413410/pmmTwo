@@ -1,0 +1,145 @@
+page {
+  background-color: #efefef;
+}
+
+.head {
+  width: 100%;
+  height: 250rpx;
+  position: relative;
+}
+
+.banner {
+  width: 100%;
+  height: 250rpx;
+}
+.top_swiper{
+  width: 100%;
+  height: 100%;
+}
+.head swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.head swiper swiper-item {
+  width: 100%;
+  height: 100%;
+}
+
+.head image {
+  width: 100%;
+  height: 100%;
+}
+
+
+
+
+.item {
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+  background-color: #fff;
+  margin-bottom: 20rpx;
+}
+
+.top {
+  width: 100%;
+  height: 76rpx;
+  padding: 10rpx 30rpx;
+  padding-right: 40rpx;
+  box-sizing: border-box;
+  line-height: 56rpx;
+  border-bottom: 1px solid #efefef;
+  position: relative;
+}
+.top image {
+  width: 44rpx;
+  height: 44rpx;
+  margin-right: 10rpx;
+}
+.top .name {
+  font-size: 28rpx;
+  color: #282828;
+  margin-left: 15rpx;
+  margin-right: 20rpx;
+}
+.top .rt {
+  font-size: 24rpx;
+  color: #b3b3b3;
+}
+.item-t {
+  width: 100%;
+  height: 200rpx;
+  position: relative;
+  border-bottom: 1px dotted #eaeaea;
+  padding: 30rpx 40rpx;
+  box-sizing: border-box;
+}
+
+.item-t>.lt {
+  width: 440rpx;
+}
+.item-t .tle {
+  height: 36rpx;
+  line-height: 36rpx;
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #282828;
+}
+
+.item-t .add {
+  height: 28rpx;
+  line-height: 28rpx;
+  font-size: 28rpx;
+}
+
+.item-t .add image {
+  width: 20rpx;
+  height: 26rpx;
+  margin-right: 20rpx;
+}
+
+.item-t .mar {
+  margin: 30rpx 0;
+}
+.item-t .add view{
+  width: 400rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.item-t .rt {
+  width: 100rpx;
+  height: 100rpx;
+  margin-top: 20rpx;
+}
+
+.item-b {
+  width: 100%;
+  height: 95rpx;
+  position: relative;
+  padding: 15rpx 40rpx;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.item-b .ltext {
+  width: 100rpx;
+  word-wrap: break-word;
+  word-break: normal;
+  font-size: 26rpx;
+}
+
+.item-b .rtext {
+  width: 540rpx;
+  word-wrap: break-word;
+  word-break: normal;
+  font-size: 26rpx;
+  line-height: 32rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}

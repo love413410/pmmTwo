@@ -1,0 +1,125 @@
+page {
+  background-color: #f3f3f3;
+  padding: 0 5%;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  color:#2b2b2b;
+}
+.tle {
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 26rpx;
+  font-weight: 600;
+}
+
+.box {
+  width: 100%;
+  height: 300rpx;
+}
+
+textarea {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #f3f3f3;
+  box-shadow: 0rpx 0rpx 30rpx #ccc;
+  border-radius: 10rpx;
+  background-color: #fff;
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+
+.img {
+  width: 123rpx;
+  height: 123rpx;
+  margin-top: 40rpx;
+}
+
+.img image {
+  width: 100%;
+  height: 100%;
+}
+
+.pub-photos {
+  overflow: hidden;
+}
+
+.pub-photos .add {
+  float: left;
+  width: 123rpx;
+  height: 123rpx;
+  border-radius: 10rpx;
+  position: relative;
+  overflow: hidden;
+  margin: 20rpx 0 0 0;
+}
+
+.pub-photos .add image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.pub-photos .po {
+  float: left;
+  width: 123rpx;
+  height: 123rpx;
+  border-radius: 10rpx;
+  margin: 20rpx 10rpx 0 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.pub-photos .po .del {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  padding: 5rpx;
+  z-index: 10;
+  right: 0;
+  top: 0;
+}
+
+.pub-photos .po .del image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.pub-photos .po image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.inpt {
+  width: 100%;
+  height: 85rpx;
+  margin-bottom: 40rpx;
+}
+
+.inpt input {
+  width: 100%;
+  height: 100%;
+  box-shadow: 0rpx 0rpx 30rpx #ccc;
+  border-radius: 10rpx;
+  background-color: #fff;
+  padding-left: 30rpx;
+  box-sizing: border-box;
+}
+
+.tips {
+  color: #808080;
+}
+
+.btn {
+  width: 90%;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  margin: auto;
+  margin-top: 160rpx;
+  color: #fff;
+  background-color: #ef7e20;
+  border-radius: 10rpx;
+  font-size: 32rpx;
+}

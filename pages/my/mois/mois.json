@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "分润",
+  "usingComponents": {
+    "paymen": "../../../components/paymen/paymen"
+  }
+}

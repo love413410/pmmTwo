@@ -1,0 +1,63 @@
+<!-- <view class='pass'>请输入旧密码</view> 
+<view>
+  <section class="pwd-modal" catchtap="getFocus" auto-focus:true>
+    <ul>
+      <li>
+        <i class="circle" wx:if="{{password.length >= 1}}"></i>
+      </li>
+      <li>
+        <i class="circle" wx:if="{{password.length >= 2}}"></i>
+      </li>
+      <li>
+        <i class="circle" wx:if="{{password.length >= 3}}"></i>
+      </li>
+      <li>
+        <i class="circle" wx:if="{{password.length >= 4}}"></i>
+      </li>
+      <li>
+        <i class="circle" wx:if="{{password.length >= 5}}"></i>
+      </li>
+      <li>
+        <i class="circle" wx:if="{{password.length >= 6}}"></i>
+      </li>
+    </ul>
+    <input ref="inputs" focus="{{isFocus}}" type="number" maxlength="6" bindinput="pwd" value="{{password}}" />
+  </section>
+
+  <view class="submit" bindtap="submit">确定</view>
+</view>  -->
+
+
+<view class='pass'>请输入旧密码</view>
+<view>
+  <view class="pwd-modal" catchtap="getFocus" auto-focus:true>
+    <view class="ul">
+      <view class="li">
+        <view class="circle" wx:if="{{password.length >= 1}}"></view>
+      </view>
+      <view class="li">
+        <view class="circle" wx:if="{{password.length >= 2}}">
+        </view>
+      </view>
+      <view class="li">
+        <view class="circle" wx:if="{{password.length >= 3}}">
+        </view>
+      </view>
+      <view class="li">
+        <view class="circle" wx:if="{{password.length >= 4}}">
+        </view>
+      </view>
+      <view class="li">
+        <view class="circle" wx:if="{{password.length >= 5}}">
+        </view>
+      </view>
+      <view class="li">
+        <view class="circle" wx:if="{{password.length >= 6}}">
+        </view>
+      </view>
+    </view>
+    <input focus="{{isFocus}}" type="number" maxlength="6" bindinput="pwd" value="{{password}}" />
+  </view>
+
+  <view class="submit" bindtap="submit">确定</view>
+</view>

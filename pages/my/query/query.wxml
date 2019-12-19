@@ -1,0 +1,72 @@
+<view class="head-nav">
+  <navigator url="../../rele/fact/fact" hover-class="none" class="lt">
+    <image src="{{baseSrc}}yuyue.png" class="lt"></image>
+    <view class="lt text">
+      <view class="top">
+        技术预约
+      </view>
+      <view class="btm">
+        预约厂家技术服务
+      </view>
+    </view>
+  </navigator>
+
+  <navigator url="../base/base" hover-class="none" class="rt">
+    <image src="{{baseSrc}}ziliao.png" class="lt"></image>
+    <view class="lt text">
+      <view class="top">
+        资料库
+      </view>
+      <view class="btm">
+        卡莱特共享资料
+      </view>
+    </view>
+  </navigator>
+</view>
+<idp bind:idpFn="idpFn" bool='{{leve}}'></idp>
+
+<view class="item-head">
+  <view class="lt sub">
+    <picker range="{{pick}}" value="{{pickIdx}}">
+      <view class="tle_">
+        {{pickVal}}
+      </view>
+      <image src="{{baseSrc}}down.png"></image>
+    </picker>
+  </view>
+
+
+  <view class="lt  {{hide==1?'subs':'sub'}}" bindtap="idFn" data-id='1'>
+    <view class="tle_">
+      {{city}}
+    </view>
+    <image src="{{baseSrc}}down.png"></image>
+  </view>
+</view>
+
+<view class="item" wx:for="{{list}}">
+
+  <view class="item_box">
+    <image src="{{item.avatar}}" class="lt"></image>
+    <view class="box">
+      <view>联系人:
+        <text>{{item.nickname}}</text>
+      </view>
+      <view>联系方式:
+        <text>{{item.mobile}}</text>
+      </view>
+      <view>常驻地址:
+        <text>{{item.provincename}} {{item.cityname}}</text>
+      </view>
+    </view>
+
+    <view class="bohao" bindtap="callFn" data-num="{{item.mobile}}">
+      <view>
+        <image src="{{baseSrc}}bohao.png" class="dh"></image>
+      </view>
+      <view>
+        立即拨号
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,83 @@
+page {
+  background-color: #efefef;
+  overflow: hidden;
+}
+
+.tip {
+  width: 100%;
+  height: 45rpx;
+  line-height: 45rpx;
+  font-size: 18rpx;
+  text-align: center;
+  color: #fff;
+}
+
+.tipText {
+  width: 100%;
+  height: 100%;
+  background-color: #ba9c6a;
+}
+
+view.headBox {
+  padding: 0 30rpx;
+  box-sizing: border-box;
+}
+
+.head {
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding: 0 25rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+  font-size: 32rpx;
+  border-radius: 8rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ipt {
+  height: 100%;
+  text-align: right;
+  margin-right: 15rpx;
+}
+
+.box {
+  display: flex;
+}
+
+.num {
+  font-size: 52rpx;
+  text-align: center;
+  margin: 70rpx 0;
+}
+
+.btn {
+  width: 185rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  color: #fff;
+  background-color: #fc612b;
+  margin: auto;
+  font-size: 24rpx;
+  border-radius: 8rpx;
+  opacity: 0.5;
+}
+
+.opct {
+  opacity: 1;
+}
+
+button[disabled] {
+  color: #fff !important;
+  background: #fc612b !important;
+}
+.footTip{
+  font-size: 22rpx;
+  color: #848484;
+  position: absolute;
+  left: 50%;
+  bottom: 30rpx;
+  transform: translateX(-50%);
+}

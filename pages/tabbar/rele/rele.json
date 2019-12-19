@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "发布类型",
+  "usingComponents": {
+    "popup": "../../../components/popup/popup"
+  }
+} 

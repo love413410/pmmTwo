@@ -1,0 +1,147 @@
+<view class="item">
+  <view class="lt">
+    预约厂家
+  </view>
+  <view class="rt">
+    {{task.brand}}
+  </view>
+</view>
+
+<view class="item">
+  <view class="lt">
+    公司名称
+  </view>
+  <view class="rt">
+    {{task.goodname}}
+  </view>
+</view>
+
+<view class="item">
+  <view class="lt">
+    屏幕像素
+  </view>
+  <view class="rt">
+    {{task.screenpx}}
+  </view>
+</view>
+
+<view class="item">
+  <view class="lt">
+    服务产品
+  </view>
+  <view class="rt">
+    {{task.good_txt}}
+  </view>
+</view>
+
+
+<view class="item">
+  <view class="lt">
+    服务形式
+  </view>
+  <view class="rt">
+    {{task.goodtype_txt}}
+  </view>
+</view>
+
+<view class="item">
+  <view class="lt">
+    联系人
+  </view>
+  <view class="rt">
+    {{task.link}}
+  </view>
+</view>
+
+<view class="item">
+  <view class="lt">
+    联系方式
+  </view>
+  <view class="rt">
+    {{task.linkphone}}
+  </view>
+</view>
+
+<view class="item">
+  <view class="lt">
+    所在地区
+  </view>
+  <view class="rt">
+    {{task.provincename}} {{task.cityname}} {{task.areaname}}
+  </view>
+</view>
+
+<view class="item">
+  <view class="lt">
+    详细地址
+  </view>
+  <view class="rt">
+    {{task.address}}
+  </view>
+</view>
+<view class="pic">
+  <view class="pic-tle">
+    现场实图
+  </view>
+
+  <view class="pics">
+    <image src="{{item}}" wx:for="{{task.pics}}" bindtap="preview" data-url="{{item}}"></image>
+  </view>
+</view>
+
+<view class="desc">
+  情况阐述
+</view>
+<view class="items">
+  {{task.overview}}
+</view>
+
+<view class="foot-btn" bindtap="myDeta" wx:if="{{to==1&&is}}">
+  立即派单
+</view>
+
+<view class="foot-btn" hidden="{{is}}">
+  派单中,请耐心等待
+</view>
+
+<view wx:if="{{to==2}}">
+  <view class="foot-btn" bindtap="rotTo">查看派单</view>
+  <!-- <view class="foot-btn" bindtap="rotTo">查看评价</view> -->
+</view>
+
+
+<view wx:if="{{to==3&&c!=1}}">
+  <view class="foot-btn" bindtap="modeFn" wx:if="{{btn==1}}">确认完成</view>
+  <navigator hover-class="none" open-type='redirect' url="../addFeed/addFeed?id={{task.id}}" class="foot-btn" wx:if="{{btn==2}}">
+    填写反馈
+  </navigator>
+  <navigator hover-class="none" url="../feedDate/feedDate?id={{task.id}}&source=1" class="foot-btn" wx:if="{{btn==3}}">
+    查看我的反馈单
+  </navigator>
+</view>
+
+
+
+<view class="mask" bindtap="move" hidden="{{mask?false:true}}">
+  <view class="not_maskBox">
+    <image src="{{baseSrc}}qxa.png" class="qxa" bindtap="move"></image>
+    <checkbox-group catchtap bindchange="checkboxChange">
+      <view class="info">
+        <view class="info-item" wx:for="{{user}}">
+          <view class="lt idx">
+            {{index+1}}
+          </view>
+          <view class="lt text">
+            {{item.name}}
+          </view>
+          <view class="rt">
+            <checkbox value="{{item.id}}" checked="{{item.checked}}" />
+          </view>
+        </view>
+      </view>
+      <view class="send" catchtap="toRou">
+        派单
+      </view>
+    </checkbox-group>
+  </view>
+</view>

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "卡莱特名录",
+  "usingComponents": {
+    "idp": "../../../components/idp/idp"
+  }
+}

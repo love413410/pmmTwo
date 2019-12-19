@@ -1,0 +1,216 @@
+<view class="item">
+  <view>
+    需求类型
+  </view>
+  <view class="r">
+    {{task.title}}
+  </view>
+</view>
+<view class="item" wx:if="{{task.type==1||task.type==5}}">
+  <view>
+    使用环境
+  </view>
+  <view class="r">
+    {{task.ambient_txt}}
+  </view>
+</view>
+<view class="item" wx:if="{{task.type==5}}">
+  <view>
+    屏幕型号
+  </view>
+  <view class="r">
+    {{task.screen_txt}}
+  </view>
+</view>
+
+<view wx:if="{{task.type==1}}">
+
+  <view class="item">
+    <view>
+      显示颜色
+    </view>
+    <view class="r">
+      {{task.colorshow_txt}}
+    </view>
+  </view>
+
+  <view class="item">
+    <view>
+      产品型号
+    </view>
+    <view class="r">
+      {{task.modelnumber_txt}}
+    </view>
+  </view>
+</view>
+
+<view class="item" wx:if="{{task.type==1||task.type==5}}">
+  <view>
+    预计面积
+  </view>
+  <view class="r sup">
+    {{task.acreage}}m
+  </view>
+</view>
+
+<view wx:if="{{task.type==6}}">
+  <view class="item">
+    <view>
+      产品品牌
+    </view>
+    <view class="r">
+      {{task.brand}}
+    </view>
+  </view>
+  <view class="item">
+    <view>
+      产品名称
+    </view>
+    <view class="r">
+      {{task.goodname}}
+    </view>
+  </view>
+
+  <view class="item">
+    <view>
+      促销方式
+    </view>
+    <view class="r">
+      {{task.sale_txt}}
+    </view>
+  </view>
+  <view class="item">
+    <view>
+      活动总价(元)
+    </view>
+    <view class="r">
+      {{task.price}}
+    </view>
+  </view>
+  <view class="item">
+    <view>
+      是否包邮
+    </view>
+    <view class="r">
+      {{task.postage_txt}}
+    </view>
+  </view>
+  <view class="item">
+    <view>
+      是否含税
+    </view>
+    <view class="r">
+      {{task.tax_txt}}
+    </view>
+  </view>
+  <view class="item">
+    <view>
+      截止时间
+    </view>
+    <view class="r">
+      {{task.btime}}
+    </view>
+  </view>
+</view>
+
+<view wx:if="{{task.type==5}}">
+  <view class="item">
+    <view>
+      使用场景
+    </view>
+    <view class="r">
+      {{task.scene_txt}}
+    </view>
+  </view>
+
+  <view class="item">
+    <view>
+      使用日期
+    </view>
+    <view class="r">
+      {{task.btime}}
+    </view>
+  </view>
+
+  <view class="item">
+    <view>
+      使用天数
+    </view>
+    <view class="r">
+      {{task.usenum}}
+    </view>
+  </view>
+  <view class="item">
+    <view>
+      联系人
+    </view>
+    <view class="r">
+      {{task.link}}
+    </view>
+  </view>
+  <view class="item">
+    <view>
+      联系方式
+    </view>
+    <view class="r">
+      {{task.linkphone}}
+    </view>
+  </view>
+</view>
+
+
+<view class="item" wx:if="{{task.type==1||task.type==5}}">
+  <view>
+    所在地区
+  </view>
+  <view class="r">
+    {{task.provincename}}{{task.cityname}}{{task.areaname}}
+  </view>
+</view>
+<view class="item" wx:if="{{task.type==1||task.type==5}}">
+  <view>
+    详细地址
+  </view>
+  <view class="r">
+    {{task.address}}
+  </view>
+</view>
+
+<view class="pic" wx:if="{{task.type!=6}}">
+  现场实图
+</view>
+
+<view class="pic" wx:if="{{task.type==6}}">
+  产品图片
+</view>
+
+<view class="pics">
+  <image src="{{item}}" wx:for="{{task.pics}}" bindtap="preview" data-url="{{item}}"></image>
+</view>
+
+<view class="pic">
+  情况阐述
+</view>
+<view class="desc">
+  {{task.overview}}
+</view>
+
+<view class="footBtn" wx:if="{{task.btn_type==8}}">
+  <button class="ltBtn" hover-class="none" open-type='share'>转发给好友/群聊</button>
+  <button class="rtBtn" hover-class="none" bindtap="auth">分享到朋友圈</button>
+</view>
+<navigator url="../eval/eval?id={{task.id}}" hover-class="none" class="footBtn" wx:if="{{task.btn_type==7}}">
+  评价
+</navigator>
+
+<navigator url="../myEval/myEval?id={{task.id}}" hover-class="none" class="footBtn" wx:if="{{task.btn_type==6}}">
+  查看我的评价
+</navigator>
+
+<view class="bgp" wx:if="{{task.overdue==1}}">
+  <image src=" {{baseSrc}}gq.png"></image>
+</view>
+
+<view class="bgp" wx:if="{{task.is_end==1&&task.overdue==0}}">
+  <image src=" {{baseSrc}}js.png"></image>
+</view>

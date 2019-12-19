@@ -1,0 +1,4 @@
+@import '../releDeta/releDeta.wxss';
+#url{
+  color: #fb7313;
+}

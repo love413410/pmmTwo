@@ -1,0 +1,44 @@
+<view class="head">
+  <view class="imgBox" bindtap="rouTo" data-url="../../my/info/info">
+    <image src="{{avatar}}"></image>
+  </view>
+  <view hidden="{{hide}}">
+    <view class="top_">
+      <view class="lt name">
+        {{nickName}}
+      </view>
+      <view class="lt vipImg" hidden="{{user.is_vip==0}}">
+        <image src="{{baseSrc}}3.png"></image>
+      </view>
+    </view>
+    <view class="rz {{user.is_approve==2?'rzAdd':''}}" catchtap="renzTo">
+      {{str}}
+    </view>
+  </view>
+</view>
+
+<view class='item' bindtap="navTo" data-url="../setting/setting" wx:if="{{notRegister}}">
+  <text>支付密码设置</text>
+  <image src="{{baseSrc}}you.png"></image>
+</view>
+
+<view wx:else>
+  <view class='item' bindtap="navTo" data-url="../modify/modify">
+    <text>修改支付密码</text>
+    <image src="{{baseSrc}}you.png"></image>
+  </view>
+  <view class='item' bindtap="navTo" data-url="../retrieve/retrieve">
+    <text>找回支付密码</text>
+    <image src="{{baseSrc}}you.png"></image>
+  </view>
+</view>
+
+<view class='item' bindtap="addTo">
+  <text>收货地址管理</text>
+  <image src="{{baseSrc}}you.png"></image>
+</view>
+
+
+<view class="out" bindtap="out">
+  退出登录
+</view>

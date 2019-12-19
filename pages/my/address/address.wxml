@@ -1,0 +1,68 @@
+<view class="item">
+  <view>
+    <view class="lt">
+      <image src="{{baseSrc}}x.png"></image>
+    </view>
+    <view class="lt">
+      收货人
+    </view>
+  </view>
+  <view class="ipt">
+    <input placeholder="请输入" value="{{con}}" bindinput="valFn" data-val='con'></input>
+  </view>
+</view>
+
+<view class="item">
+  <view>
+    <view class="lt">
+      <image src="{{baseSrc}}x.png"></image>
+    </view>
+    <view class="lt">
+      联系方式
+    </view>
+  </view>
+  <view class="ipt">
+    <input placeholder="请输入" type="number" value="{{mod}}" bindinput="valFn" data-val='mod'></input>
+  </view>
+</view>
+
+
+
+<view class="item" style="border-bottom:none;" bindtap="link">
+  <view>
+    <view class="lt">
+      <image src="{{baseSrc}}x.png"></image>
+    </view>
+    <view class="lt">
+      所在地区
+    </view>
+  </view>
+  <view>
+    <view class="lt {{regStr=='选择省、市、区' ? 'gray' : ''}}">
+      {{regStr}}
+    </view>
+    <view class="lt">
+      <image src="{{baseSrc}}r.png"></image>
+    </view>
+  </view>
+</view>
+<link bind:linkFn="linkFn" bool='{{is}}'></link>
+
+
+<view class="item">
+  <view class="ipts">
+    <input placeholder="请填写详细地址(街道、楼牌号等)" value="{{idtName}}" bindinput="valFn" data-val='idtName'></input>
+  </view>
+  <view>
+    <view class="lt">
+      <image src="{{baseSrc}}ionc1.png"></image>
+    </view>
+    <view class="lt" style="color:#fb7f33" bindtap="getLoca">
+      自动定位
+    </view>
+  </view>
+</view>
+
+<view class="send" bindtap="send">
+  保存
+</view>

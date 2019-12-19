@@ -1,0 +1,79 @@
+page {
+  background-color: #fff;
+}
+
+.head {
+  width: 100%;
+  height: 410rpx;
+  background-color: #efefef;
+  position: relative;
+}
+
+.bgi {
+  width: 684rpx;
+  height: 370rpx;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.bgtext {
+  width: 360rpx;
+  height: 64rpx;
+  z-index: 2;
+  position: absolute;
+  left: 76rpx;
+  bottom: 106rpx;
+}
+
+.text {
+  width: 360rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  z-index: 3;
+  position: absolute;
+  left: 76rpx;
+  bottom: 106rpx;
+  font-size: 28rpx;
+  color: #ffe590;
+  text-align: center;
+}
+
+.tle {
+  width: 100%;
+  height: 120rpx;
+  padding-left: 30rpx;
+  box-sizing: border-box;
+}
+
+.tleBox {
+  width: 100%;
+  height: 100%;
+  border-bottom: 1px solid #efefef;
+  overflow: hidden;
+}
+
+.tleBox view {
+  width: 100%;
+  height: 30rpx;
+  font-size: 28rpx;
+  line-height: 30rpx;
+  text-indent: 26rpx;
+  color: #333;
+  border-left: 4rpx solid #fb7313;
+  box-sizing: border-box;
+  margin-top: 45rpx;
+}
+
+.tip {
+  width: 100%;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  font-size: 26rpx;
+  line-height: 40rpx;
+  color: #4d4d4d;
+}
+.tip view{
+  margin:40rpx 0;
+}

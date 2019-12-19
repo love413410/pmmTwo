@@ -1,0 +1,124 @@
+.page {
+  color: #4d4d4d;
+  font-size: 30rpx;
+}
+
+.header {
+  widows: 100%;
+  height: 94rpx;
+  line-height: 94rpx;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: solid 1px #e9e9e9;
+  padding: 0 40rpx;
+}
+
+.imageRight image {
+  width: 22rpx;
+  height: 30rpx;
+  margin: 32rpx 4rpx 0 0;
+}
+
+.font {
+  color: #fb7313;
+}
+.placeClick {
+  display: flex;
+}
+.weui-cell {
+  display: flex;
+}
+.weui-input {
+  width: 100rpx;
+  margin-top: 24rpx;
+  padding-right: 10rpx;
+  box-sizing:border-box;
+  text-align: right;
+}
+
+.remarks {
+  padding: 20rpx 40rpx;
+}
+
+.remarksContent {
+  line-height: 50rpx;
+}
+
+.textarea-wrp {
+  margin-top: 20rpx;
+}
+
+.textarea-wrp textarea {
+  background: #f2f2f2;
+  width: auto;
+  min-height: 150rpx;
+  border-radius: 8rpx;
+  padding: 20rpx;
+  line-height: 40rpx;
+}
+
+.btn {
+  width: 710rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  background: #fb7313;
+  color: #fff;
+  font-size: 34rpx;
+  border-radius: 10rpx;
+  margin: auto;
+  margin: 60rpx auto;
+}
+
+.up {
+  width: 100%;
+  padding: 10rpx 50rpx;
+  box-sizing: border-box;
+  border-bottom: 1px solid #efefef;
+  overflow: hidden;
+}
+
+.up-top {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  color: #8d8d8d;
+}
+
+.up-top text {
+  color: #cdcdcd;
+}
+
+.pic {
+  width: 150rpx;
+  height: 150rpx;
+  float: left;
+  margin-right: 10rpx;
+  margin-bottom: 10rpx;
+  border-radius: 10rpx;
+  position: relative;
+  overflow: hidden;
+}
+
+.pic image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.dele {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  padding: 5rpx;
+  z-index: 10;
+  right: 0;
+  top: 0;
+}
+
+.dele image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}

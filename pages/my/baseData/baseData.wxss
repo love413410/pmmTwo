@@ -1,0 +1,7 @@
+@import '../base/base.wxss';
+.item-box image{
+  width: 85rpx;
+  height: 85rpx;
+  margin-top: 17rpx;
+  margin-right: 35rpx;
+}

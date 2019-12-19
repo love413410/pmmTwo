@@ -1,0 +1,175 @@
+page {
+  padding-bottom: 100rpx;
+}
+
+.item {
+  width: 100%;
+  height: 95rpx;
+  line-height: 95rpx;
+  border-bottom: 1px solid #efefef;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  font-size: 30rpx;
+  color: #8d8d8d;
+}
+
+.sup {
+  position: relative;
+}
+
+.imgBox {
+  width: 26rpx;
+  height: 26rpx;
+}
+
+.lt image {
+  width: 26rpx;
+  height: 26rpx;
+  margin: 0 10rpx;
+}
+
+.gray {
+  color: #808080;
+}
+
+.ipt {
+  padding-right: 45rpx;
+  box-sizing: border-box;
+}
+
+.ipt input {
+  width: 100%;
+  height: 95rpx;
+  text-align: right;
+  /* color: #000; */
+}
+
+.ipts {
+  margin-left: 36rpx;
+  width: 70%;
+}
+
+.ipts input {
+  width: 100%;
+  height: 95rpx;
+}
+
+.up {
+  width: 100%;
+  /* height: 205rpx; */
+  padding: 10rpx 50rpx;
+  box-sizing: border-box;
+  border-bottom: 1px solid #efefef;
+  overflow: hidden;
+}
+
+.up-top {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  color: #8d8d8d;
+}
+
+.up-top text {
+  color: #cdcdcd;
+}
+
+.pic {
+  width: 150rpx;
+  height: 150rpx;
+  float: left;
+  margin-right: 10rpx;
+  margin-bottom: 10rpx;
+  border-radius: 10rpx;
+  position: relative;
+  overflow: hidden;
+}
+
+.pic image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.dele {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  padding: 5rpx;
+  z-index: 10;
+  right: 0;
+  top: 0;
+}
+
+.dele image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.desc {
+  padding: 10rpx 50rpx;
+}
+
+.desc .tle {
+  font-size: 30rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  color: #8d8d8d;
+}
+
+.desc-b {
+  width: 100%;
+  height: 150rpx;
+  border-radius: 10rpx;
+  /* padding: 20rpx; *//* box-sizing: border-box; */
+  border-top: 20rpx solid #fff;
+  border-bottom: 20rpx solid #fff;
+  font-size: 24rpx;
+  background-color: #f2f2f2;
+  position: relative;
+}
+
+.desc-b textarea {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 20rpx 10rpx;
+  box-sizing: border-box;
+  color: #808080;
+}
+
+.desc-b .desc_text {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 20rpx 10rpx;
+  box-sizing: border-box;
+  color: #808080;
+  word-break: break-all;
+}
+
+.footBtn {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  background-color: #fb7313;
+  color: #fff;
+  font-size: 36rpx;
+  border-radius: 0;
+}
+
+button[disabled]:not([type]) {
+  background-color: #ccc;
+}

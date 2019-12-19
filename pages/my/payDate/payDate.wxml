@@ -1,0 +1,28 @@
+<view class="item">
+  <view class="top">
+    <view class="imgBox">
+      <image src="{{pic}}"></image>
+    </view>
+    <view class="name">
+    {{matter}}
+    </view>
+    <view class="num">
+    {{amount}}
+    </view>
+  </view> 
+
+  <view class="bot">
+    <view class="list">
+    当前状态<text>{{status_txt}}</text>
+    </view>
+     <view class="list" hidden="{{is_button==0}}">
+    订单详情<text class="chakan" catchtap="navTo">查看</text>
+    </view>
+     <view class="list" hidden='{{is==1}}'>
+    支付时间<text>{{payTime}}</text>
+    </view>
+     <view class="list" hidden='{{is==0}}'>
+    收款时间<text>{{payTime}}</text>
+    </view>
+  </view>
+</view>

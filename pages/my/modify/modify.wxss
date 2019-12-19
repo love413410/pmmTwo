@@ -1,0 +1,68 @@
+page{
+  background-color: #f3f3f3
+}
+
+.pwd-modal {
+  z-index: 99;
+  border-radius: 8rpx;
+  text-align: center;
+}
+
+.ul {
+  display: flex;
+  margin: 94rpx 38rpx 10rpx;
+}
+
+.submit {
+  width: 90%;
+  border-radius: 10rpx;
+  margin: auto;
+  height: 98rpx;
+  background: #ef7e20;
+  color: #fff;
+  text-align: center;
+  line-height: 98rpx;
+  font-size: 34rpx;
+}
+
+.ul .li {
+  width: 100%;
+  height: 96rpx;
+  line-height: 94rpx;
+  border: 1rpx solid #ececeb;
+  border-right: 0 none;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 0;
+  background: #fff;
+}
+
+.ul .li:last-of-type {
+  border-right: 1rpx solid #ececeb;
+}
+
+.ul .li .circle {
+  display: inline-block;
+  vertical-align: middle;
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  background: black;
+}
+
+input {
+  text-indent: -9999rpx;
+  margin-left: -9999rpx;
+  opacity: 0;
+}
+
+.pass {
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  font-size: 32rpx;
+  padding: 0 40rpx;
+  margin-top: 100rpx;
+  font-weight: 600;
+}
+

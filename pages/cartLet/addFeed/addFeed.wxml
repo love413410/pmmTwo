@@ -1,0 +1,66 @@
+<view class="page">
+  <view class="header">
+    <view>{{regStr}}</view>
+    <view bindtap="getLoca" class="placeClick">
+      <view class="imageRight">
+        <image src="{{baseSrc}}place.png"></image>
+      </view>
+      <view class="font">点击定位</view>
+    </view>
+  </view>
+  <view class="up">
+    <view class="up-top">
+      上传照片
+    </view>
+    <view class="up-bot">
+      <view class="pic" wx:key="id" wx:for="{{pic}}" bindlongpress='showDel' data-type='pic' data-cid="{{index}}" bindtap="preview" data-url="{{item.src}}">
+        <view class="dele" wx:if="{{item.del}}" catchtap='delPhoto' data-type='pic' data-cid="{{index}}">
+          <image src="{{baseSrc}}close.png"></image>
+        </view>
+        <image src="{{item.src}}"></image>
+      </view>
+
+      <view hidden='{{pic.length >= 5}}' class="pic" bindtap='upPhoto' data-type='pic'>
+        <image src="{{baseSrc}}ph.png"></image>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="header">
+    <view>报销费用</view>
+    <view class="weui-cell weui-cell_input">
+      <input class="weui-input" type="number" placeholder="请输入" bindinput="valFn" data-type='val'/>
+      <text>元</text>
+    </view>
+  </view>
+
+
+  <view class="up">
+    <view class="up-top">
+      上传凭证
+    </view>
+    <view class="up-bot"> 
+      <view class="pic" wx:key="id" wx:for="{{voucher}}" bindlongpress='showDel' data-type='voucher' data-cid="{{index}}" bindtap="preview" data-url="{{item.src}}">
+        <view class="dele" wx:if="{{item.del}}" catchtap='delPhoto' data-type='voucher' data-cid="{{index}}">
+          <image src="{{baseSrc}}close.png"></image>
+        </view>
+        <image src="{{item.src}}"></image>
+      </view>
+
+      <view hidden='{{voucher.length >= 5}}' class="pic" bindtap='upPhoto' data-type='voucher'>
+        <image src="{{baseSrc}}ph.png"></image>
+      </view>
+    </view>
+  </view>
+
+  <view class="remarks">
+    <view class="remarksContent">备注</view>
+    <view class="textarea-wrp">
+      <textarea bindblur="bindTextAreaBlur" maxlength="100" placeholder="请填写备注内容 ( 0-100字 )" auto-height bindinput="valFn" data-type='desc'/>
+    </view>
+  </view>
+
+</view>
+
+<view class="btn" bindtap="subBtn">提交</view>

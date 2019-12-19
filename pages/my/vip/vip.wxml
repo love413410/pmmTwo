@@ -1,0 +1,89 @@
+<view class="head">
+  <image src="{{baseSrc}}vip1.png" class="bgi"></image>
+  <image src="{{baseSrc}}anniu.png" class="bgtext"></image>
+  <view class="text" wx:if="{{user.is_vip==0}}" bindtap="pay">
+    600元/年 立即开通
+  </view>
+  <view class="text" wx:if="{{user.is_vip==1}}" bindtap="pay">
+    续费({{user.vip_time}}过期)
+  </view>
+</view>
+
+<view class="tle">
+  <view class="tleBox">
+    <view>
+      会员特权
+    </view>
+  </view>
+</view>
+
+<paymen bind:payFn="payFn" bool='{{payIs}}'></paymen>
+<view class="mask" catchtouchmove bindtap="move" wx:if="{{mask==2?true:false}}">
+  <view class="pay_box">
+    <view class="pay_head">
+      <image src="{{baseSrc}}gb.png" class="pay_img" catchtap="move"></image>
+      请输入支付密码
+    </view>
+    <view class="pay_text">
+      屏买卖平台-VIP开通
+    </view>
+    <view class="pay_text pay_texts">
+      ￥5
+    </view>
+
+    <view class="pay_type">
+      <view class='pay_lt'>
+        支付方式
+      </view>
+
+      <view class='pay_rt'>
+        <image src="{{baseSrc}}lq.png" class="pay_lq"></image>
+        <view class='pay_lt pay_lqt'>
+          零钱
+        </view>
+      </view>
+    </view>
+
+    <view class='pay_contents'>
+      <block wx:for="{{6}}" wx:key="item">
+        <input class='pay_iptbox' value="{{Value.length>=index+1?Value[index]:''}}" disabled password catchtap='Tap'></input>
+      </block>
+    </view>
+    <input name="password" password type="number" class='pay_ipt_s' maxlength="6" focus="{{isFocus}}" bindinput="Focus"></input>
+  </view>
+</view>
+<popup bind:popupFn="popupFn" hide='{{is}}'></popup>
+
+
+<view class="mask" catchtouchmove bindtap="move" wx:if="{{mask==1?true:false}}">
+  <view class="maskBox">
+    <view class="ms_top">
+      <image src="{{baseSrc}}qy.png"></image>
+    </view>
+    <view class="ms_text">
+      个人用户需要通过企业认证才可开通VIP！
+    </view>
+    <view class="ms_btn" catchtap="auth">
+      去认证
+    </view>
+    <image src="{{baseSrc}}c.png" class="c" bindtap="move"></image>
+  </view>
+</view>
+
+<view class="tip">
+  <view>
+    1、VIP诚企用户具有诚信企业专属标识,发布订单时可显示在需求大厅首页,提高抢单者的积极性;
+  </view>
+  <view>
+    2、VIP诚企用户可同时操作5笔“终端客户询价/租赁大屏需求”类抢单,普通用户2笔;
+  </view>
+  <view>
+    3、VIP诚企用户可不限量发布“同行项目外包”类订单,普通用户每笔发布均需支付5元信保资金;
+  </view>
+  <view>
+    4、VIP诚企用户可在积分商城使用消费获得的积分兑换商品;
+  </view>
+  <view>
+    5、VIP诚企用户可在服务商企业名录查看10条企业负责人的联系方式。
+  </view>
+</view>
