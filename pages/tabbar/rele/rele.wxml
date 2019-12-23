@@ -1,20 +1,17 @@
-<!-- <navigator url="../../rele/auth/auth" hover-class="none"> -->
-  <view class="head" bindtap="auth">
-    <view class="headBox">
-      <image src="{{baseSrc}}yuyue.png" class="lt"></image>
-      <view class="lt text">
-        <view class="top">
-          企业认证
-        </view>
-        <view class="btm">
-          通过企业认证才可发布全部类型需求
-        </view>
+<view class="head" bindtap="auth">
+  <view class="headBox">
+    <image src="{{baseSrc}}yuyue.png" class="lt"></image>
+    <view class="lt text">
+      <view class="top">
+        企业认证
       </view>
-      <image src="{{baseSrc}}you.png" class="rt"></image>
+      <view class="btm">
+        通过企业认证才可发布全部类型需求
+      </view>
     </view>
+    <image src="{{baseSrc}}you.png" class="rt"></image>
   </view>
-<!-- </navigator> -->
-
+</view>
 <view class="item" bindtap="toRou" data-url='{{item.url}}' wx:for="{{list}}">
   <view class="imgBox">
     <image src="{{item.img}}"></image>
@@ -32,30 +29,20 @@
   </view>
 </view>
 
-
-<!-- <view class="sb_item" bindtap="isFn">
-  <view class="sb_top">
-    <image src="{{baseSrc}}rele7.png" class="lt"></image>
-    <view class="lt desc">
-      <view class="top">
-        厂家技术预约服务
-      </view>
-      <view class="bot">
-        卡莱特技术预约
-      </view>
-    </view>
-    <image src="{{baseSrc}}r.png" class="rt r-jt {{isHide?'deg':''}}"></image>
-  </view>
-
-
-
-  <view class="hideItem" hidden="{{!isHide}}" catchtap="toRou" data-url='../../rele/fact/fact'>
-    <view class="lt">
-      卡莱特厂家
-    </view>
-    <image src="{{baseSrc}}r.png" class="rt r-jt"></image>
-  </view>
-</view> -->
-
-
 <popup bind:popupFn="popupFn" hide='{{is}}'></popup>
+
+
+<view class="mask" catchtouchmove bindtap="move" wx:if="{{mask==1?true:false}}">
+  <view class="maskBox">
+    <view class="ms_top">
+      <image src="{{baseSrc}}qy.png"></image>
+    </view>
+    <view class="ms_text">
+      个人用户需要通过企业认证才可发布此类订单！
+    </view>
+    <view class="ms_btn" catchtap="toAuth">
+      去认证
+    </view>
+    <image src="{{baseSrc}}c.png" class="c" bindtap="move"></image>
+  </view>
+</view>

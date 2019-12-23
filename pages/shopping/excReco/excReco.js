@@ -12,21 +12,22 @@ Page({
     idx: 0,
     page: 1,
     pagesize: 20,
-    list:[],
-    uid: app.globalData.uid
+    list:[]
   },
   onLoad: function(o) {
     if(o.id){
       this.setData({
-        uid: o.id,
         idx:o.t
-      })
+      });
+      app.globalData.uid = o.id;
+      this.exlist();
+    }else{
+      this.exlist();
     }
-    this.exlist();
-  },
+  }, 
   exlist(){
     _get(exlist, {
-      userid: this.data.uid,
+      userid: app.globalData.uid,
       status:this.data.idx,
       page: this.data.page,
       pagesize: this.data.pagesize

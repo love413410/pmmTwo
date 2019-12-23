@@ -52,7 +52,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 5,
 			"list": [
 				{
 					"id": -1,
@@ -87,6 +87,12 @@
 					"name": "pages/tabbar/rele/rele",
 					"pathName": "pages/tabbar/rele/rele",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/tabbar/rele/rele",
+					"pathName": "pages/tabbar/rele/rele",
 					"scene": null
 				}
 			]

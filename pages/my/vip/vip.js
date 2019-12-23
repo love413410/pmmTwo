@@ -27,7 +27,7 @@ Page({
       this.setData({
         is: true
       })
-      return
+      return false;
     };
     this.myDeta();
   },

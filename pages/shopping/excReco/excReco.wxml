@@ -45,7 +45,7 @@
           <!-- <view class="lt"> -->
             {{item.express_company}} {{item.express_num}}
           <!-- </view> -->
-          <image src="{{baseSrc}}fuzhi.png"></image>
+          <image src="{{baseSrc}}fuzhi.png" wx:if="{{item.estatus==3}}"></image>
         </view>
 
 

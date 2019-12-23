@@ -56,7 +56,7 @@ Page({
     releText: '立即发布'
   },
   onLoad: function(options) {
-
+    
   },
   pickFn(e) {
     this.setData({
@@ -167,15 +167,6 @@ Page({
       })
     }
   },
-
-
-
-
-
-
-
-
-
   //获取用户当前位置
   getLoca() {
     const _this = this;
@@ -242,9 +233,13 @@ Page({
   },
 
   auth() {
-    wx.navigateTo({
-      url: '../auth/auth'
+    var src = this.data.isis == 0 ? '../auth/auth' : '../auth2/auth2';
+    this.setData({
+      mask: -1
     });
+    wx.navigateTo({
+      url: src
+    })
   },
   // 上传图片
   upPhoto() {
@@ -480,6 +475,7 @@ Page({
         mask = -1;
       }
       _this.setData({
+        isis: isA,
         iss: iss,
         mask: mask
       })

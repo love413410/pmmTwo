@@ -32,7 +32,7 @@ Page({
     releText: '立即发布'
   },
   onLoad: function (options) {
-
+    
   },
   pickFn(e) {
     this.setData({
@@ -249,6 +249,9 @@ Page({
   },
   auth() {
     var src = this.data.isis == 0 ? '../auth/auth' : '../auth2/auth2';
+    this.setData({
+      mask: -1
+    });
     wx.navigateTo({
       url: src
     })
@@ -331,8 +334,10 @@ Page({
       userid: app.globalData.uid
     }).then(res => {
       const isis = res.content.user.is_approve;
+      var mask = isis == 2 ? mask = -1 : 1;
       this.setData({
-        isis: isis
+        isis: isis,
+        mask: mask
       })
     })
   },

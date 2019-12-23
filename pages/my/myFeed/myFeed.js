@@ -12,21 +12,20 @@ Page({
     page:1,
     pagesize:20,
     list:[],
-    is:-1,
-    uid: app.globalData.uid
+    is:-1
   }, 
   onLoad: function (o) {
     if(o.id){
-      this.setData({
-        uid:o.id
-      })
+      app.globalData.uid = o.id;
+      this.lookFn();
+    }else{
+      this.lookFn();
     }
-    this.lookFn();
   },
   lookFn(){
     const _this=this;
     _get(mySugg, {
-      userid: this.data.uid,
+      userid: app.globalData.uid,
       page: this.data.page,
       pagesize: this.data.pagesize
     }).then(res => {

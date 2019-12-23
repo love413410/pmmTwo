@@ -52,7 +52,6 @@ Page({
     }).then(res => { 
       if (res.code == 1) {
         const list = res.content.list;
-        console.log(list)
         _this.setData({
           list: [..._this.data.list, ...list]
         })
@@ -68,7 +67,6 @@ Page({
   },
   rouTo(e) {
     const id = e.currentTarget.dataset.id;
-    console.log(id)
     wx.navigateTo({
       url: '../sendData/sendData?to=2&id='+id
     })

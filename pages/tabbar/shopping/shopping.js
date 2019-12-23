@@ -40,7 +40,7 @@ Page({
       this.setData({
         is: true
       })
-      return
+      return false;
     }
     const _this = this;
     _get(myDeta, {
