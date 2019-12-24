@@ -1,14 +1,26 @@
 <checkbox-group class="radio-group" bindchange="checkFn">
-  <view class="item" wx:for="{{list}}" wx:key="{{item.id}}" >
+  <view class="item" wx:for="{{list}}" wx:key="{{item.id}}">
     <view class="item-box">
-      <image src="{{item.img}}" class="lt" catchtap="navTo" data-item="{{item}}"></image>
-      <view class="lt center" catchtap="navTo" data-item="{{item}}">
+      <view class="imgBoxs lt" catchtap="navTo" data-type="{{item.type}}" data-url="{{item.content}}" data-id="{{item.id}}">
+        <image src="{{item.img}}"></image>
+        <view class="form f1" wx:if="{{item.type==3}}">
+          {{item.imagetype}}
+        </view>
+        <view class="form f2" wx:if="{{item.type==2}}">
+          {{item.imagetype}}
+        </view>
+      </view>
+      <view class="lt center" catchtap="navTo" data-type="{{item.type}}" data-url="{{item.content}}" data-id="{{item.id}}">
         <view class="tle">
           {{item.name}}
-        </view> 
-
-        <view class="date">
-          {{item.ctime}}
+        </view>
+        <view>
+          <view class="date">
+            {{item.ctime}}
+          </view>
+          <view class="date" wx:if="{{item.type==2||item.type==3}}">
+            |{{item.filesize}}
+          </view>
         </view>
       </view>
       <view class="rt check">

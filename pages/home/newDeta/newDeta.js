@@ -92,9 +92,10 @@ Page({
     })
   },
   payFn(e) {
-    if (e.detail == 1) {
-      const _this = this;
-      const taskid = _this.data.taskid;
+    const _this = this;
+    const val = e.detail;
+    const taskid = this.data.taskid;
+    if (val == 1) {
       _post(robPay, {
         userid: app.globalData.uid,
         payType: 1,
@@ -121,12 +122,12 @@ Page({
           })
         }
       })
-    } else if (e.detail == 2) {
+    } else if (val == 2) {
       this.setData({
         mask: 2,
         isFocus: true
       })
-    } else {
+    } else if (val == -1) {
       app.toast('暂未设置支付密码！')
     }
   },

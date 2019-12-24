@@ -33,7 +33,7 @@ Page({
     eye: 2
   },
   onLoad: function(options) {
-    
+
   },
   pickFn(e) {
     this.setData({
@@ -84,12 +84,14 @@ Page({
     this.getLocat()
   },
   payFn(e) {
-    if (e.detail == 1) {
-      const _this = this;
+    const _this = this;
+    const val = e.detail;
+    const taskid = this.data.taskid;
+    if (val == 1) {
       _post(pay, {
         userid: app.globalData.uid,
         payType: 1,
-        taskid: this.data.taskid
+        taskid: taskid
       }).then(res => {
         if (res.code == 1) {
           const msg = res.content.data.msg;
@@ -108,13 +110,17 @@ Page({
           })
         }
       })
-    } else if (e.detail == 2) {
+    } else if (val == 2) {
       this.setData({
         mask: 2,
         isFocus: true
       })
-    } else {
+    } else if (val == -1) {
       app.toast('暂未设置支付密码！')
+    } else if (val == -2) {
+      wx.redirectTo({
+        url: '../../my/detaSan/detaSan?id=' + taskid
+      })
     }
   },
   Focus(e) {

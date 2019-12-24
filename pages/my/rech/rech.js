@@ -142,9 +142,9 @@ Page({
 
   payFn(e) {
     const _this = this;
+    const val = e.detail;
     const item = this.data.item;
-    if (e.detail == 1) {
-      const _this = this;
+    if (val == 1) {
       const data={
         userid: app.globalData.uid,
         payType: 1,
@@ -173,12 +173,12 @@ Page({
           })
         }
       })
-    } else if (e.detail == 2) {
+    } else if (val == 2) {
       this.setData({
         mask: 2,
         isFocus: true
       })
-    } else {
+    } else if (val == -1) {
       app.toast('暂未设置支付密码！')
     }
   },

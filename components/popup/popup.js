@@ -29,7 +29,6 @@ Component({
       if (app.globalData.is) {
         this.code();
       }
-
     } else if (this.data.canIUse) {
       app.userInfoReadyCallback = res => {
         this.setData({

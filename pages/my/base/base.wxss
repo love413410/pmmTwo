@@ -3,6 +3,23 @@ page{
   padding-bottom: 95rpx;
   box-sizing: border-box;
 }
+/* .item{
+  width: 100%;
+  padding-left: 30rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+.item-box{
+  width: 100%;
+  height: 120rpx;
+  border-bottom: 1px solid #efefef;
+}
+.item-box image.lt{
+  width: 78rpx;
+  height: 70rpx;
+  margin-top: 25rpx;
+  margin-right: 35rpx;
+} */
 .item{
   width: 100%;
   padding-left: 30rpx;
@@ -14,25 +31,52 @@ page{
   height: 120rpx;
   border-bottom: 1px solid #efefef;
 }
-.item-box image{
+.imgBoxs{
   width: 78rpx;
   height: 70rpx;
   margin-top: 25rpx;
   margin-right: 35rpx;
+  position: relative;
 }
+.imgBoxs image{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.form{
+  position: absolute;
+  left: 0;
+  bottom: 12rpx;
+  width: 100%;
+  height: 22rpx;
+  line-height: 22rpx;
+  font-size: 20rpx;
+  text-align: center;
+  color: #fff;
+}
+.f1{
+  background-color: #efcb35;
+}
+.f2{
+  background-color: #71a2e2;
+}
+
 .center{
   width: 500rpx;
 }
 .tle{
   height: 60rpx;
   font-size: 32rpx;
-  line-height: 90rpx; 
+  line-height: 85rpx; 
   color: #303442;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 .date{
+  float: left;
   height: 60rpx;
   font-size: 30rpx;
   line-height: 60rpx;

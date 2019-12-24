@@ -87,9 +87,9 @@ Page({
     }
   },
   payFn(e) {
-    const is = e.detail;
-    if (is == 1) {
-      const _this = this;
+    const _this = this;
+    const val = e.detail;
+    if (val == 1) {
       _post(vipCall, {
         userid: app.globalData.uid,
         payType: 1
@@ -109,12 +109,12 @@ Page({
           })
         }
       })
-    } else if (is == 2) {
+    } else if (val == 2) {
       this.setData({
         mask: 2,
         isFocus: true
       })
-    } else {
+    } else if (val == -1) {
       app.toast('暂未设置支付密码！')
     }
   },

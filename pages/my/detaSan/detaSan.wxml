@@ -433,25 +433,6 @@
   立即发布
 </cover-view>
 
-
-
-
-<view class="mask" catchtouchmove bindtap="move" wx:if="{{mask==1?true:false}}">
-  <view class="maskBox">
-    <view class="ms_top">
-      <image src=" {{baseSrc}}qy.png"></image>
-    </view>
-    <view class="ms_text">
-      个人用户需要通过企业认证才可发布此类订单！
-    </view>
-    <view class="ms_btn" catchtap="auth">
-      去认证
-    </view>
-    <image src=" {{baseSrc}}c.png" class="c" bindtap="move"></image>
-  </view>
-</view>
-
-
 <link bind:linkFn="linkFn" bool='{{is}}'></link>
 <paymen bind:payFn="payFn" bool='{{payIs}}'></paymen>
 <view class="mask" catchtouchmove bindtap="move" wx:if="{{mask==2?true:false}}">

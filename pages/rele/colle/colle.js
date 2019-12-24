@@ -94,12 +94,14 @@ Page({
   },
   // payIs
   payFn(e) {
-    if (e.detail == 1) {
-      const _this = this;
+    const _this = this;
+    const val = e.detail;
+    const taskid = this.data.taskid;
+    if (val == 1) {
       _post(pay, {
         userid: app.globalData.uid,
         payType: 1,
-        taskid: this.data.taskid
+        taskid: taskid
       }).then(res => {
         if (res.code == 1) {
           const msg = res.content.data.msg;
@@ -120,13 +122,17 @@ Page({
           })
         }
       })
-    } else if (e.detail == 2) {
+    } else if (val == 2) {
       this.setData({
-        mask: 1,
+        mask: 2,
         isFocus: true
       })
-    } else {
+    } else if (val == -1) {
       app.toast('暂未设置支付密码！')
+    } else if (val == -2) {
+      wx.redirectTo({
+        url: '../../my/detaSan/detaSan?id=' + taskid
+      })
     }
   },
   Focus(e) {
@@ -402,7 +408,7 @@ Page({
       //1为个人,就提示去认证
       this.setData({
         mask: 1
-      })
+      });
     } else if (is == 2) {
       this.decr(data)
     } else {
@@ -461,7 +467,7 @@ Page({
     }).then(res => {
       const isA = res.content.user.is_approve;
       const isB = res.content.user.is_vip;
-      let iss, mask; //1为个人 2为企业用户 3为诚企
+      let iss, mask; 
       if (isB == 0) {
         if (isA == 2) {
           iss = 2;

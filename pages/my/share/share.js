@@ -35,7 +35,7 @@ Page({
     };
     wx.showLoading({
       title: '图片正在生成'
-    })
+    });
     _post(createQcode, {
       page: src,
       id: id

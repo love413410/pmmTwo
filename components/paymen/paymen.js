@@ -32,7 +32,8 @@ Component({
     move(){
       this.setData({
         bool:true
-      })
+      });
+      this.triggerEvent("payFn", -2);
     },
     conf(){
       this.setData({
@@ -44,6 +45,7 @@ Component({
           userid: app.globalData.uid
         }).then(res => {
           if (res.code == 1) {
+            console.log(res)
             this.triggerEvent("payFn", -1);
           } else {
             this.triggerEvent("payFn", this.data.contr);

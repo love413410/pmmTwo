@@ -60,31 +60,46 @@ Page({
       const ty=task.type;
       const url = task.content;
       if (ty==2){
+        wx.showLoading({
+          title: '正在打开文档'
+        });
         wx.downloadFile({
           url: url,
           success: function (res) {
             const path = res.tempFilePath;
-            wx.saveFile({
-              tempFilePath: path,
-              success(r) {
-                const paths = r.savedFilePath;
-                wx.openDocument({
-                  filePath: paths
-                })
+            wx.openDocument({
+              filePath: path,
+              success: function () {
+                wx.hideLoading();
+              },
+              fail: function () {
+                app.toast('文档打开失败！');
+                wx.hideLoading();
               }
             })
           },
           fail: function (err) {
-            app.toast('打开失败！')
+            wx.hideLoading();
+            app.toast('打开失败！');
           }
         });
       };
       if (ty==3){
         var pics = [];
-        pics.push(url)
+        pics.push(url);
+        wx.showLoading({
+          title: '正在寻找图片资源'
+        });
         wx.previewImage({
           current: url,
-          urls: pics
+          urls: pics,
+          success: function () {
+            wx.hideLoading();
+          },
+          fail: function () {
+            app.toast('图片打开失败！');
+            wx.hideLoading();
+          }
         })
       }
     }

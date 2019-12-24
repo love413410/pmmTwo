@@ -174,11 +174,13 @@ Page({
   },
   payFn(e) {
     const _this = this;
-    if (e.detail == 1) {
+    const val = e.detail;
+    const taskid = this.data.id;
+    if (val == 1) {
       _post(comCall, {
         userid: app.globalData.uid,
         payType: 1,
-        approveid: _this.data.id
+        approveid: taskid
       }).then(res => {
         if (res.code == 1) {
           const msg = res.content.data.msg;
@@ -198,12 +200,12 @@ Page({
           })
         }
       })
-    } else if (e.detail == 2) {
+    } else if (val == 2) {
       this.setData({
         mask: 2,
         isFocus: true
       })
-    } else {
+    } else if (val == -1) {
       app.toast('暂未设置支付密码！')
     }
   },

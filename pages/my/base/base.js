@@ -64,16 +64,15 @@ Page({
     })
   },
   navTo(e) {
-    const item = e.currentTarget.dataset.item;
-    const type = item.type;
+    const type = e.currentTarget.dataset.type;
     if (type == 1) {//如果为1,就是文件夹类型,去下一层
-      const id = item.id;
+      const id = e.currentTarget.dataset.id;
       wx.navigateTo({
         url: '../baseData/baseData?id=' + id
       })
       return false;
     }
-    const url = item.content;
+    const url = e.currentTarget.dataset.url;
     if (type == 2) { //如果为2,就是文件类型在线预览
       this.lookFile(url)
     }
@@ -83,32 +82,73 @@ Page({
   },
   // 打开文档
   lookFile(url){
+    wx.showLoading({
+      title: '正在打开文档'
+    });
     wx.downloadFile({
       url: url,
       success: function (res) {
         const path = res.tempFilePath;
-        wx.saveFile({
-          tempFilePath: path,
-          success(r) {
-            const paths = r.savedFilePath;
-            wx.openDocument({
-              filePath: paths
-            })
+        wx.openDocument({
+          filePath: path,
+          success: function () {
+            wx.hideLoading();
+          },
+          fail: function () {
+            app.toast('文档打开失败！');
+            wx.hideLoading();
           }
         })
       },
       fail: function (err) {
-        app.toast('打开失败！')
+        wx.hideLoading();
+        app.toast('打开失败！');
       }
     });
+    // wx.downloadFile({
+    //   url: url,
+    //   success: function (res) {
+    //     const path = res.tempFilePath;
+    //     wx.saveFile({
+    //       tempFilePath: path,
+    //       success(r) {
+    //         const paths = r.savedFilePath;
+    //         wx.openDocument({
+    //           filePath: paths,
+    //           success: function () {
+    //             wx.hideLoading();
+    //           },
+    //           fail: function () {
+    //             app.toast('文档打开失败！');
+    //             wx.hideLoading();
+    //           }
+    //         })
+    //       }
+    //     })
+    //   },
+    //   fail: function (err) {
+    //     wx.hideLoading();
+    //     app.toast('打开失败！')
+    //   }
+    // });
   },
   //查看图片
   lookPic(url){
     var pics = [];
-    pics.push(url)
+    pics.push(url);
+    wx.showLoading({
+      title: '正在寻找图片资源'
+    });
     wx.previewImage({
       current: url,
-      urls: pics
+      urls: pics,
+      success: function () {
+        wx.hideLoading();
+      },
+      fail: function () {
+        app.toast('图片打开失败！');
+        wx.hideLoading();
+      }
     })
   },
   checkFn(e) {
@@ -145,6 +185,7 @@ Page({
     var type = item.type;
     var pic = item.img;
     var id = item.id;
+    var name = item.name;
     if(type){
       var src;
       if(type==1){
@@ -153,7 +194,7 @@ Page({
         src = 'pages/my/baseFile/baseFile?id=' + id
       }
       return {
-        title: '屏买卖',
+        title: name,
         path: src,
         imageUrl: pic
       }

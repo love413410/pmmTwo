@@ -9,7 +9,7 @@ const {
   getCity,
   upload,
   decr,
-  decrDeta, 
+  decrDeta,
   myDeta
 } = require('../../../utils/urls.js');
 Page({
@@ -53,7 +53,7 @@ Page({
 
     regStr: '选择省、市、区',
     photos: []
-    
+
 
   },
   onLoad: function(o) {
@@ -71,8 +71,8 @@ Page({
       }
       var picStr = type == 4 ? '样品图片' : type == 6 ? '产品图片' : '现场实图';
       const pics = task.pics;
-      var tempPic=[];
-      for(let i=0;i<pics.length;i++){
+      var tempPic = [];
+      for (let i = 0; i < pics.length; i++) {
         var obj = {
           del: false,
           src: pics[i]
@@ -80,7 +80,7 @@ Page({
         tempPic.push(obj)
       }
       this.setData({
-        id:task.id,
+        id: task.id,
         type: type,
         pickIdx1: task.ambient,
         pickIdx2: task.colorshow,
@@ -92,15 +92,15 @@ Page({
         pickIdx8: task.sale,
         pickIdx9: task.postage,
         pickIdx10: task.tax,
-        
+
         goodname: task.goodname,
         bra: task.brand,
         mode: task.modalnum,
         estPx: task.acreage,
-        
+
         price: task.price,
         num: task.buynum,
-        
+
         con: task.link,
         mod: task.linkphone,
         idtName: task.address,
@@ -200,17 +200,16 @@ Page({
     });
   },
 
-  releFn(){
+  releFn() {
     const type = this.data.type;
-    type == 2 ? this.collFn() : type == 4 ?this.counFn():this.newFn();
-    
+    type == 2 ? this.collFn() : type == 4 ? this.counFn() : this.newFn();
   },
-  collFn(){
+  collFn() {
     let [a, b, c] = [this.data.pickIdx1, this.data.pickIdx2, this.data.pickIdx3];
     let d = this.data.estPx;
     let [e, f, g] = [this.data.pickIdx5, this.data.pickIdx6, this.data.pickIdx7];
     let [h, i, j] = [this.data.con, this.data.mod, this.data.idtName];
-    if (!app.trim(d)){
+    if (!app.trim(d)) {
       app.toast('请输入净屏面积！')
       return;
     }
@@ -232,14 +231,15 @@ Page({
       tempPic.push(photos[i].src)
     }
     const str = tempPic.join(',');
-    var data={
+    var data = {
       userid: app.globalData.uid,
       id: this.data.id,
+      status: 0,
       type: 2,
       ambient: a,
       colorshow: b,
       modelnumber: c,
-      acreage:d,
+      acreage: d,
       service: e,
       install: f,
       maintain: g,
@@ -255,27 +255,16 @@ Page({
       pic: str,
       overview: this.data.ela,
     };
-    this.myDeta();
-    const is=this.data.iss;
-    if(is==2){
-      this.setData({
-        mask:2
-      })
-    }else if(is==3){
-
-      const _this = this;
-      _post(pay, data).then(res => {
-        if (res.code == 1) {
-          _this.setData({
-            payIs: false
-          })
-        }
-      })
-
-
-    }
+    const _this = this;
+    _post(pay, data).then(res => {
+      if (res.code == 1) {
+        _this.setData({
+          payIs: false
+        })
+      }
+    })
   },
-  counFn(){
+  counFn() {
     const [a, b, c, d] = [this.data.bra, this.data.goodname, this.data.mode, this.data.num];
     const [e, f] = [this.data.pickIdx9, this.data.pickIdx10];
     const [g, h] = [this.data.idtName, this.data.date];
@@ -305,9 +294,10 @@ Page({
       tempPic.push(photos[i].src)
     }
     const str = tempPic.join(',');
-    const data={
+    const data = {
       userid: app.globalData.uid,
       id: this.data.id,
+      status: 0,
       type: 4,
       brand: a,
       goodname: b,
@@ -326,7 +316,7 @@ Page({
       overview: this.data.ela
     };
     _post(decr, data).then(res => {
-      if (res.code !=1) {
+      if (res.code != 1) {
         app.toast(res.msg)
       } else if (res.code == 1) {
         this.setData({
@@ -336,7 +326,7 @@ Page({
     })
   },
 
-  newFn(){
+  newFn() {
     const [a, b, c, d] = [this.data.pickIdx4, this.data.bra, this.data.goodname, this.data.pickIdx8];
     const [e, f, g, h] = [this.data.price, this.data.pickIdx9, this.data.pickIdx10, this.data.date];
     if (!app.trim(b)) {
@@ -357,9 +347,10 @@ Page({
       tempPic.push(photos[i].src)
     }
     const str = tempPic.join(',');
-    const data={
+    const data = {
       userid: app.globalData.uid,
       id: this.data.id,
+      status: 0,
       type: 6,
       demandtype: a,
       brand: b,
@@ -371,35 +362,26 @@ Page({
       btime: h,
       pic: str,
       overview: this.data.ela
-    }
-    this.myDeta();
-    const is = this.data.iss;
-    if (is == 2) {
-      this.setData({
-        mask: 2
-      })
-    } else if (is == 3) {
-      _post(decr, data).then(res => {
-        
-        if (res.code != 1) {
-          app.toast(res.msg)
-        } else if (res.code == 1) {
-          
-          this.setData({
-            payIs: false
-          })
-        }
-      })
-    }
-    
+    };
+    _post(decr, data).then(res => {
+      if (res.code != 1) {
+        app.toast(res.msg)
+      } else if (res.code == 1) {
+        this.setData({
+          payIs: false
+        })
+      }
+    })
   },
   payFn(e) {
-    if (e.detail == 1) {
-      const _this = this;
+    const _this = this;
+    const val = e.detail;
+    const taskid = this.data.id;
+    if (val == 1) {
       _post(pay, {
         userid: app.globalData.uid,
         payType: 1,
-        taskid: this.data.id
+        taskid: taskid
       }).then(res => {
         if (res.code == 1) {
           const msg = res.content.data.msg;
@@ -411,19 +393,21 @@ Page({
             paySign: msg.paySign,
             success(res) {
               app.toast('发布成功', 'success');
-              wx.navigateBack({
-                delta: 1
-              })
+              setTimeout(function() {
+                wx.navigateBack({
+                  delta: 1
+                })
+              }, 1500);
             },
           })
         }
       })
-    } else if (e.detail == 2) {
+    } else if (val == 2) {
       this.setData({
         mask: 2,
         isFocus: true
       })
-    } else {
+    } else if (val == -1) {
       app.toast('暂未设置支付密码！')
     }
   },
@@ -465,15 +449,7 @@ Page({
         }
       })
     }
-
   },
-
-
-
-
-
-
-
   //获取用户当前位置
   getLoca() {
     const _this = this;
@@ -531,52 +507,18 @@ Page({
       })
     })
   },
-
   move() {
     this.setData({
       mask: -1
     })
   },
-
-  auth() {
-    wx.navigateTo({
-      url: '../auth/auth'
-    });
-  },
-  onShow:function(){
-    this.myDeta();
+  onShow: function() {
     const date = new Date();
     const y = date.getFullYear();
     const m = date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1;
     const d = date.getDate() < 10 ? '0' + (date.getDate()) : date.getDate();
     this.setData({
       start: `${y}-${m}-${d}`
-    })
-  },
-  myDeta() {
-    const _this = this;
-    _get(myDeta, {
-      userid: app.globalData.uid
-    }).then(res => {
-      const isA = res.content.user.is_approve;
-      const isB = res.content.user.is_vip;
-      let iss, mask; //1为个人 2为企业用户 3为诚企
-      if (isB == 0) {
-        if (isA == 2) {
-          iss = 2;
-          mask = -1;
-        } else {
-          iss = 1;
-          mask = 1;
-        }
-      } else {
-        iss = 3;
-        mask = -1;
-      }
-      _this.setData({
-        iss: iss,
-        mask: mask
-      })
     })
   },
   onShareAppMessage: function() {

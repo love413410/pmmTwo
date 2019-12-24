@@ -44,9 +44,9 @@ Page({
   onShow: function() {
     this.setData({
       list: [],
-      page: 1,
+      page: 1
     });
-    this.getLoca();
+    this.getLoca();//wx.getStorageSync('is')
   },
   leveFn() {
     this.setData({
