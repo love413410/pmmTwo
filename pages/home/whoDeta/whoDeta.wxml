@@ -104,22 +104,22 @@
   </view>
 </view>
 
-<!-- <button class="footBtn bg1" wx:if="{{btn}}" bindtap="authFn">
-  分享
-</button> -->
 <view wx:if="{{btn}}" class="footBtn">
   <button class="ltBtn" hover-class="none" open-type='share'>转发给好友/群聊</button>
   <button class="rtBtn" hover-class="none" bindtap="authFn">分享到朋友圈</button>
 </view>
-<button class="footBtn" bindtap="robFn" wx:if="{{task.btn_type==1&&!btn}}">
-  立即抢单
-</button>
+<view wx:if="{{!i}}">
+  <button class="footBtn" bindtap="robFn" wx:if="{{task.btn_type==1&&!btn}}">
+    立即抢单
+  </button>
+</view>
 
-<cover-view class="footBtn bg3" wx:if="{{i==1}}" bindtap="price">
-  去付款
-</cover-view>
-<cover-view class="footBtn bg4" wx:if="{{i==2}}" bindtap="back">
-  评价
+<cover-view class="footBtn bg3" wx:if="{{i>0}}">
+  <cover-view class="footBtn bg3" wx:if="{{i==1}}" bindtap="price">
+    去付款
+  </cover-view>
+  <cover-view class="footBtn bg4" wx:if="{{i==2}}" bindtap="back">
+    评价
+  </cover-view>
 </cover-view>
 <popup bind:popupFn="popupFn" hide='{{is}}'></popup>
-

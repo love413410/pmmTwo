@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "我的抢单",
-  "usingComponents": {}
+  "usingComponents": {
+    "paymen": "../../../components/paymen/paymen"
+  }
 }

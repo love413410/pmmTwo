@@ -233,7 +233,7 @@ Page({
       if (res.code == 1) {
         setTimeout(function () {
           wx.switchTab({
-            url: '../../tabbar/home/home',
+            url: '../../tabbar/home/home'
           })
         }, 1000);
         app.toast('发布成功', 'success')

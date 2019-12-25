@@ -103,7 +103,7 @@ Page({
             paySign: msg.paySign,
             success(res) {
               wx.switchTab({
-                url: '../../tabbar/home/home',
+                url: '../../tabbar/home/home'
               })
               app.toast('发布成功', 'success')
             },
@@ -152,7 +152,7 @@ Page({
               });
               setTimeout(function() {
                 wx.switchTab({
-                  url: '../../tabbar/home/home',
+                  url: '../../tabbar/home/home'
                 })
               }, 1000);
             }

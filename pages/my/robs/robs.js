@@ -7,7 +7,9 @@ const {
   baseSrc,
   myRob,
   discuss,
-  comple
+  comple,
+  robPay,
+  passwo
 } = require('../../../utils/urls.js');
 Page({
   data: {
@@ -18,7 +20,8 @@ Page({
     list: [],
     sub: 0,
     isTrue: 1,
-    good:1
+    good:1,
+    payIs: true
   },
   onLoad: function(options) {
 
@@ -68,6 +71,7 @@ Page({
     }
     _get(myRob, data).then(res => {
       const list = res.content.list;
+      console.log(list)
       _this.setData({
         list: [..._this.data.list, ...list],
         ztotal: res.content.ztotal,
@@ -102,7 +106,8 @@ Page({
   rouTo(e) {
     const id = e.currentTarget.dataset.id;
     const ty = e.currentTarget.dataset.ty;
-    const is = this.data.sub;
+    const is = e.currentTarget.dataset.go;
+    console.log(is)
     let src;
     switch (ty) {
       case '1':
@@ -156,6 +161,94 @@ Page({
       url: '../../home/price/price?id=' + id,
     })
   },
+  // 去付款2
+  toPayFn(e){
+    const id = e.currentTarget.dataset.id;
+    this.setData({
+      tempId: id,
+      payIs: false
+    })
+  },
+  payFn(e) {
+    const _this = this;
+    const val = e.detail;
+    const taskid = this.data.tempId;
+    if (val == 1) {
+      _post(robPay, {
+        userid: app.globalData.uid,
+        payType: 1,
+        taskid: taskid,
+        price: 5
+      }).then(res => {
+        if (res.code == 1) {
+          const msg = res.content.data.msg;
+          wx.requestPayment({
+            timeStamp: msg.timeStamp,
+            nonceStr: msg.nonceStr,
+            package: msg.package,
+            signType: msg.signType,
+            paySign: msg.paySign,
+            success(res) {
+              app.toast('抢单成功', 'success');
+              _get(code, {
+                userid: app.globalData.uid,
+                type: 3,
+                taskid: taskid
+              })
+              setTimeout(_this.decrDeta, 500)
+            },
+          })
+        }
+      })
+    } else if (val == 2) {
+      this.setData({
+        mask: 2,
+        isFocus: true
+      })
+    } else if (val == -1) {
+      app.toast('暂未设置支付密码！')
+    }
+  },
+  Focus(e) {
+    var _this = this;
+    var inputValue = e.detail.value;
+    var ilen = inputValue.length;
+    const taskid = _this.data.taskid;
+    this.setData({
+      Value: inputValue,
+    })
+    if (ilen == 6) {
+      _get(passwo, {
+        userid: app.globalData.uid,
+        password: this.data.Value,
+      }).then(res => {
+        if (res.code == 1) {
+          _post(robPay, {
+            userid: app.globalData.uid,
+            payType: 2,
+            taskid: taskid,
+            price: 5
+          }).then(res => {
+            if (res.code == 1) {
+              app.toast(res.msg);
+              _this.setData({
+                Value: '',
+                inputValue: '',
+                mask: -1
+              });
+              setTimeout(_this.decrDeta, 500);
+            }
+            app.toast(res.msg)
+
+          })
+        } else {
+          app.toast(res.msg)
+        }
+      })
+    }
+  },
+
+
   //查看评价
   lookFn(e){
     const look = e.currentTarget.dataset.look;

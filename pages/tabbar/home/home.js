@@ -25,6 +25,7 @@ Page({
     idx1: 0,
     idx2: 0,
     page: 1,
+    tempPage:"",
     pagesize: 20,
     idc: '',
     idp: '',
@@ -42,11 +43,11 @@ Page({
     this.bannerList();
   },
   onShow: function() {
-    this.setData({
-      list: [],
-      page: 1
-    });
-    this.getLoca();//wx.getStorageSync('is')
+    // this.setData({
+    //   list: [],
+    //   page: 1
+    // });
+    this.getLoca();
   },
   leveFn() {
     this.setData({
@@ -59,7 +60,8 @@ Page({
       idp: e.detail.idp,
       idc: e.detail.idc,
       list: [],
-      page: 1
+      page: 1,
+      tempPage: ""
     })
     this.decrList();
   },
@@ -70,7 +72,8 @@ Page({
   },
   add(e) {
     this.setData({
-      [e.currentTarget.dataset.idx]: e.currentTarget.dataset.idxs
+      [e.currentTarget.dataset.idx]: e.currentTarget.dataset.idxs,
+      tempPage: ""
     })
   },
   subFn(e) {
@@ -78,7 +81,8 @@ Page({
       [e.currentTarget.dataset.name]: this.data[e.currentTarget.dataset.arr][this.data[e.currentTarget.dataset.idx]],
       list: [],
       page: 1,
-      hide: 0
+      hide: 0,
+      tempPage: ""
     })
     this.decrList()
   },
@@ -127,7 +131,8 @@ Page({
       _this.setData({
         idp: idcId,
         list: [],
-        page: 1
+        page: 1,
+        tempPage:''
       })
       _this.decrList()
     })
@@ -149,9 +154,14 @@ Page({
     }
     _get(decrList, data).then(res => {
       const list = res.content.list;
-      _this.setData({
-        list: [..._this.data.list, ...list]
-      })
+      const page = res.content.page;
+      const tempPage = _this.data.tempPage;
+      if (page != tempPage){
+        _this.setData({
+          list: [..._this.data.list, ...list],
+          tempPage: page
+        })
+      }
     })
   },
   rouTo(e) {
@@ -198,11 +208,12 @@ Page({
         url: '../../login/login'
       })
     } else {
-      this.setData({
-        list: [],
-        page: 1
-      })
-      this.decrList();
+      this.getLoca();
+      // this.setData({
+      //   list: [],
+      //   page: 1
+      // })
+      // this.decrList();
     }
   },
   bannerList() {

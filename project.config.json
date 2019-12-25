@@ -52,7 +52,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 7,
+			"current": 10,
 			"list": [
 				{
 					"id": -1,
@@ -107,6 +107,27 @@
 					"id": -1,
 					"name": "pages/my/baseFile/baseFile",
 					"pathName": "pages/my/baseFile/baseFile",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/my/base/base",
+					"pathName": "pages/my/base/base",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/my/update/update",
+					"pathName": "pages/my/update/update",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/my/update/update",
+					"pathName": "pages/my/update/update",
 					"scene": null
 				}
 			]

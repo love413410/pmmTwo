@@ -17,6 +17,7 @@ Page({
     is: false
   },
   onLoad: function(o) {
+    console.log(o)
     if (o.id) {
       this.setData({
         id: o.id
@@ -48,6 +49,7 @@ Page({
     }).then(res => {
       const task = res.content.task;
       const btn = task.userid == app.globalData.uid ? true : false;
+      console.log(task)
       this.setData({
         task: task,
         btn: btn

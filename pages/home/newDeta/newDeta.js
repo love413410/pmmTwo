@@ -45,9 +45,11 @@ Page({
       userid: app.globalData.uid,
       id: this.data.id
     }).then(res => {
+      const task = res.content.task;
+      const btn = task.userid == app.globalData.uid ? true : false;
       this.setData({
-        taskid: res.content.task.id,
-        task: res.content.task,
+        task: task,
+        btn: btn
       })
     })
   },
@@ -94,7 +96,7 @@ Page({
   payFn(e) {
     const _this = this;
     const val = e.detail;
-    const taskid = this.data.taskid;
+    const taskid = this.data.id;
     if (val == 1) {
       _post(robPay, {
         userid: app.globalData.uid,
@@ -135,7 +137,7 @@ Page({
     var _this = this;
     var inputValue = e.detail.value;
     var ilen = inputValue.length;
-    const taskid = _this.data.taskid;
+    const taskid = _this.data.id;
     this.setData({
       Value: inputValue,
     })

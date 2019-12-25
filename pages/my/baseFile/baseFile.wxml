@@ -8,12 +8,15 @@
   <view class="text time">
     {{task.ctime}}
   </view>
+  <view class="text look" bindtap="lookFn" wx:if="{{!is}}">
+    在线预览
+  </view>
 </view>
 <view class="btn" bindtap="isFn" wx:if="{{is}}">
   授权预览
 </view>
-<view class="btn" bindtap="lookFn" wx:if="{{!is}}">
-  在线预览
+<view class="btn" bindtap="ctrlFn" wx:if="{{!is}}">
+  下载
 </view>
 
 

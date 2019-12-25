@@ -65,6 +65,9 @@ const checkDiscuss = baseUrl + 'checkDiscuss';
 const signIn = baseUrl + 'signIn';
 
 const fileList = baseUrl + 'fileList';
+const exeList = baseUrl + 'exeList';
+const mediaList = baseUrl + 'mediaList';
+
 const folder = baseUrl + 'fileListByFolder';
 
 const sclist = baseUrl + 'scoreComboList';
@@ -193,5 +196,7 @@ module.exports = {
   sclist,
   scCall,
   del,
-  jBannerList
+  jBannerList,
+  exeList,
+  mediaList
 }

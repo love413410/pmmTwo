@@ -3,10 +3,12 @@ const {
   _get
 } = require('../../../utils/http.js')
 const {
+  baseSrc,
   fileList
 } = require('../../../utils/urls.js');
 Page({
   data: { 
+    baseSrc: baseSrc,
     page: 1,
     pagesize: 20,
     list: [],
@@ -22,6 +24,7 @@ Page({
         return false;
       }
     }
+    // this.list();
   },
   popupFn(e) {
     const code = e.detail.code;
@@ -51,6 +54,7 @@ Page({
   list() {
     _get(fileList, {
       userid: app.globalData.uid,
+      // userid: 383,
       page: this.data.page,
       pagesize: this.data.pagesize
     }).then(res => {
@@ -102,7 +106,7 @@ Page({
       },
       fail: function (err) {
         wx.hideLoading();
-        app.toast('打开失败！');
+        app.toast('文档打开失败！');
       }
     });
     // wx.downloadFile({
@@ -152,14 +156,13 @@ Page({
     })
   },
   checkFn(e) {
+    var item, isF = false, is = false;
     const arr = e.detail.value;
     const val = arr.pop();
-    var is = false;
     if (val != undefined) {
       is = true;
     };
     const list = this.data.list;
-    var item;
     for (let i = 0; i < list.length; i++) {
       list[i].check = false;
       if (list[i].id == val) {
@@ -167,10 +170,24 @@ Page({
         item=list[i];
       }
     };
+    if (item) {
+      isF = item.type == 1 ? false : true;
+      is = item.type == 1 ? true : false;
+    }
     this.setData({
       list: list,
       is: is,
-      item: item
+      item: item,
+      isF: isF
+    });
+  },
+  ctrlFn() {
+    const item = this.data.item;
+    wx.setClipboardData({
+      data: item.content,
+      success: function () {
+        app.toast('地址复制成功,请至浏览器下载！')
+      }
     });
   },
   onReachBottom: function() {

@@ -76,7 +76,9 @@
     "pages/home/tendeData/tendeData",
     "pages/my/baseFile/baseFile",
     "pages/my/baseData2/baseData2",
-    "pages/tabbar/web/web"
+    "pages/tabbar/web/web",
+    "pages/my/update/update",
+    "pages/my/video/video"
   ],
   "tabBar": {
     "color": "#aaaaaa",

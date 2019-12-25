@@ -40,6 +40,9 @@ page {
 .time {
   font-size: 28rpx;
 }
+.look{
+  color: #ef7e20;
+}
 
 .btn {
   width: 100%;

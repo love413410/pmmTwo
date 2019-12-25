@@ -14,11 +14,16 @@ Page({
     this.setData({
       id: o.id
     })
+    // this.setData({
+    //   id: 159
+    // });
     if (!app.globalData.is) {
       this.setData({
         is: true
       })
       return false;
+    }else{
+      this.dateFn()
     }
   },
   dateFn() {
@@ -103,6 +108,15 @@ Page({
         })
       }
     }
+  },
+  ctrlFn(){
+    const url = this.data.task.content;
+    wx.setClipboardData({
+      data: url,
+      success: function () {
+        app.toast('地址复制成功,请至浏览器下载！')
+      }
+    });
   },
   isFn(){
     this.setData({
