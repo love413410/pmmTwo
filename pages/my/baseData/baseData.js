@@ -178,6 +178,7 @@ Page({
   },
   onShareAppMessage: function() {
     const item = this.data.item;
+    console.log(item)
     var type = item.type;
     var pic = item.img;
     var id = this.data.id;

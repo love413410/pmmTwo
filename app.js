@@ -20,7 +20,7 @@ App({
       }
     })
   },
-  toast(e, icon = 'none', duration = 2000) {
+  toast(e, icon = 'none', duration = 5000) {
     wx.showToast({
       title: e,
       icon: icon,
