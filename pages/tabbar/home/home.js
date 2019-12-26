@@ -309,12 +309,17 @@ Page({
     }).then(res => {
       if (res.code == 1) {
         app.toast(res.msg, 'success')
-        setTimeout(this.getLoca, 5000)
+        _this.setData({
+          list: [],
+          page: 1,
+          tempPage: ''
+        });
+        setTimeout(this.decrList, 5000)
       } else if (res.code == 2) {
         _this.setData({
           mask: 2,
           msg: res.msg
-        })
+        });
       } else {
         app.toast(res.msg)
       }
@@ -330,7 +335,9 @@ Page({
         wx.navigateTo({
           url: url
         })
-      } 
+      }else{
+        app.toast(res.msg)
+      }
     })
   },
   auth() {
