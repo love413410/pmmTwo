@@ -24,7 +24,6 @@ Page({
         return false;
       }
     }
-    // this.list();
   },
   popupFn(e) {
     const code = e.detail.code;
@@ -54,12 +53,10 @@ Page({
   list() {
     _get(fileList, {
       userid: app.globalData.uid,
-      // userid: 383,
       page: this.data.page,
       pagesize: this.data.pagesize
     }).then(res => {
       const list = res.content.list;
-      console.log(list)
       for (let i = 0; i < list.length; i++) {
         list[i].check = false;
       }
@@ -70,22 +67,31 @@ Page({
   },
   navTo(e) {
     const type = e.currentTarget.dataset.type;
-    if (type == 1) {//如果为1,就是文件夹类型,去下一层
+    if (type == 1) {
       const id = e.currentTarget.dataset.id;
+      wx.showLoading({
+        title: '正在打开文件夹'
+      });
       wx.navigateTo({
-        url: '../baseData/baseData?id=' + id
+        url: '../baseData/baseData?id=' + id,
+        success: function () {
+          wx.hideLoading();
+        },
+        fail: function () {
+          app.toast('文件夹打开失败！');
+          wx.hideLoading();
+        }
       })
       return false;
     }
     const url = e.currentTarget.dataset.url;
-    if (type == 2) { //如果为2,就是文件类型在线预览
+    if (type == 2) {
       this.lookFile(url)
     }
-    if (type == 3) {//如果为3,就是图片类型在线预览
+    if (type == 3) {
       this.lookPic(url)
     }
   },
-  // 打开文档
   lookFile(url){
     wx.showLoading({
       title: '正在打开文档'
@@ -110,34 +116,7 @@ Page({
         app.toast('文档打开失败！');
       }
     });
-    // wx.downloadFile({
-    //   url: url,
-    //   success: function (res) {
-    //     const path = res.tempFilePath;
-    //     wx.saveFile({
-    //       tempFilePath: path,
-    //       success(r) {
-    //         const paths = r.savedFilePath;
-    //         wx.openDocument({
-    //           filePath: paths,
-    //           success: function () {
-    //             wx.hideLoading();
-    //           },
-    //           fail: function () {
-    //             app.toast('文档打开失败！');
-    //             wx.hideLoading();
-    //           }
-    //         })
-    //       }
-    //     })
-    //   },
-    //   fail: function (err) {
-    //     wx.hideLoading();
-    //     app.toast('打开失败！')
-    //   }
-    // });
   },
-  //查看图片
   lookPic(url){
     var pics = [];
     pics.push(url);

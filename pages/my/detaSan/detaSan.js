@@ -145,7 +145,6 @@ Page({
     })
     this.getLocat()
   },
-  // 上传图片
   upPhoto() {
     var _this = this;
     wx.chooseImage({
@@ -186,7 +185,6 @@ Page({
       }
     })
   },
-  // 删除图片
   showDel(e) {
     var cid = e.currentTarget.dataset.cid;
     var str = "photos[" + cid + "]del";
@@ -292,7 +290,6 @@ Page({
         }
       })
     }
-
   },
   counFn() {
     const [a, b, c, d] = [this.data.bra, this.data.goodname, this.data.mode, this.data.num];
@@ -379,17 +376,7 @@ Page({
         }
       })
     }
-    // _post(decr, data).then(res => {
-    //   if (res.code != 1) {
-    //     app.toast(res.msg)
-    //   } else if (res.code == 1) {
-    //     this.setData({
-    //       payIs: false
-    //     })
-    //   }
-    // })
   },
-
   newFn() {
     const [a, b, c, d] = [this.data.pickIdx4, this.data.bra, this.data.goodname, this.data.pickIdx8];
     const [e, f, g, h] = [this.data.price, this.data.pickIdx9, this.data.pickIdx10, this.data.date];
@@ -461,15 +448,6 @@ Page({
         }
       })
     }
-    // _post(decr, data).then(res => {
-    //   if (res.code != 1) {
-    //     app.toast(res.msg)
-    //   } else if (res.code == 1) {
-    //     this.setData({
-    //       payIs: false
-    //     })
-    //   }
-    // })
   },
   payFn(e) {
     const _this = this;
@@ -548,7 +526,6 @@ Page({
       })
     }
   },
-  //获取用户当前位置
   getLoca() {
     const _this = this;
     app.getLoca().then(res => {
@@ -564,7 +541,6 @@ Page({
       _this.getLocal()
     })
   },
-  // 经纬度转换成城市
   getLocal() {
     const _this = this;
     app.getLocal(this.data.loc).then(res => {
@@ -578,7 +554,6 @@ Page({
       _this.getCity('idd', data.district);
     })
   },
-  // 城市转换成经纬度
   getLocat() {
     const _this = this;
     app.getLocat(this.data.regStr).then(res => {
@@ -591,9 +566,6 @@ Page({
       })
     })
   },
-  /*
-    获取城市的ID
-  */
   getCity(u, d) {
     const _this = this;
     _get(getCity, {

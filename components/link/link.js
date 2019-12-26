@@ -47,7 +47,6 @@ Component({
     idp() {
       const _this = this;
       _get(getIdp).then(res => {
-        
         const list = res.content.province;
         _this.setData({ 
           idpArr: list,
@@ -88,7 +87,6 @@ Component({
       const idp = this.data.idpArr[index[0]].region_id;
       const idc = this.data.idcArr[index[1]].region_id;
       const idd = this.data.iddArr[index[2]].region_id;
-
       this.setData({
         idp: idp,
         value: index
@@ -105,11 +103,9 @@ Component({
         bool: true
       })
       const index = this.data.value;
-      //获取省市区的ID,需要往后台传
       const idp = this.data.idpArr[index[0]].region_id;
       const idc = this.data.idcArr[index[1]].region_id;
       const idd = this.data.iddArr[index[2]].region_id;
-      //获取省市区的汉字,用户页面展示
       const idpName = this.data.idpArr[index[0]].region_name;
       const idcName = this.data.idcArr[index[1]].region_name;
       const iddName = this.data.iddArr[index[2]].region_name;

@@ -70,25 +70,21 @@ Page({
       }
     })
   },
-  // 支付密码设置
   settingPassword() {
     wx.navigateTo({
       url: '../setting/setting',
     })
   },
-  // 修改支付密码
   changePassword() {
     wx.navigateTo({
       url: '../modify/modify',
     })
   },
-  // 找回支付密码
   retrievePassword() {
     wx.navigateTo({
       url: '../retrieve/retrieve',
     })
   },
-
   navTo(e){
     const url = e.currentTarget.dataset.url;
     wx.navigateTo({

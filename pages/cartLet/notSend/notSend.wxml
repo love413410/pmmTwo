@@ -1,15 +1,3 @@
-<!-- <view class="item" bindtap="rotTo" data-id="{{item.id}}" wx:for="{{list}}">
-  <view class="lt">
-    {{item.title}}
-  </view>
-
-  <view class="lt time">
-    {{item.ctime}}
-  </view>
-  <view class="rt btn" catchtap="send" data-id="{{item.id}}">
-    派单
-  </view>
-</view>   -->
 <view class="item" bindtap="rotTo" data-id="{{item.id}}" wx:for="{{list}}">
   <view class="top_">
     <view class="lt">
@@ -26,9 +14,7 @@
     派单
   </view>
 </view>
-
 <view class="masks" bindtap="move" hidden="{{mask?false:true}}">
-<!-- <view class="masks" catchtouchmove bindtap="move" hidden="{{mask?false:true}}"> -->
   <view class="not_maskBox">
     <image src="{{baseSrc}}qxa.png" class="qxa" catchtap="move"></image>
     <checkbox-group  catchtap bindchange="checkboxChange">

@@ -5,7 +5,6 @@ page{
   width: 600rpx;
   height: 800rpx;
   margin: 70rpx auto;
-  /* margin-top: 70rpx; */
 }
 button{
   width: 690rpx;

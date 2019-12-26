@@ -15,7 +15,6 @@
     </view>
   </view>
 </view>
-
 <view class="tle">
   <view class="tle-top">
     <view>
@@ -24,8 +23,6 @@
         <image src=" {{baseSrc}}xia.png"></image>
       </picker>
     </view>
-
-
     <view>
       <picker range="{{pick}}" value="{{pickVal}}" bindchange='pickFn'>
         {{pickVal}}
@@ -33,16 +30,12 @@
       </picker>
     </view>
   </view>
-
   <view class="tle-bot">
     <text style="margin-right:30rpx;">实际收入￥{{income}}</text>
     <text>实际支出￥{{outgo}}</text>
   </view>
 </view>
-
-
 <view class="box">
-  <!-- <view class="item" wx:for="{{list}}"> -->
   <view class="item" wx:for="{{list}}" bindtap="navTo" data-temp='{{item}}'>
     <view class="imgBox">
       <image src="{{item.pic}}"></image>
@@ -56,14 +49,9 @@
           {{item.amount}}
         </view>
       </view>
-
       <view class="item-ti">
         {{item.payTime}}
       </view>
     </view>
   </view>
-
-
-
-
 </view>

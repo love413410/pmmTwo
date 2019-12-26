@@ -20,7 +20,6 @@ Page({
     is: false
   },
   onLoad: function(o) {
-    console.log(o)
     if (o.id) {
       var payIs=true;
       if (o.s == 1) {
@@ -52,7 +51,6 @@ Page({
       id: this.data.id
     }).then(res => {
       const task = res.content.task;
-      console.log(task)
       const btn = task.userid == app.globalData.uid ? true : false;
       this.setData({
         task: task,

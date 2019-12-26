@@ -24,7 +24,6 @@ Page({
     Value: "",
     score:0,
     is: false
-
   },
   onLoad: function(options) {
     this.list();
@@ -139,7 +138,6 @@ Page({
       })
     }
   },
-
   payFn(e) {
     const _this = this;
     const val = e.detail;
@@ -164,7 +162,6 @@ Page({
             success(res) {
               app.toast('支付成功', 'success');
               setTimeout(function () {
-                // _this.myDeta();
                 wx.redirectTo({
                   url: '../../shopping/numDate/numDate'
                 })
@@ -182,7 +179,6 @@ Page({
       app.toast('暂未设置支付密码！')
     }
   },
-
   Focus(e) {
     var _this = this;
     var inputValue = e.detail.value;
@@ -213,7 +209,6 @@ Page({
                 mask: -1
               });
               setTimeout(function () {
-                // _this.myDeta();
                 wx.redirectTo({
                   url: '../../shopping/numDate/numDate'
                 })
@@ -226,10 +221,7 @@ Page({
         }
       })
     }
-
   },
-
-
   onShareAppMessage: function() {
 
   }

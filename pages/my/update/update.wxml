@@ -1,21 +1,3 @@
-<!-- <view class="item">
-  <view class="item-box">
-    <view class="item-top">
-      <view class="top_l">
-        ndnldknld
-      </view>
-      <view class="top_r">
-        <text class="gengxin">更新说明</text>
-        <text class="mar">|</text>
-        <text class="xiazai">下载地址</text>
-      </view>
-    </view>
-    <view class="item-btm">
-      2018-11-10 18:59|32.63M
-    </view>
-  </view>
-</view> -->
-
 <view class="item" wx:for="{{list}}" wx:key="{{index}}">
   <view class="item-box">
     <view class="item-top">

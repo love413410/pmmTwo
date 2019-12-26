@@ -4,7 +4,6 @@
       已发布
     </view>
   </view>
-
   <view class="head-item" bindtap="swta" data-idx='0'>
     <view class="{{idx==0?'adds':''}}">
       草稿箱
@@ -19,7 +18,6 @@
       </view>
     </picker>
   </view>
-
   <view class="lt  {{hide==1?'subs':'sub'}}" catchtap="scr" data-id='1'>
     <view class="tle_">
       {{tle1}}
@@ -32,10 +30,7 @@
     </view>
     <image src="{{baseSrc}}down.png"></image>
   </view>
-
 </view>
-
-<!-- 需求类型筛选 -->
 <view class="mask" catchtouchmove bindtap="move" hidden="{{hide==1?false:true}}">
   <view class="mask-box">
     <view class="item-box">
@@ -43,13 +38,9 @@
         {{item}}
       </view>
     </view>
-
     <view class="subBtn" catchtap="subFn" data-name='tle1' data-arr='arr' data-idx='idx1'>确定</view>
-
   </view>
 </view>
-
-<!-- 需求状态筛选 -->
 <view class="mask" catchtouchmove bindtap="move" hidden="{{hide==2?false:true}}">
   <view class="mask-box">
     <view class="item-box">
@@ -57,29 +48,23 @@
         {{item}}
       </view>
     </view>
-
     <view class="subBtn" catchtap="subFn" data-name='tle2' data-arr='arr2' data-idx='idx2'>确定</view>
-
   </view>
 </view>
-
 <view hidden="{{idx==0}}">
   <view class="item" wx:for="{{list}}" bindtap="rouTo" data-item="{{item}}">
     <view class="lt tle">
       {{item.title}}
     </view>
-
     <view class="rt lht zd" wx:if="{{item.type==1||item.type==5||item.type==7}}">
       {{item.ctime}}
     </view>
-
     <view class="rt lht th" wx:if="{{item.type==2||item.type==3||item.type==4}}">
       <view class="rt-t">
         <view class="lt">
           抢单:
           <text class="red">{{item.robnum}}</text>
         </view>
-
         <view class="lt">
           联系:
           <text class="red">{{item.contract_num}}</text>
@@ -89,7 +74,6 @@
         {{item.ctime}}
       </view>
     </view>
-
     <view class="rt lht zd" wx:if="{{item.type==6}}">
       <text class="red">{{item.contract_num}}</text>人联系过
     </view>
@@ -99,15 +83,11 @@
     <image src="{{baseSrc}}ionc-d.png" class="state" wx:if="{{item.type==7&&item.status==1}}"></image>
   </view>
 </view>
-
-
-
 <view class="dra" hidden="{{idx==1}}">
   <view class="item" wx:for="{{list}}" bindtap="toRou" data-id="{{item.id}}">
     <view class="lt tle">
       {{item.title}}
     </view>
-
     <view class="rt lht zd">
       {{item.ctime}}
     </view>

@@ -75,17 +75,6 @@ Page({
         mask: 2,
         cost: cost
       })
-      // _post(withdraw, {
-      //   userid: app.globalData.uid,
-      //   price: val
-      // }).then(res => {
-      //   if (res.code == 1) {
-      //     wx.navigateBack({
-      //       delta: 1,
-      //     })
-      //   }
-      //   app.toast(res.msg)
-      // })
     }
   },
 

@@ -197,7 +197,6 @@ Page({
       url: src
     })
   },
-  // 上传图片
   upPhoto() {
     var _this = this;
     wx.chooseImage({
@@ -242,7 +241,6 @@ Page({
       }
     })
   },
-  // 删除图片
   showDel(e) {
     var cid = e.currentTarget.dataset.cid;
     var str = "photos[" + cid + "]del";
@@ -369,7 +367,7 @@ Page({
     }).then(res => {
       const isA = res.content.user.is_approve;
       const isB = res.content.user.is_vip;
-      let iss, mask; //1为个人 2为企业用户 3为诚企
+      let iss, mask;
       if (isA == 2) {
         iss = 2;
         mask = -1;

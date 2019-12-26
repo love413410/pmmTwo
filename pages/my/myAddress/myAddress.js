@@ -28,9 +28,6 @@ Page({
       pagesize: _this.data.pagesize
     }).then(res => {
       const list = res.content.list;
-      // for (let i = 0; i < list.length; i++) {
-      //   list[i].is = false;
-      // }
       _this.setData({
         list: [..._this.data.list, ...list]
       })

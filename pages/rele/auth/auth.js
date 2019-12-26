@@ -101,8 +101,6 @@ Page({
       [e.currentTarget.dataset.id]: e.detail.value
     })
   },
-
-  // 上传图片
   upPhoto(e) {
     const c = e.currentTarget.dataset.id;
     const is = e.currentTarget.dataset.is;

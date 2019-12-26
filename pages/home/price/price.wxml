@@ -28,7 +28,6 @@
       维保服务:{{task.maintain_txt}}
     </view>
   </view>
-
   <view class="tle">
     我的报价
   </view>
@@ -36,8 +35,6 @@
     <input type="number" placeholder="请填写" class="lt" bindinput="priVal"></input>元
   </view>
 </view>
-
-
 <view class="price" hidden="{{type!=2}}" bindtap="tabFn">
   报价参考
   <image src="{{baseSrc}}r.png" class="rt {{is?'img':''}}"></image>
@@ -65,8 +62,6 @@
         </view>
       </view>
     </view>
-
-
     <view class="tab-item b-bor">
       <view class="left">
         屏体安装
@@ -85,7 +80,6 @@
       </view>
     </view>
     <view class="tab-item">
-
       <view class="left">
         维保服务
       </view>
@@ -107,9 +101,6 @@
 <button class="footBtn" bindtap="priFn">
   立即报价
 </button>
-
-
-
 <paymen bind:payFn="payFn" bool='{{payIs}}'></paymen>
 <view class="mask" catchtouchmove bindtap="move" wx:if="{{mask==2?true:false}}">
   <view class="pay_box">
@@ -123,12 +114,10 @@
     <view class="pay_text pay_texts">
       ￥{{val}}
     </view>
-
     <view class="pay_type">
       <view class='pay_lt'>
         支付方式
       </view>
-
       <view class='pay_rt'>
         <image src="{{baseSrc}}lq.png" class="pay_lq"></image>
         <view class='pay_lt pay_lqt'>
@@ -136,7 +125,6 @@
         </view>
       </view>
     </view>
-
     <view class='pay_contents'>
       <block wx:for="{{6}}" wx:key="item">
         <input class='pay_iptbox' value="{{Value.length>=index+1?Value[index]:''}}" disabled password catchtap='Tap'></input>
@@ -145,29 +133,23 @@
     <input name="password" password type="number" class='pay_ipt_s' maxlength="6" focus="{{isFocus}}" bindinput="Focus"></input>
   </view>
 </view>
-<!-- 同行项目外包服务底部 -->
 <view class="foot" wx:if="{{type==2}}">
   <view class="foot-head">
     <text class="line">“同行项目外包”类抢单须知</text>
   </view>
-
   <view>
     1.个人用户无法参与抢单,需通过企业认证;
   </view>
-
   <view>
     2.认证企业,VIP诚企均需支付5元加入抢单列队(限数5人),同时给出报价,等待发布者联系;
   </view>
-
   <view>
     3.当发布者通过平台主动拨号联系您,即视为抢单成功;
   </view>
-
   <view>
     4.若超过订单截止时间,发布者还未拨号联系您,即视为抢单失败,您支付的5元将退回你您的账户。
   </view>
 </view>
-<!-- 全国维修服务 全国求购货源底部 -->
 <view class="foot" wx:if="{{type==3||type==4}}">
   <view class="foot-head" wx:if="{{type==3}}">
     <text class="line">“全国维修服务”类抢单须知</text>
@@ -175,15 +157,12 @@
   <view class="foot-head" wx:if="{{type==4}}">
     <text class="line">“全国求购货源”类抢单须知</text>
   </view>
-
   <view>
     1.个人用户、认证企业、VIP诚企均需支付5元加入抢单列队(限数5人),同时给出报价,等待发布者联系;
   </view>
-
   <view>
     2.当发布者通过平台主动拨号联系您,即视为抢单成功;
   </view>
-
   <view>
     3.若超过订单截止时间,发布者还未拨号联系您,即视为抢单失败,你支付的5元将退回您的账户。
   </view>

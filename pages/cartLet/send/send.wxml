@@ -4,14 +4,12 @@
       未完成
     </view>
   </view>
-
   <view class="head-item" bindtap="swta" data-idx='2'>
     <view class="{{idx==2?'adds':''}}">
       已完成
     </view>
   </view> 
 </view>
-
 <view class="item" bindtap="rouTo" data-id="{{item.id}}" wx:for="{{list}}">
   <view class="top_">
     <view class="lt">

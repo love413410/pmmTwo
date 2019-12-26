@@ -34,10 +34,6 @@ page {
   margin-top: 20rpx;
 }
 
-.item_lt {
-  /* width: 400rpx; */
-}
-
 .item_top {
   height: 85rpx;
   line-height: 85rpx;

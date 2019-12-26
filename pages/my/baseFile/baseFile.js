@@ -14,9 +14,6 @@ Page({
     this.setData({
       id: o.id
     })
-    // this.setData({
-    //   id: 159
-    // });
     if (!app.globalData.is) {
       this.setData({
         is: true

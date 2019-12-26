@@ -9,12 +9,9 @@
       </view>
       <view class="lt tle ">
         <text class="lt tles ">问题{{idx+1}}</text>
-        <!-- <text class="desc ">(</text> -->
         <text class="desc desc2 ">{{item.content}}</text>
-        <!-- <text class="desc ">)</text> -->
       </view>
     </view>
-
     <view class="rt_box ">
       <view class="rt">
         <image src="{{baseSrc}}r.png " class="{{is==item.id? 'route': ''}} "></image>
@@ -24,7 +21,6 @@
       </view>
     </view>
   </view>
-
   <view class="look" wx:if="{{is==item.id}}">
     <view class="lookBox">
       <view class="look_tle">
@@ -36,7 +32,6 @@
       <view class="look_img">
         <image src="{{picItem}}" wx:for="{{item.pics}}" wx:for-item="picItem" catchtap="preview" data-idx="{{idx}}" data-url="{{picItem}}"></image>
       </view>
-
       <view class="look_tle">
         处理结果:
       </view>
@@ -45,7 +40,4 @@
       </view>
     </view>
   </view>
-
-
-
 </view>

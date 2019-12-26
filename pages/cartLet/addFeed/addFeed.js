@@ -64,7 +64,6 @@ Page({
       }
     })
   },
-  // 删除图片
   showDel(e) {
     const type = e.currentTarget.dataset.type;
     var cid = e.currentTarget.dataset.cid;
@@ -118,7 +117,6 @@ Page({
       tempPic.push(pic[i].src)
     }
     var pic = tempPic.join(',');
-
     var img = this.data.voucher;
     var tempImg = [];
     for (let i = 0; i < img.length; i++) {
@@ -155,8 +153,6 @@ Page({
       id: o.id
     })
   },
-
-  //获取用户当前位置
   getLoca() {
     const _this = this;
     app.getLoca().then(res => {
@@ -169,7 +165,6 @@ Page({
       _this.getLocal(loc)
     })
   },
-  // 经纬度转换成城市
   getLocal(loc) {
     const _this = this;
     app.getLocal(loc).then(res => {
@@ -183,7 +178,6 @@ Page({
       _this.getCity('idd', data.district);
     })
   },
-  // 城市转换成经纬度
   getLocat() {
     const _this = this;
     app.getLocat(this.data.regStr).then(res => {
@@ -196,10 +190,6 @@ Page({
       })
     })
   },
-
-  /*
-    获取城市的ID
-  */
   getCity(u, d) {
     const _this = this;
     _get(getCity, {

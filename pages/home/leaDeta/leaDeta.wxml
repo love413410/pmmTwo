@@ -98,10 +98,6 @@
 <view class="desc">
   {{task.overview}}
 </view>
-
-<!-- <button class="footBtn bg1" wx:if="{{btn}}" bindtap="authFn">
-  分享
-</button> -->
 <view wx:if="{{btn}}" class="footBtn">
   <button class="ltBtn" hover-class="none" open-type='share'>转发给好友/群聊</button>
   <button class="rtBtn" hover-class="none" bindtap="authFn">分享到朋友圈</button>
@@ -119,11 +115,6 @@
 </button>
 <popup bind:popupFn="popupFn" hide='{{is}}'></popup>
 
-<!-- bg1 立即抢单
-bg2 已结束
-bg3 立即拨号 -->
-
-
 <view class="mask" catchtouchmove bindtap="move" wx:if="{{mask==1?true:false}}">
   <view class="maskBox">
     <view class="ms_top">
@@ -138,8 +129,6 @@ bg3 立即拨号 -->
     <image src="{{baseSrc}}c.png" class="c" bindtap="move"></image>
   </view>
 </view>
-
-
 <view class="mask" catchtouchmove bindtap="move" wx:if="{{mask==2?true:false}}">
   <view class="rewa" catchtap>
     <view class="rew_top">
@@ -161,7 +150,6 @@ bg3 立即拨号 -->
   <view class="foot-head">
     <text class="line">“租赁大屏需求”类抢单须知</text>
   </view>
-
   <view>
     1.个人用户无法参与抢单,需通过企业认证;
   </view>

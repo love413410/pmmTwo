@@ -3,20 +3,15 @@
     <view class="lt_check">
       <radio value="{{item.id}}" checked="{{item.checked}}" />
     </view>
-
     <view class="lt_text">
       <view class="_top">
         <text>{{item.sjr}}</text>
         <text class="phone">{{item.sjr_mobile}}</text>
       </view>
-
       <view class="_btm">
         {{item.true_address}}
       </view>
     </view>
-    <!-- <view class="rt_edit" bindtap="addTo" data-id="{{item.id}}">
-      编辑
-    </view> -->
     <view class="rt_edits" catchtap="delClick" data-id="{{item.id}}">
       删除
     </view>
@@ -25,7 +20,6 @@
     </view>
   </view>
 </radio-group>
-
 <navigator hover-class="none" url="../address/address?i=1" class="addNew">添加新地址</navigator>
 <view class="send" bindtap="send">
   确定

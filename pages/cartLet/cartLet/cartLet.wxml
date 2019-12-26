@@ -5,13 +5,10 @@
     </view>
   </view>
 </view>
-
-
 <view class="head">
   <navigator url="../../my/info/info" hover-class="none">
     <image src="{{user.avatar}}" class="lt"></image>
   </navigator>
-
   <view class="lt info">
     <view class="top">
       {{user.nickname}}
@@ -24,7 +21,6 @@
     </view>
   </view>
 </view>
-
 <view class="item" bindtap="showFn" wx:if="{{user.officer==1}}">
   <view class="lt">
     我的派单
@@ -36,7 +32,6 @@
 </view>
 <view class="hideItem" hidden="{{img==true?false:true}}">
   <view class="hide">
-    <!-- <navigator url='../notSend/notSend' hover-class="none"> -->
       <view class="lt" bindtap="navToFn" data-url="../notSend/notSend">
         <view class="hide-img">
           <image src="{{baseSrc}}k1.png"></image>
@@ -48,8 +43,6 @@
           {{user.wpd}}
         </view>
       </view>
-    <!-- </navigator> -->
-    <!-- <navigator url='../send/send' hover-class="none"> -->
       <view class="lt" bindtap="navToFn" data-url="../send/send">
         <view class="hide-img">
           <image src="{{baseSrc}}k2.png"></image>
@@ -58,11 +51,8 @@
           已派单
         </view>
       </view>
-    <!-- </navigator> -->
   </view>
 </view>
-
-<!-- <navigator url="../myOrder/myOrder" hover-class="none"> -->
 <view class="item" bindtap="navToFn" data-url="../myOrder/myOrder">
   <view class="lt">
     我的接单
@@ -72,9 +62,6 @@
   </view>
   <image src="{{baseSrc}}you.png" class="img"></image>
 </view>
-<!-- </navigator> -->
-
-
 <view class="item" bindtap="navToFn" data-url="../echart/echart" wx:if="{{user.officer==1}}">
   查看报表
   <image src="{{baseSrc}}you.png" class="img"></image>
@@ -83,15 +70,11 @@
   查看报表
   <image src="{{baseSrc}}you.png" class="img"></image>
 </view>
-<!-- <navigator url="../query/query" hover-class="none"> -->
 <view class="item" bindtap="navToFn" data-url="../query/query">
   卡莱特名录
   <image src="{{baseSrc}}you.png" class="img"></image>
 </view>
-<!-- </navigator> -->
-<!-- <navigator url="../../my/feed/feed?t=2" hover-class="none"> -->
 <view class="item" bindtap="navToFn" data-url="../../my/feed/feed?t=2">
   问题反馈
   <image src="{{baseSrc}}you.png" class="img"></image>
 </view>
-<!-- </navigator> -->

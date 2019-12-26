@@ -70,7 +70,6 @@ Component({
       const index = e.detail.value;
       const idp = this.data.idpArr[index[0]].region_id;
       const idc = this.data.idcArr[index[1]].region_id;
-
       this.setData({
         idp: idp,
         value: index
@@ -94,7 +93,6 @@ Component({
       }else{
         idc = ''
       }
-      //获取省市区的汉字,用户页面展示
       const idpName = this.data.idpArr[index[0]].region_name;
       var idcName;
       idcName = this.data.idcArr[index[1]].region_name;

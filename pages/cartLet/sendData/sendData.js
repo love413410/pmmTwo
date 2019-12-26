@@ -39,7 +39,6 @@ Page({
     this.decrDeta();
     this.getLoca();
   },
-
   decrDeta() {
     const _this = this;
     _get(decrDeta, {
@@ -159,7 +158,6 @@ Page({
       }
     })
   },
-  //获取用户当前位置
   getLoca() {
     const _this = this;
     app.getLoca().then(res => {
@@ -172,7 +170,6 @@ Page({
       _this.getLocal(loc)
     })
   },
-  // 经纬度转换成城市
   getLocal(loc) {
     const _this = this;
     app.getLocal(loc).then(res => {
@@ -180,9 +177,6 @@ Page({
       _this.getCity(city)
     })
   },
-  /*
-    城市的模糊查询
-  */
   getCity(city) {
     const _this = this;
     _get(getCity, {
@@ -194,8 +188,6 @@ Page({
       })
     })
   },
-
-
   onShareAppMessage: function() {
 
   }

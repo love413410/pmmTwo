@@ -11,7 +11,7 @@ Page({
     baseSrc: baseSrc,
     is: false,
     isHide: false,
-    mask:2,
+    mask: 2,
     list: [{
       img: baseSrc + 'rele1.png',
       tle: '终端客户询价',
@@ -59,21 +59,14 @@ Page({
         is: true
       })
     } else {
-      // const isis = this.data.isis;
-      // if (isis!=2){
-      //   this.setData({
-      //     mask:1
-      //   })
-      // }else{
-        wx.navigateTo({
-          url: e.currentTarget.dataset.url,
-          success() {
-            _this.setData({
-              isHide: !_this.data.isHide
-            })
-          }
-        })
-      // }
+      wx.navigateTo({
+        url: e.currentTarget.dataset.url,
+        success() {
+          _this.setData({
+            isHide: !_this.data.isHide
+          })
+        }
+      })
     }
   },
   isFn() {
@@ -92,9 +85,6 @@ Page({
         url: '../../login/login'
       });
     }
-    // else{
-    //   this.myDeta();
-    // }
   },
   auth() {
     if (!app.globalData.is) {
@@ -119,27 +109,21 @@ Page({
       mask: -1
     })
   },
-  toAuth(){
+  toAuth() {
     var src = this.data.isis == 0 ? '../auth/auth' : '../auth2/auth2';
     wx.navigateTo({
       url: src
     })
   },
-  onShow:function(){
-    // if (!app.globalData.is) {
-    //   this.setData({
-    //     is: true
-    //   })
-    // }else{
-    //   this.myDeta();
-    // }
+  onShow: function() {
+    
   },
   myDeta() {
     _get(myDeta, {
       userid: app.globalData.uid
     }).then(res => {
       const isis = res.content.user.is_approve;
-      var mask=isis==2?mask=-1:1;
+      var mask = isis == 2 ? mask = -1 : 1;
       this.setData({
         isis: isis,
         mask: mask

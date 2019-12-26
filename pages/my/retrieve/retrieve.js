@@ -35,19 +35,14 @@ Page({
       }
     })
   },
-
-  // 获取输入框的值
   formName: function(e) {
     this.setData({
       code: e.detail.value
     })
   },
-
-  // 发送验证码、
   obtainCode() {
     let _this = this;
     let counts = this.data.counts;
-    //倒计时主要部分，利用定时器
     let intTime = setInterval(function () {
       counts--;
       if (counts > 0) {
@@ -76,8 +71,6 @@ Page({
       }
     })
   }, 
-
-  // 验证验证码
   sureBtn() {
     let _this = this;
     _post(checkCode, {

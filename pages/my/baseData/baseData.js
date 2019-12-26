@@ -72,23 +72,31 @@ Page({
   },
   navTo(e) {
     const type = e.currentTarget.dataset.type;
-    if (type == 1) { //如果为1,就是文件夹类型,去下一层
+    if (type == 1) {
       const id = e.currentTarget.dataset.id;
+      wx.showLoading({
+        title: '正在打开文件夹'
+      });
       wx.redirectTo({
-        url: '../baseData2/baseData2?id=' + id
+        url: '../baseData2/baseData2?id=' + id,
+        success:function(){
+          wx.hideLoading();
+        },
+        fail: function () {
+          app.toast('文件夹打开失败！');
+          wx.hideLoading();
+        }
       })
       return false;
     }
     const url = e.currentTarget.dataset.url;
-    if (type == 2) { //如果为2,就是文件类型在线预览
+    if (type == 2) {
       this.lookFile(url)
     }
-    if (type == 3) { //如果为3,就是图片类型在线预览
+    if (type == 3) {
       this.lookPic(url)
     }
   },
-
-  // 打开文档
   lookFile(url) {
     wx.showLoading({
       title: '正在打开文档'
@@ -114,7 +122,6 @@ Page({
       }
     });
   },
-  //查看图片
   lookPic(url) {
     wx.showLoading({
       title: '正在寻找图片资源'
@@ -133,7 +140,6 @@ Page({
       }
     })
   },
-
   checkFn(e) {
     var item, isF = false, is = false;
     const arr = e.detail.value;
@@ -178,7 +184,6 @@ Page({
   },
   onShareAppMessage: function() {
     const item = this.data.item;
-    console.log(item)
     var type = item.type;
     var pic = item.img;
     var id = this.data.id;

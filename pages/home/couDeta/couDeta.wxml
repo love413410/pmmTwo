@@ -112,10 +112,6 @@
     {{task.robnum}}/5
   </view>
 </view>
-
-<!-- <button class="footBtn bg1" wx:if="{{btn}}" bindtap="authFn">
-  分享
-</button> -->
 <view wx:if="{{btn}}" class="footBtn">
   <button class="ltBtn" hover-class="none" open-type='share'>转发给好友/群聊</button>
   <button class="rtBtn" hover-class="none" bindtap="authFn">分享到朋友圈</button>
@@ -127,8 +123,6 @@
   去付款
 </button>
 <popup bind:popupFn="popupFn" hide='{{is}}'></popup>
-
-
 <view class="foot">
   <view class="foot-head">
     <text class="line">“全国求购货源”类抢单须知</text>

@@ -43,7 +43,6 @@ page {
   top: 30rpx;
   width: 26rpx;
   height: 26rpx;
-  /* float: right; */
 }
 .itm .code{
   width: 60%;
@@ -64,9 +63,6 @@ page {
   height: 88rpx;
   color: #b2b2b2;
 }
-
-
-
 
 .up {
   width: 100%;
@@ -91,7 +87,6 @@ page {
   width: 400rpx;
   height: 240rpx;
   margin-left: 60rpx;
-  
 }
 
 .tle {
@@ -120,10 +115,7 @@ page {
   background-color: #fb7313;
   color: #fff;
   font-size: 36rpx;
-  /* margin: auto; */
-  /* margin-top: 40rpx; */
 }
-
 
 .not_maskBox {
   width: 600rpx;
@@ -143,7 +135,6 @@ page {
   height: 200rpx;
   border-bottom:1px solid #efefef;
   text-align: center;
-  
 }
 .mask_tle view{
   height: 100rpx;
@@ -162,7 +153,6 @@ page {
 .info {
   width: 100%;
   height: 100%;
-  /* overflow-y: auto; */
   padding: 0 30rpx;
   box-sizing: border-box;
   border-top-left-radius: 10rpx;
@@ -189,8 +179,6 @@ page {
   border-bottom-left-radius: 10rpx;
   border-bottom-right-radius: 10rpx;
 }
-
-
 
 .idx {
   width: 40rpx;

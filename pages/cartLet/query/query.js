@@ -33,7 +33,6 @@ Page({
     })
     this.mySpec();
   },
-
   mySpec() {
     const _this = this;
     _get(mySpec, {
@@ -56,9 +55,6 @@ Page({
       phoneNumber: phone
     })
   },
-
-
-  //获取用户当前位置
   getLoca() {
     const _this = this;
     app.getLoca().then(res => {
@@ -74,7 +70,6 @@ Page({
       _this.getLocal(loc)
     })
   },
-  // 经纬度转换成城市
   getLocal(loc) {
     const _this = this;
     app.getLocal(loc).then(res => {
@@ -86,9 +81,6 @@ Page({
       _this.getCity()
     })
   },
-  /*
-    城市的模糊查询
-  */
   getCity() {
     const _this = this;
     _get(getCity, {

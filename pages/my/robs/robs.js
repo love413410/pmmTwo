@@ -35,7 +35,6 @@ Page({
       sub: 0
     })
     this.myRob()
-    // idx == 1 ? this.myRob() : this.myRobs();
   },
   subFn(e) {
     this.setData({
@@ -47,11 +46,9 @@ Page({
   },
   onShow: function() {
     this.setData({
-      // idx: 1,
       page: 1,
       pagesize: 20,
       list: [],
-      // sub: 1,
       isTrue: 1
     })
     this.myRob()
@@ -71,7 +68,6 @@ Page({
     }
     _get(myRob, data).then(res => {
       const list = res.content.list;
-      console.log(list)
       _this.setData({
         list: [..._this.data.list, ...list],
         ztotal: res.content.ztotal,
@@ -80,7 +76,6 @@ Page({
       })
     })
   },
-  // 评价
   swtaImg(e) {
     this.setData({
       isTrue: e.currentTarget.dataset.t
@@ -107,7 +102,6 @@ Page({
     const id = e.currentTarget.dataset.id;
     const ty = e.currentTarget.dataset.ty;
     const is = e.currentTarget.dataset.go;
-    console.log(is)
     let src;
     switch (ty) {
       case '1':
@@ -132,7 +126,6 @@ Page({
       url: src
     })
   },
-  // 评价
   move(e) {
     const x = e.currentTarget.dataset.x;
     const id = e.currentTarget.dataset.id;
@@ -147,21 +140,18 @@ Page({
       });
     };
   },
-  // 打赏
   toRou(e) {
     const url = e.currentTarget.dataset.url;
     wx.navigateTo({
       url: url
     })
   },
-  // 去付款
   toPrFn(e) {
     const id = e.currentTarget.dataset.id;
     wx.navigateTo({
       url: '../../home/price/price?id=' + id,
     })
   },
-  // 去付款2
   toPayFn(e){
     const id = e.currentTarget.dataset.id;
     this.setData({
@@ -239,7 +229,6 @@ Page({
               setTimeout(_this.decrDeta, 500);
             }
             app.toast(res.msg)
-
           })
         } else {
           app.toast(res.msg)
@@ -247,9 +236,6 @@ Page({
       })
     }
   },
-
-
-  //查看评价
   lookFn(e){
     const look = e.currentTarget.dataset.look;
     this.setData({

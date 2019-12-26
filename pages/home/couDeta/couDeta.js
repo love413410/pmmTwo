@@ -34,7 +34,6 @@ Page({
       id: this.data.id
     }).then(res => {
       const task = res.content.task;
-      console.log(task)
       const btn = task.userid == app.globalData.uid ? true : false;
       this.setData({
         task: task,

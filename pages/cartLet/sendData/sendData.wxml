@@ -6,7 +6,6 @@
     {{task.brand}}
   </view>
 </view>
-
 <view class="item">
   <view class="lt">
     公司名称
@@ -15,7 +14,6 @@
     {{task.goodname}}
   </view>
 </view>
-
 <view class="item">
   <view class="lt">
     屏幕像素
@@ -24,7 +22,6 @@
     {{task.screenpx}}
   </view>
 </view>
-
 <view class="item">
   <view class="lt">
     服务产品
@@ -33,8 +30,6 @@
     {{task.good_txt}}
   </view>
 </view>
-
-
 <view class="item">
   <view class="lt">
     服务形式
@@ -43,7 +38,6 @@
     {{task.goodtype_txt}}
   </view>
 </view>
-
 <view class="item">
   <view class="lt">
     联系人
@@ -52,7 +46,6 @@
     {{task.link}}
   </view>
 </view>
-
 <view class="item">
   <view class="lt">
     联系方式
@@ -61,7 +54,6 @@
     {{task.linkphone}}
   </view>
 </view>
-
 <view class="item">
   <view class="lt">
     所在地区
@@ -70,7 +62,6 @@
     {{task.provincename}} {{task.cityname}} {{task.areaname}}
   </view>
 </view>
-
 <view class="item">
   <view class="lt">
     详细地址
@@ -83,33 +74,25 @@
   <view class="pic-tle">
     现场实图
   </view>
-
   <view class="pics">
     <image src="{{item}}" wx:for="{{task.pics}}" bindtap="preview" data-url="{{item}}"></image>
   </view>
 </view>
-
 <view class="desc">
   情况阐述
 </view>
 <view class="items">
   {{task.overview}}
 </view>
-
 <view class="foot-btn" bindtap="myDeta" wx:if="{{to==1&&is}}">
   立即派单
 </view>
-
 <view class="foot-btn" hidden="{{is}}">
   派单中,请耐心等待
 </view>
-
 <view wx:if="{{to==2}}">
   <view class="foot-btn" bindtap="rotTo">查看派单</view>
-  <!-- <view class="foot-btn" bindtap="rotTo">查看评价</view> -->
 </view>
-
-
 <view wx:if="{{to==3&&c!=1}}">
   <view class="foot-btn" bindtap="modeFn" wx:if="{{btn==1}}">确认完成</view>
   <navigator hover-class="none" open-type='redirect' url="../addFeed/addFeed?id={{task.id}}" class="foot-btn" wx:if="{{btn==2}}">
@@ -119,9 +102,6 @@
     查看我的反馈单
   </navigator>
 </view>
-
-
-
 <view class="mask" bindtap="move" hidden="{{mask?false:true}}">
   <view class="not_maskBox">
     <image src="{{baseSrc}}qxa.png" class="qxa" bindtap="move"></image>

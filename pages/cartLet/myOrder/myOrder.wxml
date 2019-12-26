@@ -1,4 +1,3 @@
-<!-- <view class="item" bindtap="rotTo" data-btn="{{item.btn_type}}" data-id='{{item.taskid}}' data-pid="{{item.id}}" wx:for="{{list}}"> -->
 <view class="head">
   <view class="head-item" bindtap="swta" data-idx='1'>
     <view class="{{idx==1?'adds':''}}">
@@ -12,25 +11,6 @@
     </view>
   </view>
 </view>
-<!-- <view class="item" bindtap="rotTo" data-item="{{item}}" wx:for="{{list}}">
-  <view class="lt">
-    {{item.title}}
-  </view>
-
-  <view class="lt time">
-    {{item.ctime}}
-  </view>
-  <view class="rt btn" catchtap="send" data-taskid='{{item.taskid}}' data-id='{{item.id}}' wx:if="{{item.change==0&&item.btn_type==1}}">
-    确认完成
-  </view>
-
-  <view catchtap='toEval' data-url="../addFeed/addFeed?id={{item.taskid}}" class="rt btn" wx:if="{{item.change==0&&item.btn_type==2}}">填写反馈</view>
-
-  <view catchtap='toEval' data-url="../feedDate/feedDate?id={{item.taskid}}&source=1" class="rt btn" wx:if="{{item.change==0&&item.btn_type==3}}">反馈单</view>
-
-  <image src="{{baseSrc}}ionc-e.png" class="img" wx:if="{{item.change==1}}"></image>
-</view> -->
-
 <view class="item" bindtap="rotTo" data-item="{{item}}" wx:for="{{list}}">
   <view class="top_">
     <view class="lt">
@@ -46,9 +26,7 @@
   <view class="rt btn btn1" wx:if="{{item.change==0&&item.btn_type==1}}" catchtap="send" data-taskid='{{item.taskid}}' data-id='{{item.id}}'>
     确认完成
   </view>
-
   <view catchtap='toEval' data-url="../addFeed/addFeed?id={{item.taskid}}" class="rt btn btn1" wx:if="{{item.change==0&&item.btn_type==2}}">填写反馈</view>
-
   <view catchtap='toEval' data-url="../feedDate/feedDate?id={{item.taskid}}&source=1" class="rt btn btn2" wx:if="{{item.change==0&&item.btn_type==3}}">反馈单</view>
   <image src="{{baseSrc}}ionc-e.png" class="img" wx:if="{{item.change==1}}"></image>
 </view>

@@ -91,7 +91,6 @@ Page({
     })
     this.getLocat()
   },
-  // 上传图片
   upPhoto() {
     var _this = this;
     wx.chooseImage({
@@ -136,7 +135,6 @@ Page({
       }
     })
   },
-  // 删除图片
   showDel(e) {
     var cid = e.currentTarget.dataset.cid;
     var str = "photos[" + cid + "]del";
@@ -159,7 +157,6 @@ Page({
       urls: _this.data.preview
     })
   },
-  //发布
   releFn() {
     if (util.clickFn()) return;
     const _this = this;
@@ -273,7 +270,6 @@ Page({
       url: src
     })
   },
-  //获取用户当前位置
   getLoca() {
     const _this = this;
     app.getLoca().then(res => {
@@ -289,7 +285,6 @@ Page({
       _this.getLocal()
     })
   },
-  // 经纬度转换成城市
   getLocal() {
     const _this = this;
     app.getLocal(this.data.loc).then(res => {
@@ -303,7 +298,6 @@ Page({
       _this.getCity('idd', data.district);
     })
   },
-  // 城市转换成经纬度
   getLocat() {
     const _this = this;
     app.getLocat(this.data.regStr).then(res => {
@@ -316,10 +310,6 @@ Page({
       })
     })
   },
-
-  /*
-    获取城市的ID
-  */
   getCity(u, d) {
     const _this = this;
     _get(getCity, {

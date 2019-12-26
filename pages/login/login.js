@@ -39,7 +39,6 @@ Page({
       mobile: ''
     })
   },
-
   getCode() {
     const _this = this;
     const mobile = this.data.mobile;
@@ -120,7 +119,6 @@ Page({
       app.toast('请同意用户协议!')
     }
   },
-  //获取用户当前位置
   getLoca() {
     const _this = this;
     app.getLoca().then(res => {
@@ -139,7 +137,6 @@ Page({
       }, 2000);
     })
   },
-  // 经纬度转换成城市
   getLocal(loc) {
     const _this = this;
     app.getLocal(loc).then(res => {
@@ -165,7 +162,6 @@ Page({
         [x]: idcId
       })
       const [idp, idc, idd] = [_this.data.idp.length, _this.data.idc.length, _this.data.idd.length];
-      console.log(idc)
       if (idp > 0 && idc > 0 && idd > 0 ){
         _this.change();
       }

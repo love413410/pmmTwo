@@ -68,7 +68,6 @@ page {
   position: relative;
   margin: auto;
   margin-top: 50%;
-  /* overflow: hidden; */
 }
 .qx{
   width: 75rpx;

@@ -82,7 +82,7 @@ Page({
     }).then(res => {
       const isA = res.content.user.is_approve;
       const isB = res.content.user.is_vip;
-      let iss, mask; //1为个人 2为企业用户 3为诚企
+      let iss, mask;
       if (isA != 2 && isB != 1) {
         this.setData({
           mask: 1,
@@ -113,9 +113,6 @@ Page({
       setTimeout(this.decrDeta, 500)
     })
   },
-
-
-  
   dialFn() {
     const _this = this;
     const phone = this.data.task.linkphone;
@@ -133,32 +130,6 @@ Page({
         })
       }
     })
-
-    // _get(gloss, {
-    //   userid: app.globalData.uid,
-    //   callnumber: phone
-    // }).then(res => {
-    //   if (res.code == 1) {
-    //     wx.makePhoneCall({
-    //       phoneNumber: res.content.data,
-    //       success: function (res) {
-    //         _post(link, {
-    //           userid: _this.data.robId,
-    //           taskid: _this.data.task.id
-    //         }).then(res => {
-    //           _this.setData({
-    //             hide: true
-    //           })
-    //           _this.decrDeta();
-    //         })
-
-    //       }
-    //     })
-    //   } else {
-    //     app.toast(res.msg)
-    //   }
-    // })
-
   },
   rouTo() {
     wx.redirectTo({
@@ -172,7 +143,7 @@ Page({
     }).then(res => {
       const isA = res.content.user.is_approve;
       const isB = res.content.user.is_vip;
-      let iss, mask; //1为个人 2为企业用户 3为诚企
+      let iss, mask;
       if (isA == 2) {
         iss = 2;
         mask = -1;

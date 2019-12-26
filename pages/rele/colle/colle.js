@@ -20,27 +20,21 @@ Page({
     mask: -1,
     is: true,
     payIs: true,
-
     pick1: ['室内', '半户外', '户外'],
     pickIdx1: 0,
     pickVal1: '请选择',
-
     pick2: ['单色', '双基色', '全彩色'],
     pickIdx2: 0,
     pickVal2: '请选择',
-
     pick3: ['P10', 'P8', 'P6', 'P5', 'P4', 'P3', 'P2.5', 'P2', '其他'],
     pickIdx3: 0,
     pickVal3: '请选择',
-
     pick4: ['室内铝框（无包边）', '室内方管结构（无包边）', '户外结构（含铝塑板四圈包边）', '不需要'],
     pickIdx4: 0,
     pickVal4: '请选择',
-
     pick5: ['室内屏（接电源+控制卡+调试）', '户外屏（吊装+接电+调试）', '不需要'],
     pickIdx5: 0,
     pickVal5: '请选择',
-
     pick6: ['一年上门5次', '两年上门10次', '不需要'],
     pickIdx6: 0,
     pickVal6: '请选择',
@@ -50,7 +44,6 @@ Page({
     ela: '',
     eye: 2,
     date: '请选择',
-
     isFocus: true,
     Value: "",
     isDis: false,
@@ -93,7 +86,6 @@ Page({
     })
     this.getLocat()
   },
-  // payIs
   payFn(e) {
     const _this = this;
     const val = e.detail;
@@ -148,7 +140,6 @@ Page({
         userid: app.globalData.uid,
         password: this.data.Value,
       }).then(res => {
-        console.log(res)
         if (res.code == 1) {
           const data = {
             userid: app.globalData.uid,
@@ -175,7 +166,6 @@ Page({
       })
     }
   },
-  //获取用户当前位置
   getLoca() {
     const _this = this;
     app.getLoca().then(res => {
@@ -191,7 +181,6 @@ Page({
       _this.getLocal()
     })
   },
-  // 经纬度转换成城市
   getLocal() {
     const _this = this;
     app.getLocal(this.data.loc).then(res => {
@@ -205,7 +194,6 @@ Page({
       _this.getCity('idd', data.district);
     })
   },
-  // 城市转换成经纬度
   getLocat() {
     const _this = this;
     app.getLocat(this.data.regStr).then(res => {
@@ -218,9 +206,6 @@ Page({
       })
     })
   },
-  /*
-    获取城市的ID
-  */
   getCity(u, d) {
     const _this = this;
     _get(getCity, {
@@ -232,14 +217,12 @@ Page({
       })
     })
   },
-
   move() {
     this.setData({
       mask: -1,
       Value: ''
     })
   },
-
   auth() {
     var src = this.data.isis == 0 ? '../auth/auth' : '../auth2/auth2';
     this.setData({
@@ -249,7 +232,6 @@ Page({
       url: src
     })
   },
-  // 上传图片
   upPhoto() {
     var _this = this;
     wx.chooseImage({
@@ -294,7 +276,6 @@ Page({
       }
     })
   },
-  // 删除图片
   showDel(e) {
     var cid = e.currentTarget.dataset.cid;
     var str = "photos[" + cid + "]del";
@@ -337,12 +318,10 @@ Page({
       app.toast('请选择产品型号！')
       return;
     }
-
     if (!app.trim(d)) {
       app.toast('请输入净屏面积！')
       return;
     }
-
     if (i === 0) {
       app.toast('请选择框架服务！')
       return;
@@ -355,7 +334,6 @@ Page({
       app.toast('请选择维保服务！')
       return;
     }
-
     if (!app.trim(e) || !app.regex(e)) {
       app.toast('请输入正确的联系人！')
       return;
@@ -407,7 +385,6 @@ Page({
     };
     const is = this.data.iss;
     if (is == 1) {
-      //1为个人,就提示去认证
       this.setData({
         mask: 1
       });
@@ -432,9 +409,7 @@ Page({
           })
         }
       })
-      //3为诚企,直接发布
     }
-
   },
   decr(data) {
     const _this = this;

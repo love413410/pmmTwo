@@ -24,7 +24,6 @@ Page({
     hide: '0',
     arr: ['全部', '终端客户询价', '同行项目外包', '全国维修服务', '全国求购货源', '租赁大屏需求', '新品促销/尾货处理'],
     arr2: ['全部', '未结束'],
-
     idx1: 0,
     idx2: 0,
     page: 1,
@@ -33,8 +32,6 @@ Page({
     idc: '',
     idp: '',
     list: [],
-
-
     text: '“新品促销/尾货处理” 有更多优惠活动哦~快来看看吧',
     speed: 1,
     dist: 0,
@@ -94,7 +91,6 @@ Page({
       mask:-1
     })
   },
-  //获取用户当前位置
   getLoca() {
     const _this = this;
     app.getLoca().then(res => {
@@ -110,7 +106,6 @@ Page({
       _this.getLocal()
     })
   },
-  // 经纬度转换成城市
   getLocal() {
     const _this = this;
     app.getLocal(this.data.loc).then(res => {
@@ -122,9 +117,6 @@ Page({
       _this.getCity()
     })
   },
-  /*
-    城市的模糊查询
-  */
   getCity() {
     const _this = this;
     _get(getCity, {
@@ -158,7 +150,6 @@ Page({
     }
     _get(decrList, data).then(res => {
       const list = res.content.list;
-      console.log(list)
       const page = res.content.page;
       const tempPage = _this.data.tempPage;
       if (page != tempPage) {

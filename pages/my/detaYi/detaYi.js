@@ -82,13 +82,6 @@ Page({
       case '1':
         src = 'pages/home/releDeta/releDeta?id=' + id;
         break;
-      // case '2':
-      //   src = 'pages/home/colleDeta/colleDeta?id=' + id;
-      //   break;
-      // case '3':
-      //   src = 'pages/home/whoDeta/whoDeta?id=' + id;
-      //   break;
-      // case '4':
         src = 'pages/home/couDeta/couDeta?id=' + id;
         break;
       case '5':

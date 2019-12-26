@@ -4,27 +4,17 @@
       全部
     </view>
   </view>
-
   <view class="head-item" bindtap="swta" data-idx='1'>
     <view class="{{idx==1?'add':''}}">
       待发货
     </view>
   </view>
-
   <view class="head-item" bindtap="swta" data-idx='3'>
     <view class="{{idx==3?'add':''}}">
       已发货
     </view>
   </view>
-
-  <!-- <view class="head-item" bindtap="swta" data-idx='3'>
-    <view class="{{idx==3?'add':''}}">
-      已收货
-    </view>
-  </view> -->
 </view>
-
-
 <view class="item" wx:for="{{list}}">
   <view class="lt item_lt">
     <view class="item_top">
@@ -34,25 +24,18 @@
       <view class="lt imgBox">
         <image src="{{item.pic}}"></image>
       </view>
-
       <view class="lt textBox">
         <view class="texTop">
           {{item.name}}
           <text class="num">X1</text>
         </view>
-
         <view class="add" catchtap="to" data-id='{{item.express_num}}'>
-          <!-- <view class="lt"> -->
             {{item.express_company}} {{item.express_num}}
-          <!-- </view> -->
           <image src="{{baseSrc}}fuzhi.png" wx:if="{{item.estatus==3}}"></image>
         </view>
-
-
       </view>
     </view>
   </view>
-
   <view class="rt ">
     <view class="item_top rt_top ">
       {{item.status_txt}}
@@ -61,5 +44,4 @@
       {{item.need}}积分
     </view>
   </view>
-
 </view>

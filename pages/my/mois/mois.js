@@ -111,12 +111,6 @@ Page({
             total_fee: this.data.val
           }).then(res => {
             if (res.code == 1) {
-              // app.toast(res.msg);
-              // _this.setData({
-              //   Value: '',
-              //   inputValue: '',
-              //   mask: 3
-              // });
               setTimeout(function(){
                 wx.navigateBack({
                   delta: 1

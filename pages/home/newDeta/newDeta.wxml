@@ -87,10 +87,6 @@
 <view class="desc">
   {{task.overview}}
 </view>
-
-<!-- <button class="footBtn bg1" wx:if="{{btn}}" bindtap="authFn">
-  分享
-</button> -->
 <view wx:if="{{btn}}" class="footBtn">
   <button class="ltBtn" hover-class="none" open-type='share'>转发给好友/群聊</button>
   <button class="rtBtn" hover-class="none" bindtap="authFn">分享到朋友圈</button>
@@ -127,14 +123,7 @@
   </cover-view>
 </cover-view>
 
-
-
 <popup bind:popupFn="popupFn" hide='{{is}}'></popup>
-
-
-<!-- bg1 立即抢单
-bg2 已结束  
-bg3 立即拨号 -->
 <paymen bind:payFn="payFn" bool='{{payIs}}'></paymen>
 <view class="mask" catchtouchmove bindtap="move" wx:if="{{mask==2?true:false}}">
   <view class="pay_box">
@@ -170,10 +159,6 @@ bg3 立即拨号 -->
     <input name="password" password type="number" class='pay_ipt_s' maxlength="6" focus="{{isFocus}}" bindinput="Focus"></input>
   </view>
 </view>
-
-
-
-
 <view class="foot">
   <view class="foot-head">
     <text class="line">“新品促销/尾货处理”类抢单须知</text>

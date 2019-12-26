@@ -1,15 +1,3 @@
-<!-- <view class="head">
-  <view class="banner">
-    <view class="top_swiper">
-      <swiper autoplay interval='3000'>
-        <swiper-item wx:for="{{banner}}" wx:key="{{index}}" wx:for-item="itemPic">
-          <image src="{{itemPic.pic}}"></image>
-        </swiper-item>
-      </swiper>
-    </view>
-  </view>
-</view> -->
-
 <view class="head">
  <image src="{{baseSrc}}cxbn.png"></image>
 </view>
@@ -24,11 +12,9 @@
         <view class="lt renzImg" wx:if="{{item.is_approve==2}}">
           <image src="{{baseSrc}}qiye.png"></image>
         </view>
-
         <view class="lt vipImg" wx:if="{{item.is_vip==1}}">
           <image src="{{baseSrc}}3.png"></image>
         </view>
-
       </view>
       <view class="rt">
         {{item.ctime}} 发布
@@ -36,7 +22,6 @@
       <image src="{{baseSrc}}ionc-a.png" class="state" wx:if="{{item.overdue==1}}"></image>
       <image src="{{baseSrc}}ionc-b.png" class="state" wx:if="{{item.is_end==1&&item.overdue==0}}"></image>
     </view>
-
     <view class="item-t">
       <view class="lt">
         <view class="tle">
@@ -44,7 +29,6 @@
         </view>
         <view class="add mar">
           <image src="{{baseSrc}}ionc1.png"></image>
-          <!-- <text wx:if="{{item.type==6}}">未知</text> -->
           <text>{{item.provincename}}{{item.cityname}}</text>
         </view>
         <view class="add">
@@ -52,15 +36,12 @@
           <view class="lt">
             {{item.des}}
           </view>
-          <!-- <text>{{item.des}}</text> -->
         </view>
       </view>
       <image src="{{baseSrc}}q.png" class="rt" wx:if="{{item.is_end==0&&item.overdue==0&&item.is_show==0}}"></image>
-
       <view class="cro_left_bottom"></view>
       <view class="cro_right_bottom"></view>
     </view>
-
     <view class="item-b">
       <view class="ltext">
         备注:
@@ -68,7 +49,6 @@
       <view class="rtext">
         {{item.overview}}
       </view>
-
       <div class="cro_left_top"></div>
       <div class="cro_right_top"></div>
     </view>

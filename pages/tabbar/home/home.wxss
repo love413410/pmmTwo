@@ -263,7 +263,6 @@ page {
   -webkit-box-orient: vertical;
 }
 
-/* 遮罩层部分样式 */
 .mask-box {
   width: 100%;
   padding: 40rpx 25rpx;

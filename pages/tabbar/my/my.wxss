@@ -173,17 +173,6 @@ page {
   height: 100%;
 }
 
-/* .edition {
-  width: 100%;
-  text-align: center;
-  margin-top: 80rpx;
-  font-size: 20rpx;
-  color: #ccc;
-  letter-spacing: 5rpx;
-} */
-
-
-
 .signImg{
   width: 620rpx;
   height: 510rpx;

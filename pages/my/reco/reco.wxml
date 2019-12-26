@@ -8,19 +8,16 @@
       <image src="{{baseSrc}}down.png"></image>
     </view>
   </view>
-
   <view class="head-item">
     <picker range="{{pick1}}" bindchange='pickFn1' data-idx='pickIdx1' range-key="name">
       <view class="head-txt">
       {{qiye}}
-        <!-- {{pick1[pickIdx1].name}} -->
       </view>
     </picker>
     <view class="head-img">
       <image src="{{baseSrc}}down.png"></image>
     </view>
   </view>
-
   <view class="head-item">
     <picker range="{{pick2}}" bindchange='pickFn' data-idx='pickIdx2' range-key="name">
       <view class="head-txt">
@@ -32,7 +29,6 @@
     </view>
   </view>
 </view>
-
 <view class="item" wx:for="{{list}}" wx:key="{{item.id}}">
   <view class="head {{item.btn_type!=2?'mosaic':''}}">
     {{item.company}}
@@ -56,41 +52,31 @@
         联系人:
         <text class="{{item.btn_type!=2?'mosaic':''}}">{{item.operation_people}}</text>
       </view>
-
       <view wx:if="{{item.btn_type!=2}}">
         联系方式:
         <text class="mosaic">{{item.operation_mobile}}</text>
       </view>
-
       <view wx:if="{{item.btn_type==2}}">
         联系方式:
         <text>{{item.operation_mobile}}</text>
         <text class="call" bindtap="callFn" data-num="{{item.operation_mobile}}">立即联系</text>
       </view>
-
     </view>
   </view>
 
   <view class="btn btn1" wx:if="{{user.is_vip==0}}" bindtap="authFn">
     成为VIP免费查看
   </view>
-
   <view class="btn btn1" bindtap="free" data-id="{{item.id}}" wx:if="{{user.is_vip==1&&item.btn_type==1}}">
     {{item.btn_name}}
   </view> 
-
   <view class="btn btn1" catchtap="look" data-id="{{item.id}}" wx:if="{{user.is_vip==1&&item.btn_type==3}}">
     {{item.btn_name}}
   </view>
-
   <view class="btn btn2" wx:if="{{user.is_vip==1&&item.btn_type==2}}">
-  <!-- 剩余6天23时59分隐藏 -->
-  <!-- 免费查看至2019-12-17 -->
     {{item.btn_name}}
   </view>
-
 </view>
-
 <view class="mask" catchtouchmove bindtap="move" wx:if="{{mask==1?true:false}}">
   <view class="shop_box">
     <view class="shop_top">
@@ -107,10 +93,6 @@
     </view>
   </view>
 </view>
-
-
-
-
 <paymen bind:payFn="payFn" bool='{{payIs}}'></paymen>
 <view class="mask" catchtouchmove bindtap="move" wx:if="{{mask==2?true:false}}">
   <view class="pay_box">
@@ -124,12 +106,10 @@
     <view class="pay_text pay_texts">
       ￥{{val}}
     </view>
-
     <view class="pay_type">
       <view class='pay_lt'>
         支付方式
       </view>
-
       <view class='pay_rt'>
         <image src="{{baseSrc}}lq.png" class="pay_lq"></image>
         <view class='pay_lt pay_lqt'>
@@ -137,7 +117,6 @@
         </view>
       </view>
     </view>
-
     <view class='pay_contents'>
       <block wx:for="{{6}}" wx:key="item">
         <input class='pay_iptbox' value="{{Value.length>=index+1?Value[index]:''}}" disabled password catchtap='Tap'></input>

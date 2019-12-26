@@ -1,9 +1,6 @@
 const urls = require('./urls.js');
 const baseUrl = urls.baseUrl;
 const http = ({ url = '', param = {}, ...other } = {}) => {
-  // wx.showLoading({
-  //   title: '请求中，请耐心等待..'
-  // });
   let timeStart = Date.now();
   return new Promise((resolve, reject) => {
     wx.request({
@@ -14,7 +11,6 @@ const http = ({ url = '', param = {}, ...other } = {}) => {
       },
       ...other,
       complete: (res) => {
-        // wx.hideLoading();
         if (res.statusCode >= 200 && res.statusCode < 300) {
           resolve(res.data)
         } else {
@@ -24,46 +20,39 @@ const http = ({ url = '', param = {}, ...other } = {}) => {
     })
   })
 }
-
 const getUrl = (url) => {
   if (url.indexOf('://') == -1) {
     url = baseUrl + url;
   }
   return url
-}
-
-// get方法
+};
 const _get = (url, param = {}) => {
-  
   return http({
     url,
     param
   })
-}
-
+};
 const _post = (url, param = {}) => {
   return http({
     url,
     param,
     method: 'post'
   })
-}
-
+};
 const _put = (url, param = {}) => {
   return http({
     url,
     param,
     method: 'put'
   })
-}
-
+};
 const _delete = (url, param = {}) => {
   return http({
     url,
     param,
     method: 'put'
   })
-}
+};
 module.exports = {
   baseUrl,
   urls,

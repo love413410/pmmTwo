@@ -90,9 +90,6 @@ page {
   line-height:90rpx;
   border-radius:10rpx;
   background:#ef7e20;
-  /* position: absolute;
-  left:30rpx;
-  bottom:160rpx; */
   margin-top: 100rpx;
   text-align:center;
   color:#fff;
@@ -112,11 +109,6 @@ page {
   box-sizing: border-box;
   position: relative;
 }
-/* .contentbox {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-} */
 .content_input{
   width: 100%;
   height: 100%;

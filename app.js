@@ -48,11 +48,8 @@ App({
     is:false,
     userInfo: null,
     openId: '',
-    // uid: 85,
     uid: '',
-
   },
-  //获取当前位置
   getLoca() {
     return new Promise((resolve, reject) => {
       wx.getLocation({
@@ -92,7 +89,6 @@ App({
       })
     })
   },
-  //经纬度转换成地址
   getLocal(e) { 
     return new Promise((resolve, reject) => {
       let _this = this;
@@ -102,7 +98,6 @@ App({
           longitude: e.lng
         },
         success: (res) => {
-          // const city = res.result.address_component.city;
           resolve(res)
         },
         fail: (f) => {
@@ -111,7 +106,6 @@ App({
       })
     })
   },
-  //地址转换成经纬度
   getLocat(e) {
     return new Promise((resolve, reject) => {
       qqmapsdk.geocoder({

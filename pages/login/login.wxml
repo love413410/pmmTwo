@@ -10,14 +10,12 @@
     <input class="text" type="number" value="{{mobile}}" placeholder='请输入手机号' bindinput='inpChang' data-id='mobile'></input>
     <image src='{{baseSrc}}close.png' class='close' bindtap='close'></image>
   </view> 
-
   <view class="mobile">
     <image src="{{baseSrc}}lg-ico2.png" class="ico"></image>
     <input class="text" type="number" value="{{code}}" placeholder='请输入验证码' bindinput='inpChang' data-id='code' ></input>
     <view class="code" bindtap='getCode' wx:if="{{isSHow}}">获取验证码</view>
     <view class="code" wx:else="{{!isSHow}}">{{codeText}}</view>
   </view>
-
   <view class="check">
     <checkbox-group bindchange="check" data-id='{{check}}'>
       <label class="checkbox">
@@ -27,5 +25,4 @@
     </checkbox-group>
   </view>
   <button class="loginBtn" bindtap="login" disabled="{{isDis}}">{{loginText}}</button>
-  <!-- <view class="loginBtn" bindtap="login">登录</view>  -->
 </view>

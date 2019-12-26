@@ -17,7 +17,6 @@ Page({
     is: false
   },
   onLoad: function(o) {
-    console.log(o)
     if (o.id) {
       this.setData({
         id: o.id
@@ -49,7 +48,6 @@ Page({
     }).then(res => {
       const task = res.content.task;
       const btn = task.userid == app.globalData.uid ? true : false;
-      console.log(task)
       this.setData({
         task: task,
         btn: btn
@@ -83,7 +81,7 @@ Page({
     }).then(res => {
       const isA = res.content.user.is_approve;
       const isB = res.content.user.is_vip;
-      let iss, mask; //1为个人 2为企业用户 3为诚企
+      let iss, mask;
       if (isA != 2 && isB != 1) {
         this.setData({
           mask: 1,

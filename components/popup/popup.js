@@ -84,7 +84,6 @@ Component({
                   const obj = {
                     code: res.code
                   }
-                  // _this.triggerEvent("popupFn", obj);
                   _get(myDeta, {
                     userid: res.content.uid
                   }).then(res => {
@@ -106,7 +105,6 @@ Component({
                   _this.triggerEvent("popupFn", obj);
                 }
               })
-
             }
           })
         }

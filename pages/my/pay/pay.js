@@ -74,11 +74,6 @@ Page({
     this.wall()
   },
   navTo(e) {
-    /*
-    由于数据太多,不建议页面传参
-    要在下个页面用一下
-    暂时缓存一下,下个页面清除
-    */
     const temp = e.currentTarget.dataset.temp;
     wx.navigateTo({
       url: '../payDate/payDate?id=' + temp.statement_id,

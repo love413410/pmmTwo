@@ -128,7 +128,6 @@ Page({
         if (res.code == 1) {
           _this.prese()
         } else {
-          // app.toast('请输入正确的验证码');
           app.toast(res.msg);
         };
       })
@@ -153,10 +152,6 @@ Page({
       };
       const name = this.data.name;
       const mobile = this.data.phone;
-      // if (!app.regex(name)) {
-      //   app.toast('请输入正确的姓名')
-      //   return
-      // };
       if (!app.trim(name)) {
         app.toast('请输入姓名')
         return
@@ -193,7 +188,6 @@ Page({
     }).then(res => {
       if (res.code = 1) {
         let counts = _this.data.counts;
-        //倒计时主要部分，利用定时器
         let intTime = setInterval(function() {
           counts--;
           if (counts > 0) {
@@ -215,8 +209,6 @@ Page({
       }
     })
   },
-
-  //获取用户当前位置
   getLoca() {
     const _this = this;
     app.getLoca().then(res => {
@@ -232,7 +224,6 @@ Page({
       _this.getLocal()
     })
   }, 
-  // 经纬度转换成城市
   getLocal() {
     const _this = this;
     app.getLocal(this.data.loc).then(res => {
@@ -248,9 +239,6 @@ Page({
       _this.getCity('idd', iddName);
     })
   },
-  /*
-    城市的模糊查询
-  */
   getCity(x,e) {
     const _this = this;
     _get(getCity, {
@@ -262,9 +250,6 @@ Page({
       })
     })
   },
-
-
-
   onShareAppMessage: function() {
 
   }

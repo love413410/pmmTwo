@@ -60,10 +60,6 @@
     </view>
   </picker>
 </view>
-
-
-
-
 <picker range="{{pick4}}" value="{{pickIdx4}}" bindchange='pickFn' data-pick="pick4" data-idx='pickIdx4' wx:if="{{type==6}}">
   <view class="item">
     <view>
@@ -84,9 +80,6 @@
     </view>
   </view>
 </picker>
-
-
-<!-- 全国求购货源 -->
 <view wx:if="{{type==4||type==6}}">
   <view class="item">
     <view>
@@ -115,7 +108,6 @@
     </view>
   </view>
 </view>
-
 <view class="item" wx:if="{{type==4}}">
   <view>
     <view class="lt">
@@ -129,13 +121,6 @@
     <input placeholder="请输入" value="{{mode}}" bindinput="valFn" data-val='mode'></input>
   </view>
 </view>
-
-
-
-
-
-
-<!-- 同行项目外包 -->
 <view wx:if="{{type==2}}">
   <view class="item">
     <view>
@@ -211,11 +196,6 @@
     </view>
   </picker>
 </view>
-
-
-
-
-
 <view wx:if="{{type==6}}">
   <picker range="{{pick8}}" value="{{pickIdx8}}" bindchange='pickFn' data-pick="pick8" data-idx='pickIdx8'>
     <view class="item">
@@ -251,8 +231,6 @@
     </view>
   </view>
 </view>
-
-
 <view class="item" wx:if="{{type==4}}">
   <view>
     <view class="lt">
@@ -266,7 +244,6 @@
     <input placeholder="请输入" type="number" value="{{num}}" bindinput="valFn" data-val='num'></input>
   </view>
 </view>
-
 <view wx:if="{{type==4||type==6}}">
   <picker range="{{pick9}}" value="{{pickIdx9}}" bindchange='pickFn' data-pick="pick9" data-idx='pickIdx9'>
     <view class="item">
@@ -309,12 +286,6 @@
     </view>
   </picker>
 </view>
-
-
-
-
-
-
 <view wx:if="{{type==2}}">
   <view class="item">
     <view>
@@ -329,7 +300,6 @@
       <input placeholder="请输入" value="{{con}}" bindinput="valFn" data-val='con'></input>
     </view>
   </view>
-
   <view class="item">
     <view>
       <view class="lt">
@@ -344,7 +314,6 @@
     </view>
   </view>
 </view>
-
 <view class="item" style="border-bottom:none;" bindtap="link" wx:if="{{type!=6}}">
   <view>
     <view class="lt">
@@ -362,8 +331,6 @@
     </view>
   </view>
 </view>
-
-
 <view class="item" wx:if="{{type!=6}}">
   <view class="ipts">
     <input placeholder="请填写详细地址(街道、楼牌号等)" value="{{idtName}}" bindinput="valFn" data-val='idtName'></input>
@@ -377,7 +344,6 @@
     </view>
   </view>
 </view>
-
 <picker mode="date" value="{{date}}" start="{{start}}" bindchange='dateFn'>
   <view class="item">
     <view>
@@ -398,7 +364,6 @@
     </view>
   </view>
 </picker>
-
 <view class="up">
   <view class="up-top">
     {{picStr}}
@@ -411,28 +376,22 @@
       </view>
       <image src="{{item.src}}"></image>
     </view>
-
     <view hidden='{{photos.length >= 5}}' class="pic" bindtap='upPhoto'>
       <image src=" {{baseSrc}}pub-add.png"></image>
     </view>
   </view>
 </view>
-
-
 <view class="desc">
   <view class="tle">
     情况阐述
   </view>
-
   <view class="desc-b">
     <textarea placeholder="请具体阐述需求详情(0-50字)" value="{{ela}}" bindinput="valFn" data-val='ela'></textarea>
   </view>
 </view>
-
 <button class="footBtn" bindtap="releFn" disabled="{{isDis}}">
   {{releText}}
 </button>
-
 <link bind:linkFn="linkFn" bool='{{is}}'></link>
 <paymen bind:payFn="payFn" bool='{{payIs}}'></paymen>
 <view class="mask" catchtouchmove bindtap="move" wx:if="{{mask==2?true:false}}">
@@ -447,12 +406,10 @@
     <view class="pay_text pay_texts">
       ￥5
     </view>
-
     <view class="pay_type">
       <view class='pay_lt'>
         支付方式
       </view>
-
       <view class='pay_rt'>
         <image src=" {{baseSrc}}lq.png" class="pay_lq"></image>
         <view class='pay_lt pay_lqt'>
@@ -460,7 +417,6 @@
         </view>
       </view>
     </view>
-
     <view class='pay_contents'>
       <block wx:for="{{6}}" wx:key="item">
         <input class='pay_iptbox' value="{{Value.length>=index+1?Value[index]:''}}" disabled password catchtap='Tap'></input>

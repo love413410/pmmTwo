@@ -18,10 +18,6 @@ Page({
     regStr: '选择省、市、区',
   },
   onLoad: function (o) {
-    // 有ID证明是走列表进来的,点下面的确认时,就是走修改接口了
-    // 如果没有ID就是走新增的
-    // 如果有I就是走商城进入的,新增和修改之后,回到商城
-    // 而从我的后台进入的新增之后是跳到我的地址列表页面,所以有I和ID的传参
     if(o.id){
       this.addDate(o.id)
     }
@@ -49,7 +45,6 @@ Page({
       })
     })
   },
-
   link() {
     this.setData({
       is: false
@@ -66,17 +61,14 @@ Page({
   valFn(e) {
     const key = e.currentTarget.dataset.val;
     const val = e.detail.value;
-
     this.setData({
       [key]: val
     });
   },
-
   send(){
     const _this=this;
     const [a, b] = [this.data.con, this.data.mod];
     const [c, d] = [this.data.regStr, this.data.idtName];
-
     if (!app.trim(a) || !app.regex(a)) {
       app.toast('请输入正确的收货人！')
       return;
@@ -102,7 +94,7 @@ Page({
       area: this.data.idd,
       address: d,
     };
-    const id=this.data.id;//有ID就走修改,没有就走新增
+    const id=this.data.id;
     if (id){
       data.id=id;
       _post(modiAddress, data).then(res => {
@@ -141,9 +133,6 @@ Page({
       })
     }
   },
-
-
-  //获取用户当前位置
   getLoca() {
     const _this = this;
     app.getLoca().then(res => {
@@ -156,7 +145,6 @@ Page({
       _this.getLocal(loc)
     })
   },
-  // 经纬度转换成城市
   getLocal(loc) {
     const _this = this;
     app.getLocal(loc).then(res => {
@@ -170,9 +158,6 @@ Page({
       _this.getCity('idd', data.district);
     })
   },
-  /*
-    获取城市的ID
-  */
   getCity(u, d) {
     const _this = this;
     _get(getCity, {

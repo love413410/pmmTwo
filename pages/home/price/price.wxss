@@ -86,7 +86,7 @@ page{
   font-size: 16rpx;
 }
 .left{
-  width:140rpx;/*670*/
+  width:140rpx;
   line-height: 80rpx;
   text-align: center;
   font-size: 22rpx;
@@ -102,7 +102,7 @@ page{
 }
 
 .center{
-  width: 370rpx;/*530*/
+  width: 370rpx;
 }
 .center view{
   height: 40rpx;

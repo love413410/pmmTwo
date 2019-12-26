@@ -18,7 +18,6 @@
     </view>
   </view>
 </picker>
-
 <view class="item">
   <view>
     <view class="lt">
@@ -32,7 +31,6 @@
     <input placeholder="请输入" bindinput="valFn" data-val='name'></input>
   </view>
 </view>
-
 <view class="item">
   <view>
     <view class="lt">
@@ -46,8 +44,6 @@
     <input placeholder="如:1440*960" bindinput="valFn" data-val='px'></input>
   </view>
 </view>
-
-
 <picker range="{{pick1}}" value="{{pickIdx1}}" bindchange='pickFn' data-pick="pick1" data-idx='pickIdx1' data-val='pickVal1'>
   <view class="item">
     <view>
@@ -68,7 +64,6 @@
     </view>
   </view>
 </picker>
-
 <picker range="{{pick2}}" value="{{pickIdx2}}" bindchange='pickFn' data-pick="pick2" data-idx='pickIdx2' data-val='pickVal2'>
   <view class="item">
     <view>
@@ -89,9 +84,6 @@
     </view>
   </view>
 </picker>
-
-
-
 <view class="item">
   <view>
     <view class="lt">
@@ -105,7 +97,6 @@
     <input placeholder="请输入" bindinput="valFn" data-val='con'></input>
   </view>
 </view>
-
 <view class="item">
   <view>
     <view class="lt">
@@ -119,7 +110,6 @@
     <input placeholder="请输入" type="number" bindinput="valFn" data-val='mod'></input>
   </view>
 </view>
-
 <view class="item" style="border-bottom:none;" bindtap="link">
   <view>
     <view class="lt">
@@ -139,8 +129,6 @@
   </view>
 </view>
 <link bind:linkFn="linkFn" bool='{{is}}'></link>
-
-
 <view class="item">
   <view class="ipts">
     <input placeholder="请填写详细地址(街道、楼牌号等)" value="{{idtName}}" bindinput="valFn" data-val='idtName'></input>
@@ -154,45 +142,35 @@
     </view>
   </view>
 </view>
-
-
 <view class="up">
   <view class="up-top">
     现场实图
-    <!-- <text>(上传图片可以让更多商家积极抢单)</text> -->
   </view>
   <view class="up-bot">
-  
     <view class="pic" wx:key="id" wx:for="{{photos}}" bindlongpress='showDel' data-cid="{{index}}" bindtap="preview" data-url="{{item.src}}">
       <view class="dele" wx:if="{{item.del}}" catchtap='delPhoto' data-cid="{{index}}">
         <image src="{{baseSrc}}close.png"></image>
       </view>
       <image src="{{item.src}}"></image>
     </view>
-
     <view hidden='{{photos.length >= 5}}' class="pic" bindtap='upPhoto'>
       <image src="{{baseSrc}}pub-add.png"></image>
     </view>
   </view>
 </view>
-
-
 <view class="desc">
   <view class="tle">
     情况阐述
   </view>
-
   <view class="desc-b">
     <textarea wx:if="{{eye==1}}" placeholder="请具体阐述需求详情(0-50字)" value="{{ela}}" maxlength="50" bindinput="valFn" data-val='ela' bindblur="bindblurFn" data-is="2" auto-focus></textarea>
     <view wx:if="{{eye==2}}" bindtap="bindblurFn" data-is="1" class="desc_text">{{ela==''?'请具体阐述需求详情(0-50字)':ela}}</view>
   </view>
 </view>
-
 <view class="foot">
   <view class="foot-head">
     <text class="line">“厂家技术预约服务”类发布须知</text>
   </view>
-
   <view>
     1.个人用户不可发布此类订单,需通过企业认证;
   </view>
@@ -202,13 +180,10 @@
   <view>
     3.目前,厂家技术预约服务仅限预约卡莱特技术。
   </view>
-
 </view>
-
 <button class="footBtn" bindtap="releFn" disabled="{{isDis}}">
   {{releText}}
 </button>
-
 <view class="mask" catchtouchmove bindtap="move" wx:if="{{mask==1?true:false}}">
   <view class="maskBox">
     <view class="ms_top">

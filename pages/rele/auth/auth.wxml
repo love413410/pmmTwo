@@ -10,7 +10,6 @@
       </view>
     </view>
   </view>
-
   <view class="item">
     <view class="itm">
       <view class="lt">
@@ -41,21 +40,13 @@
       </view>
     </view>
   </view>
-
   <view class="item">
     <view class="itm">
       <view class="lt code">
         <input placeholder="请输入验证码" bindinput="valFn" data-id='code'></input>
       </view>
-
       <view class='rt codeBtn' bindtap='obtainCode' wx:if="{{gettime}}">获取验证码</view>
       <view class='rt codeBtn' wx:if="{{!gettime}}">{{codeText}}</view>
-
-
-      <!-- <view class="rt codeBtn">
-      
-        获取验证码
-      </view> -->
     </view>
   </view>
 </view>
@@ -85,20 +76,15 @@
     </view>
     <navigator url="../preview/preview" hover-class="none">
       <view class="contes">
-        <!-- <view class="contes" bindtap="download"> -->
-        <!-- 点击下载《授权书模板》 -->
         点击查看图片示例以及模板
       </view>
     </navigator>
   </view>
 </view>
-
 <popup bind:popupFn="popupFn" hide='{{popIs}}'></popup>
-
 <view class="sub-btn" bindtap="subFn">
   提交
 </view>
-
 <view class="mask" catchtouchmove bindtap="move" hidden="{{mask?false:true}}">
   <view class="not_maskBox">
     <view class="mask_tle">
@@ -109,11 +95,9 @@
         可选1-2条
       </view>
     </view>
-
     <image src="{{baseSrc}}c.png" class="qxa" catchtap="move"></image>
     <checkbox-group catchtap bindchange="checkboxChange">
       <view class="info">
-        <!-- <view class="info-item"> -->
         <view class="info-item" wx:for="{{check}}">
           <view class="lt">
             <checkbox value="{{item.id}}" checked="{{item.checked}}" />
@@ -122,10 +106,7 @@
             {{item.name}}
           </view>
         </view>
-
-
       </view>
-
       <view class="send" catchtap="comp">
         确认
       </view>

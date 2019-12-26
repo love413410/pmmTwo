@@ -165,7 +165,6 @@ Page({
       })
     }
   },
-  // 上传图片   如果你技术很强,可以把这里封装一下
   upPhoto() {
     var _this = this;
     wx.chooseImage({
@@ -210,7 +209,6 @@ Page({
       }
     })
   },
-  // 删除图片
   showDel(e) {
     var cid = e.currentTarget.dataset.cid;
     var str = "photos[" + cid + "]del";
@@ -233,8 +231,6 @@ Page({
       urls: _this.data.preview
     })
   },
-
-  //发布
   releFn() {
     if (util.clickFn()) return;
     const [a, b, c, d] = [this.data.bra, this.data.name, this.data.mode, this.data.num];
@@ -337,7 +333,6 @@ Page({
       url: src
     })
   },
-  //获取用户当前位置  你会发现每个发布页面都在调用,可能你会想,为啥不封装一下,其实这是封装过的
   getLoca() {
     const _this = this;
     app.getLoca().then(res => {
@@ -353,7 +348,6 @@ Page({
       _this.getLocal()
     })
   },
-  // 经纬度转换成城市
   getLocal() {
     const _this = this;
     app.getLocal(this.data.loc).then(res => {
@@ -367,7 +361,6 @@ Page({
       _this.getCity('idd', data.district);
     })
   },
-  // 城市转换成经纬度
   getLocat() {
     const _this = this;
     app.getLocat(this.data.regStr).then(res => {
@@ -380,10 +373,6 @@ Page({
       })
     })
   },
-
-  /*
-    获取城市的ID
-  */
   getCity(u, d) {
     const _this = this;
     _get(getCity, {

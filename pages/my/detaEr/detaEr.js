@@ -34,7 +34,6 @@ Page({
       })
     })
   },
-
   callFn(e) {
     this.setData({
       hide: false,
@@ -118,7 +117,6 @@ Page({
       }
     })
   },
-
   preview(e) {
     const _this = this;
     wx.previewImage({
@@ -126,18 +124,11 @@ Page({
       urls: _this.data.task.pics
     })
   },
-
-  // share
   onShareAppMessage: function() {
-
-
     const type = this.data.task.type;
     const id = this.data.task.id;
     let src;
     switch (type) {
-      // case '1':
-      //   src = 'pages/home/releDeta/releDeta?id=' + id;
-      //   break;
       case '2':
         src = 'pages/home/colleDeta/colleDeta?id=' + id;
         break;
@@ -147,9 +138,6 @@ Page({
       case '4':
         src = 'pages/home/couDeta/couDeta?id=' + id;
         break;
-      // case '5':
-      //   src = 'pages/home/leaDeta/leaDeta?id=' + id;
-      //   break;
       default:
         src = 'pages/home/newDeta/newDeta?id=' + id;
     };
@@ -158,6 +146,5 @@ Page({
       path: src,
       imageUrl: `${baseSrc}cover.png`
     }
-
   }
 })

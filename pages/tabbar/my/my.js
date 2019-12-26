@@ -57,7 +57,6 @@ Page({
       })
     })
   },
-  // 签到
   signFn(){
     const _this=this;
     _post(signIn, {

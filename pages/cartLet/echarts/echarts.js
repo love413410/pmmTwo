@@ -81,41 +81,6 @@ Page({
           _this.initColumn();
           _this.initRing();
         }
-        // const percent = res.content.percent;
-        // const bad = res.content.bad;
-        // const good = res.content.good;
-        // const dataX = [], dataY = [];
-        // for (let i = 0; i < list.length; i++) {
-        //   dataX.push(list[i].name)
-        //   dataY.push(list[i].count)
-        // }
-        // var max = dataY[0];
-        // for (let i = 0; i < dataY.length; i++) {
-        //   var cur = dataY[i];
-        //   cur > max ? max = cur : max = 10
-        // }
-        // max < 10 ? max = 10 : max = max;
-        // const num = 100 - percent;
-        // const cakeArr = [{
-        //   color: '#fb7313',
-        //   num: percent,
-        //   flownum: percent
-        // }, {
-        //   color: '#eeeeee',
-        //   num: num,
-        //   flownum: num
-        // }];
-        // _this.setData({
-        //   dataX: dataX,
-        //   dataY: dataY,
-        //   percent: percent + '%',
-        //   good: good,
-        //   bad: bad,
-        //   cakeArr: cakeArr,
-        //   max: max
-        // })
-        // _this.initColumn();
-        // _this.initRing();
       }
     })
   },

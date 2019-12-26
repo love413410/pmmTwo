@@ -6,7 +6,6 @@
     {{task.tenderee}}
   </view>
 </view>
-
 <view class="item">
   <view>
     招标类型
@@ -15,7 +14,6 @@
     {{task.type}}
   </view>
 </view>
-
 <view class="item">
   <view>
     使用环境
@@ -24,7 +22,6 @@
     {{task.environment}}
   </view>
 </view>
-
 <view class="item">
   <view>
     显示颜色
@@ -33,7 +30,6 @@
     {{task.color}}
   </view>
 </view>
-
 <view class="item">
   <view>
     产品型号
@@ -42,7 +38,6 @@
     {{task.model}}
   </view>
 </view>
-
 <view class="item">
   <view>
     预计面积
@@ -51,7 +46,6 @@
     {{task.area}}
   </view>
 </view>
-
 <view class="item">
   <view>
     联系电话
@@ -60,21 +54,18 @@
     {{task.telephone}}
   </view>
 </view>
-
 <view class="pic">
   所在地区
 </view>
 <view class="desc">
   {{task.province}}{{task.city}}{{task.address}}
 </view>
-
 <view class="pic">
   情况阐述
 </view>
 <view class="desc">
   {{task.brief}}
 </view>
-
 <!-- <view class="item">
   <view>
     详情链接

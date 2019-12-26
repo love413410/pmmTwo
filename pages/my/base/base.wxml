@@ -12,7 +12,6 @@
     </view>
   </navigator>
 </view>
-
 <checkbox-group class="radio-group" bindchange="checkFn">
   <view class="item" wx:for="{{list}}" wx:key="{{item.id}}">
     <view class="item-box">
@@ -46,7 +45,6 @@
 </checkbox-group>
 <button open-type="share" class="share" wx:if="{{is}}">分享给好友</button>
 <button class="share" bindtap="isFn" wx:if="{{iss}}">授权预览</button>
-<!-- <button class="share" bindtap="isFn" wx:if="{{isF}}">授权预览2</button> -->
 <view class="share share2" wx:if="{{isF}}">
   <button class="up" catchtap="ctrlFn">下载</button>
   <button open-type="share">分享给好友</button>
