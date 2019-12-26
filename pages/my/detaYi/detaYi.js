@@ -98,7 +98,7 @@ Page({
         src = 'pages/home/newDeta/newDeta?id=' + id;
     };
     return {
-      title: '屏买卖',
+      title: '新订单',
       path: src,
       imageUrl: baseSrc +'cover.png'
     }

@@ -18,8 +18,11 @@ Page({
     codeText: "",
     time: 60,
     check: false,
-    loginText:'登录',
-    isDis: false
+    loginText: '登录',
+    isDis: false,
+    idp: "",
+    idc: "",
+    idd: ""
   },
   onLoad: function(o) {
 
@@ -117,21 +120,6 @@ Page({
       app.toast('请同意用户协议!')
     }
   },
-  change() {
-    const data = {
-      userid: app.globalData.uid,
-      province: this.data.idp,
-      city: this.data.idc,
-      area: this.data.idd
-    };
-    _post(modiUser, data).then(r => {
-      setTimeout(function() {
-        wx.navigateBack({
-          delta: 1
-        });
-      }, 2000);
-    })
-  },
   //获取用户当前位置
   getLoca() {
     const _this = this;
@@ -141,7 +129,7 @@ Page({
       const loc = {
         lat: lat,
         lng: lng
-      }
+      };
       _this.getLocal(loc)
     }).catch(err => {
       setTimeout(function() {
@@ -165,7 +153,6 @@ Page({
       _this.getCity('idp', idpName);
       _this.getCity('idc', idcName);
       _this.getCity('idd', iddName);
-      _this.change();
     })
   },
   getCity(x, e) {
@@ -177,6 +164,26 @@ Page({
       _this.setData({
         [x]: idcId
       })
+      const [idp, idc, idd] = [_this.data.idp.length, _this.data.idc.length, _this.data.idd.length];
+      console.log(idc)
+      if (idp > 0 && idc > 0 && idd > 0 ){
+        _this.change();
+      }
+    })
+  },
+  change() {
+    const data = {
+      userid: app.globalData.uid,
+      province: this.data.idp,
+      city: this.data.idc,
+      area: this.data.idd
+    };
+    _post(modiUser, data).then(r => {
+      setTimeout(function() {
+        wx.navigateBack({
+          delta: 1
+        });
+      }, 2000);
     })
   },
   onShareAppMessage: function() {

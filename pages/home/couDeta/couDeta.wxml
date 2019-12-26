@@ -123,7 +123,7 @@
 <button class="footBtn" bindtap="robFn" wx:if="{{task.btn_type==1&&!btn}}">
   立即抢单
 </button>
-<button class="footBtn bg3" bindtap="price" wx:if="{{task.btn_type==1&&t==0}}">
+<button class="footBtn bg3" bindtap="price" wx:if="{{task.btn_type==10}}">
   去付款
 </button>
 <popup bind:popupFn="popupFn" hide='{{is}}'></popup>

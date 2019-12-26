@@ -10,6 +10,7 @@ const {
   upload,
   myDeta
 } = require('../../../utils/urls.js');
+import util from '../../../utils/util.js';
 Page({
   data: {
     baseSrc: baseSrc,
@@ -152,6 +153,7 @@ Page({
   },
   //发布
   releFn() {
+    if (util.clickFn()) return;
     const _this = this;
     const [a, b] = [this.data.pickIdx1, this.data.pickIdx2];
     const [c, d, e] = [this.data.bug, this.data.con, this.data.mod]

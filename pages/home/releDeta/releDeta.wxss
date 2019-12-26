@@ -117,6 +117,8 @@ page {
 .bg4{
   background-color: #039be5;
 }
+
+
 .rewa {
   width: 550rpx;
   height: 560rpx;

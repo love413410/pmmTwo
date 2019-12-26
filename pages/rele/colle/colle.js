@@ -12,6 +12,7 @@ const {
   pay,
   passwo
 } = require('../../../utils/urls.js');
+import util from '../../../utils/util.js';
 Page({
   data: {
     baseSrc: baseSrc,
@@ -147,6 +148,7 @@ Page({
         userid: app.globalData.uid,
         password: this.data.Value,
       }).then(res => {
+        console.log(res)
         if (res.code == 1) {
           const data = {
             userid: app.globalData.uid,
@@ -316,6 +318,7 @@ Page({
     })
   },
   releFn() {
+    if (util.clickFn()) return;
     const _this = this;
     const [a, b, c] = [this.data.pickIdx1, this.data.pickIdx2, this.data.pickIdx3];
     const [d, e, f] = [this.data.squ, this.data.con, this.data.mod];
@@ -379,7 +382,6 @@ Page({
       tempPic.push(photos[i].src)
     }
     const str = tempPic.join(',');
-    
     const data = {
       userid: app.globalData.uid,
       id: 0,

@@ -168,7 +168,7 @@ Page({
   onShareAppMessage: function() {
     const id = this.data.id;
     return {
-      title: '屏买卖',
+      title: '新订单',
       path: 'pages/home/colleDeta/colleDeta?id=' + id
     }
   }

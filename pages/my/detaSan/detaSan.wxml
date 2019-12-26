@@ -429,9 +429,9 @@
   </view>
 </view>
 
-<cover-view class="footBtn" bindtap="releFn">
-  立即发布
-</cover-view>
+<button class="footBtn" bindtap="releFn" disabled="{{isDis}}">
+  {{releText}}
+</button>
 
 <link bind:linkFn="linkFn" bool='{{is}}'></link>
 <paymen bind:payFn="payFn" bool='{{payIs}}'></paymen>

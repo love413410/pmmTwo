@@ -109,6 +109,10 @@
   <cover-view class="footBtn bg3" wx:if="{{task.btn_type==2}}" bindtap="dialFn">
     立即拨号
   </cover-view>
+
+  <cover-view class="footBtn bg3" wx:if="{{task.btn_type==10}}" bindtap="fuFn">
+    立即付款
+  </cover-view>
 </cover-view>
 
 

@@ -20,12 +20,18 @@ Page({
     is: false
   },
   onLoad: function(o) {
+    console.log(o)
     if (o.id) {
+      var payIs=true;
+      if (o.s == 1) {
+        payIs = false;
+      }
       this.setData({
         id: o.id,
         t: o.t,
-        i: o.is
-      })
+        i: o.is,
+        payIs: payIs
+      });
     } else {
       const scene = decodeURIComponent(o.scene);
       this.setData({
@@ -46,6 +52,7 @@ Page({
       id: this.data.id
     }).then(res => {
       const task = res.content.task;
+      console.log(task)
       const btn = task.userid == app.globalData.uid ? true : false;
       this.setData({
         task: task,
@@ -80,6 +87,7 @@ Page({
       id: this.data.id
     }).then(res => {
       if (res.code == 1) {
+        this.decrDeta();
         this.setData({
           payIs: false
         })
@@ -163,7 +171,6 @@ Page({
               setTimeout(_this.decrDeta, 500);
             }
             app.toast(res.msg)
-
           })
         } else {
           app.toast(res.msg)
@@ -257,7 +264,7 @@ Page({
   onShareAppMessage: function() {
     const id = this.data.id;
     return {
-      title: '屏买卖',
+      title: '新订单',
       path: 'pages/home/newDeta/newDeta?id=' + id
     }
   }

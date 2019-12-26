@@ -12,6 +12,7 @@ const {
   pay,
   passwo
 } = require('../../../utils/urls.js');
+import util from '../../../utils/util.js';
 Page({
   data: {
     baseSrc: baseSrc,
@@ -266,6 +267,7 @@ Page({
   },
 
   releFn() {
+    if (util.clickFn()) return;
     const a = this.data.pickIdx1;
     const [b, c] = [this.data.bra, this.data.name];
     const [d, e] = [this.data.pickIdx2, this.data.num];

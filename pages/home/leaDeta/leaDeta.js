@@ -161,7 +161,9 @@ Page({
 
   },
   rouTo() {
-    url: '../../my/rewa/rewa'
+    wx.redirectTo({
+      url: '../../my/robs/robs'
+    })
   },
   myDeta() {
     const _this = this;
@@ -241,7 +243,7 @@ Page({
   onShareAppMessage: function () {
     const id = this.data.id;
     return {
-      title: '屏买卖',
+      title: '新订单',
       path: 'pages/home/leaDeta/leaDeta?id=' + id
     }
   }

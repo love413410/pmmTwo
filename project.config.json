@@ -52,7 +52,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 10,
+			"current": 4,
 			"list": [
 				{
 					"id": -1,
@@ -84,50 +84,9 @@
 				},
 				{
 					"id": -1,
-					"name": "pages/tabbar/rele/rele",
-					"pathName": "pages/tabbar/rele/rele",
+					"name": "pages/login/login",
+					"pathName": "pages/login/login",
 					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/tabbar/rele/rele",
-					"pathName": "pages/tabbar/rele/rele",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/my/base/base",
-					"pathName": "pages/my/base/base",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/my/baseFile/baseFile",
-					"pathName": "pages/my/baseFile/baseFile",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/my/base/base",
-					"pathName": "pages/my/base/base",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/my/update/update",
-					"pathName": "pages/my/update/update",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/my/update/update",
-					"pathName": "pages/my/update/update",
 					"scene": null
 				}
 			]

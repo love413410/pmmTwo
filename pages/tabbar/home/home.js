@@ -1,13 +1,16 @@
 const app = getApp();
 const {
-  _get
+  _get,
+  _post
 } = require('../../../utils/http.js');
 const {
   baseSrc,
   getCity,
   getIdd,
   decrList,
-  bannerList
+  bannerList,
+  myDeta,
+  rob
 } = require('../../../utils/urls.js');
 Page({
   data: {
@@ -25,7 +28,7 @@ Page({
     idx1: 0,
     idx2: 0,
     page: 1,
-    tempPage:"",
+    tempPage: "",
     pagesize: 20,
     idc: '',
     idp: '',
@@ -43,10 +46,9 @@ Page({
     this.bannerList();
   },
   onShow: function() {
-    // this.setData({
-    //   list: [],
-    //   page: 1
-    // });
+    this.setData({
+      mask:-1
+    });
     this.getLoca();
   },
   leveFn() {
@@ -88,7 +90,8 @@ Page({
   },
   move() {
     this.setData({
-      hide: '0'
+      hide: '0',
+      mask:-1
     })
   },
   //获取用户当前位置
@@ -132,9 +135,10 @@ Page({
         idp: idcId,
         list: [],
         page: 1,
-        tempPage:''
+        tempPage: ''
       })
-      _this.decrList()
+      _this.decrList();
+      _this.myDeta();
     })
   },
   decrList() {
@@ -154,14 +158,38 @@ Page({
     }
     _get(decrList, data).then(res => {
       const list = res.content.list;
+      console.log(list)
       const page = res.content.page;
       const tempPage = _this.data.tempPage;
-      if (page != tempPage){
+      if (page != tempPage) {
         _this.setData({
           list: [..._this.data.list, ...list],
           tempPage: page
         })
       }
+    })
+  },
+  myDeta(){
+    const _this = this;
+    _get(myDeta, {
+      userid: app.globalData.uid
+    }).then(res => {
+      const isA = res.content.user.is_approve;
+      const isB = res.content.user.is_vip;
+      let iss, mask;
+      if (isB == 0) {
+        if (isA == 2) {
+          iss = 2;
+        } else {
+          iss = 1;
+        }
+      } else {
+        iss = 3;
+      }
+      _this.setData({
+        iss: iss,
+        isA: isA
+      })
     })
   },
   rouTo(e) {
@@ -209,11 +237,6 @@ Page({
       })
     } else {
       this.getLoca();
-      // this.setData({
-      //   list: [],
-      //   page: 1
-      // })
-      // this.decrList();
     }
   },
   bannerList() {
@@ -243,6 +266,84 @@ Page({
       }
     }
   },
+  grabFn(e) {
+    if (!app.globalData.is) {
+      this.setData({
+        is: true
+      });
+      return false;
+    };
+    const ty = e.currentTarget.dataset.ty;
+    const id = e.currentTarget.dataset.id;
+    const is=this.data.iss;
+    var url = '../../home/price/price?id=' + id,mask=-1;
+    switch (ty) {
+      case '1':
+        is == 1 ? mask = 1 : this.robFn(id);
+        break;
+      case '2':
+        is == 1 ? mask = 1 : this.rouFn(id, url);
+        break;
+      case '3':
+        this.rouFn(id, url);
+        break;
+      case '4':
+        this.rouFn(id, url);
+        break;
+      case '5':
+        is == 1 ? mask = 1 : this.robFn(id);
+        break;
+      default:
+        url = '../../home/newDeta/newDeta?id=' + id+'&s=1';
+        this.rouFn(id,url);
+    };
+    this.setData({
+      mask:mask
+    });
+  },
+  robFn(id){
+    const _this = this;
+    _post(rob, {
+      userid: app.globalData.uid,
+      id: id
+    }).then(res => {
+      if (res.code == 1) {
+        app.toast(res.msg, 'success')
+        setTimeout(this.getLoca, 5000)
+      } else if (res.code == 2) {
+        _this.setData({
+          mask: 2,
+          msg: res.msg
+        })
+      } else {
+        app.toast(res.msg)
+      }
+    })
+  },
+  rouFn(id,url){
+    const _this = this;
+    _post(rob, {
+      userid: app.globalData.uid,
+      id: id
+    }).then(res => {
+      if (res.code == 1) {
+        wx.navigateTo({
+          url: url
+        })
+      } 
+    })
+  },
+  auth() {
+    var url = this.data.isA == 0 ? '../../rele/auth/auth' : '../../rele/auth2/auth2';
+    wx.navigateTo({
+      url: url
+    })
+  },
+  rewaFn() {
+    wx.navigateTo({
+      url: '../../my/robs/robs'
+    })
+  },
   onReachBottom: function() {
     const page = this.data.page;
     this.setData({
@@ -250,7 +351,6 @@ Page({
     })
     this.decrList();
   },
-
   onShareAppMessage: function() {
 
   }

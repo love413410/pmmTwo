@@ -131,10 +131,10 @@ Page({
         })
       }
     })
-  },
+  }, 
   rouTo() {
     wx.redirectTo({
-      url: '../../my/rob/rob'
+      url: '../../my/robs/robs'
     })
   },
   preview(e) {
@@ -191,7 +191,7 @@ Page({
   onShareAppMessage: function() {
     const id = this.data.id;
     return {
-      title: '屏买卖',
+      title: '新订单',
       path: 'pages/home/releDeta/releDeta?id=' + id
     }
   }

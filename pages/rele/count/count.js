@@ -12,6 +12,7 @@ const {
   passwo,
   myDeta
 } = require('../../../utils/urls.js');
+import util from '../../../utils/util.js';
 Page({
   data: {
     baseSrc: baseSrc,
@@ -235,6 +236,7 @@ Page({
 
   //发布
   releFn() {
+    if (util.clickFn()) return;
     const [a, b, c, d] = [this.data.bra, this.data.name, this.data.mode, this.data.num];
     const [e, f, g] = [this.data.pickIdx1, this.data.pickIdx2, this.data.date];
     const [h, i] = [this.data.regStr, this.data.idtName];

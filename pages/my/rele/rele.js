@@ -21,6 +21,7 @@ Page({
     idx1: 0,
     idx2: 0,
     page: 1,
+    tempPage: "",
     pagesize: 20,
     list: [],
     is: false
@@ -37,11 +38,15 @@ Page({
     };
 
     this.setData({
+      idx: 1,
+      pick1: '全部',
+      tle1: '需求类型',
+      tle2: '需求状态',
+      idx1: 0,
+      idx2: 0,
       page: 1,
-      status: 1,
-      list:[],
-      type: 0,
-      searchtype: 0
+      tempPage: "",
+      list: []
     });
     this.myDecr()
   },
@@ -57,11 +62,15 @@ Page({
       })
     } else {
       this.setData({
+        idx: 1,
+        pick1: '全部',
+        tle1: '需求类型',
+        tle2: '需求状态',
+        idx1: 0,
+        idx2: 0,
         page: 1,
-        status: 1,
-        list: [],
-        type: 0,
-        searchtype: 0
+        tempPage: "",
+        list: []
       });
       this.myDecr()
     }
@@ -72,20 +81,21 @@ Page({
       this.setData({
         idx: idx,
         list: [],
-        page: 1
+        page: 1,
+        tempPage: "",
       });
     }else{
       this.setData({
         idx: idx,
         list: [],
         page: 1,
+        tempPage: "",
         tle1: '需求类型',
         tle2: '需求状态',
         idx1: 0,
         idx2: 0,
       });
     }
-    
     this.myDecr()
   },
   scr(e) {
@@ -103,6 +113,7 @@ Page({
       [e.currentTarget.dataset.name]: this.data[e.currentTarget.dataset.arr][this.data[e.currentTarget.dataset.idx]],
       list: [],
       page: 1,
+      tempPage: "",
       hide: -1
     })
     this.myDecr()
@@ -117,7 +128,8 @@ Page({
     this.setData({
       pick1: e.detail.value,
       list: [],
-      page: 1
+      page: 1,
+      tempPage: "",
     })
     this.myDecr()
   },
@@ -134,9 +146,14 @@ Page({
       searchtype: Number(this.data.idx2 + 1)
     }).then(res => {
       const list = res.content.list;
-      _this.setData({
-        list: [..._this.data.list, ...list]
-      })
+      const page = res.content.page;
+      const tempPage = _this.data.tempPage;
+      if (page != tempPage) {
+        _this.setData({
+          list: [..._this.data.list, ...list],
+          tempPage: page
+        })
+      }
     })
   },
   rouTo(e) {

@@ -59,6 +59,7 @@ Page({
       pagesize: this.data.pagesize
     }).then(res => {
       const list = res.content.list;
+      console.log(list)
       for (let i = 0; i < list.length; i++) {
         list[i].check = false;
       }

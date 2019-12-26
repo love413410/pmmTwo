@@ -34,6 +34,7 @@ Page({
       id: this.data.id
     }).then(res => {
       const task = res.content.task;
+      console.log(task)
       const btn = task.userid == app.globalData.uid ? true : false;
       this.setData({
         task: task,
@@ -140,7 +141,7 @@ Page({
   onShareAppMessage: function () {
     const id = this.data.id;
     return {
-      title: '屏买卖',
+      title: '新订单',
       path: 'pages/home/couDeta/couDeta?id=' + id
     }
   }

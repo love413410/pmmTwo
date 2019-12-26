@@ -10,7 +10,8 @@ const {
   upload,
   decr,
   decrDeta,
-  myDeta
+  myDeta,
+  passwo
 } = require('../../../utils/urls.js');
 Page({
   data: {
@@ -52,7 +53,9 @@ Page({
     pickIdx10: '',
 
     regStr: '选择省、市、区',
-    photos: []
+    photos: [],
+    isDis: false,
+    releText: '立即发布'
 
 
   },
@@ -256,13 +259,40 @@ Page({
       overview: this.data.ela,
     };
     const _this = this;
-    _post(pay, data).then(res => {
-      if (res.code == 1) {
-        _this.setData({
-          payIs: false
-        })
-      }
-    })
+    const iss = _this.data.iss;
+    if (iss == 2) {
+      _post(decr, data).then(res => {
+        if (res.code != 1) {
+          app.toast(res.msg)
+        } else if (res.code == 1) {
+          this.setData({
+            payIs: false
+          })
+        }
+      })
+    } else if (iss == 3) {
+      _this.setData({
+        isDis: true,
+        releText: '发布中'
+      })
+      _post(decr, data).then(res => {
+        if (res.code == 1) {
+          app.toast('发布成功', 'success');
+          setTimeout(function() {
+            wx.redirectTo({
+              url: '../rele/rele',
+            })
+          }, 1500);
+        } else {
+          app.toast(res.msg);
+          _this.setData({
+            isDis: false,
+            releText: '立即发布'
+          })
+        }
+      })
+    }
+
   },
   counFn() {
     const [a, b, c, d] = [this.data.bra, this.data.goodname, this.data.mode, this.data.num];
@@ -315,15 +345,49 @@ Page({
       pic: str,
       overview: this.data.ela
     };
-    _post(decr, data).then(res => {
-      if (res.code != 1) {
-        app.toast(res.msg)
-      } else if (res.code == 1) {
-        this.setData({
-          payIs: false
-        })
-      }
-    })
+    const _this = this;
+    const iss = _this.data.iss;
+    if (iss == 2) {
+      _post(decr, data).then(res => {
+        if (res.code != 1) {
+          app.toast(res.msg)
+        } else if (res.code == 1) {
+          this.setData({
+            payIs: false
+          })
+        }
+      })
+    } else if (iss == 3) {
+      _this.setData({
+        isDis: true,
+        releText: '发布中'
+      })
+      _post(decr, data).then(res => {
+        if (res.code == 1) {
+          app.toast('发布成功', 'success');
+          setTimeout(function() {
+            wx.redirectTo({
+              url: '../rele/rele',
+            })
+          }, 1500);
+        } else {
+          app.toast(res.msg);
+          _this.setData({
+            isDis: false,
+            releText: '立即发布'
+          })
+        }
+      })
+    }
+    // _post(decr, data).then(res => {
+    //   if (res.code != 1) {
+    //     app.toast(res.msg)
+    //   } else if (res.code == 1) {
+    //     this.setData({
+    //       payIs: false
+    //     })
+    //   }
+    // })
   },
 
   newFn() {
@@ -363,15 +427,49 @@ Page({
       pic: str,
       overview: this.data.ela
     };
-    _post(decr, data).then(res => {
-      if (res.code != 1) {
-        app.toast(res.msg)
-      } else if (res.code == 1) {
-        this.setData({
-          payIs: false
-        })
-      }
-    })
+    const _this = this;
+    const iss = _this.data.iss;
+    if (iss == 2) {
+      _post(decr, data).then(res => {
+        if (res.code != 1) {
+          app.toast(res.msg)
+        } else if (res.code == 1) {
+          this.setData({
+            payIs: false
+          })
+        }
+      })
+    } else if (iss == 3) {
+      _this.setData({
+        isDis: true,
+        releText: '发布中'
+      })
+      _post(decr, data).then(res => {
+        if (res.code == 1) {
+          app.toast('发布成功', 'success');
+          setTimeout(function() {
+            wx.redirectTo({
+              url: '../rele/rele',
+            })
+          }, 1500);
+        } else {
+          app.toast(res.msg);
+          _this.setData({
+            isDis: false,
+            releText: '立即发布'
+          })
+        }
+      })
+    }
+    // _post(decr, data).then(res => {
+    //   if (res.code != 1) {
+    //     app.toast(res.msg)
+    //   } else if (res.code == 1) {
+    //     this.setData({
+    //       payIs: false
+    //     })
+    //   }
+    // })
   },
   payFn(e) {
     const _this = this;
@@ -394,8 +492,8 @@ Page({
             success(res) {
               app.toast('发布成功', 'success');
               setTimeout(function() {
-                wx.navigateBack({
-                  delta: 1
+                wx.redirectTo({
+                  url: '../rele/rele',
                 })
               }, 1500);
             },
@@ -438,8 +536,8 @@ Page({
                 inputValue: '',
                 mask: -1
               });
-              wx.navigateBack({
-                delta: 1
+              wx.redirectTo({
+                url: '../rele/rele',
               })
             }
             app.toast(res.msg)
@@ -513,12 +611,35 @@ Page({
     })
   },
   onShow: function() {
+    this.myDeta();
     const date = new Date();
     const y = date.getFullYear();
     const m = date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1;
     const d = date.getDate() < 10 ? '0' + (date.getDate()) : date.getDate();
     this.setData({
       start: `${y}-${m}-${d}`
+    })
+  },
+  myDeta() {
+    const _this = this;
+    _get(myDeta, {
+      userid: app.globalData.uid
+    }).then(res => {
+      const isA = res.content.user.is_approve;
+      const isB = res.content.user.is_vip;
+      let iss;
+      if (isB == 0) {
+        if (isA == 2) {
+          iss = 2;
+        } else {
+          iss = 1;
+        }
+      } else {
+        iss = 3;
+      }
+      _this.setData({
+        iss: iss
+      })
     })
   },
   onShareAppMessage: function() {

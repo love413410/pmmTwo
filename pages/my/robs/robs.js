@@ -47,11 +47,11 @@ Page({
   },
   onShow: function() {
     this.setData({
-      idx: 1,
+      // idx: 1,
       page: 1,
       pagesize: 20,
       list: [],
-      sub: 1,
+      // sub: 1,
       isTrue: 1
     })
     this.myRob()

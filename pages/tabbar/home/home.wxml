@@ -114,7 +114,7 @@
           <!-- <text>{{item.des}}</text> -->
         </view>
       </view>
-      <image src="{{baseSrc}}q.png" class="rt" wx:if="{{item.is_end==0&&item.overdue==0&&item.is_show==0}}"></image>
+      <image src="{{baseSrc}}q.png" class="rt" wx:if="{{item.is_end==0&&item.overdue==0&&item.is_show==0}}" catchtap="grabFn" data-ty="{{item.type}}" data-id="{{item.id}}"></image>
 
       <view class="cro_left_bottom"></view>
       <view class="cro_right_bottom"></view>
@@ -134,3 +134,36 @@
   </view>
 </view>
 <popup bind:popupFn="popupFn" hide='{{is}}'></popup>
+
+
+<view class="mask" catchtouchmove bindtap="move" wx:if="{{mask==1?true:false}}">
+  <view class="maskBox">
+    <view class="ms_top">
+      <image src="{{baseSrc}}qy.png"></image>
+    </view>
+    <view class="ms_text">
+      个人用户需要通过企业认证才可参与此类订单抢单！
+    </view>
+    <view class="ms_btn" catchtap="auth">
+      去认证
+    </view>
+    <image src="{{baseSrc}}c.png" class="c" bindtap="move"></image>
+  </view>
+</view>
+
+<view class="mask" catchtouchmove bindtap="move" wx:if="{{mask==2?true:false}}">
+  <view class="rewa" catchtap>
+    <view class="rew_top">
+      <image src=" {{baseSrc}}qd.png"></image>
+      <view class='move' bindtap="move"></view>
+    </view>
+    <view class="rew_btm">
+      <view class="top_text">
+        {{msg}}
+      </view>
+      <view class="rouTo" catchtap="rewaFn">
+        去打赏
+      </view>
+    </view>
+  </view>
+</view>
