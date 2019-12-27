@@ -104,6 +104,9 @@ Page({
         password: _this.data.Value,
       }).then(res => {
         if (res.code == 1) {
+          wx.showLoading({
+            title: '正在支付中'
+          });
           _post(share, {
             userid: app.globalData.uid,
             payType: 2,
@@ -116,7 +119,8 @@ Page({
                   delta: 1
                 })
               },1500)
-            }
+            };
+            wx.hideLoading();
             app.toast(res.msg)
           })
         } else {

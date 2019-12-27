@@ -55,6 +55,9 @@ Page({
     })
   },
   list() {
+    wx.showLoading({
+      title: '正在加载数据'
+    });
     _get(folder, {
       userid: app.globalData.uid,
       wjjid: this.data.id,
@@ -67,25 +70,16 @@ Page({
       }
       this.setData({
         list: [...this.data.list, ...list]
-      })
+      });
+      wx.hideLoading();
     })
   },
   navTo(e) {
     const type = e.currentTarget.dataset.type;
     if (type == 1) {
       const id = e.currentTarget.dataset.id;
-      wx.showLoading({
-        title: '正在打开文件夹'
-      });
-      wx.redirectTo({
-        url: '../baseData2/baseData2?id=' + id,
-        success:function(){
-          wx.hideLoading();
-        },
-        fail: function () {
-          app.toast('文件夹打开失败！');
-          wx.hideLoading();
-        }
+      wx.navigateTo({
+        url: '../baseData2/baseData2?id=' + id
       })
       return false;
     }
@@ -103,20 +97,20 @@ Page({
     });
     wx.downloadFile({
       url: url,
-      success: function (res) {
+      success: function(res) {
         const path = res.tempFilePath;
         wx.openDocument({
           filePath: path,
-          success: function () {
+          success: function() {
             wx.hideLoading();
           },
-          fail: function () {
+          fail: function() {
             app.toast('文档打开失败！');
             wx.hideLoading();
           }
         })
       },
-      fail: function (err) {
+      fail: function(err) {
         wx.hideLoading();
         app.toast('文档打开失败！');
       }
@@ -131,17 +125,18 @@ Page({
     wx.previewImage({
       current: url,
       urls: pics,
-      success: function () {
+      success: function() {
         wx.hideLoading();
       },
-      fail: function () {
+      fail: function() {
         app.toast('图片打开失败！');
         wx.hideLoading();
       }
     })
   },
   checkFn(e) {
-    var item, isF = false, is = false;
+    var item, isF = false,
+      is = false;
     const arr = e.detail.value;
     const val = arr.pop();
     if (val != undefined) {
@@ -170,7 +165,7 @@ Page({
     const item = this.data.item;
     wx.setClipboardData({
       data: item.content,
-      success: function () {
+      success: function() {
         app.toast('地址复制成功,请至浏览器下载！')
       }
     });

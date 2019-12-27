@@ -112,35 +112,36 @@
     {{task.robnum}}/5
   </view>
 </view>
-<view wx:if="{{btn}}" class="footBtn">
-  <button class="ltBtn" hover-class="none" open-type='share'>转发给好友/群聊</button>
-  <button class="rtBtn" hover-class="none" bindtap="authFn">分享到朋友圈</button>
+
+<view wx:if="{{t!=2}}">
+  <view class="foot">
+    <view class="foot-head">
+      <text class="line">“全国求购货源”类抢单须知</text>
+    </view>
+    <view>
+      1.个人用户、认证企业、VIP诚企均需支付5元加入抢单列队(限数5人),同时给出报价,等待发布者联系;
+    </view>
+    <view>
+      2.当发布者通过平台主动拨号联系您,即视为抢单成功;
+    </view>
+    <view>
+      3.若超过订单截止时间,发布者还未拨号联系您,即视为抢单失败,你支付的5元将退回您的账户。
+    </view>
+  </view>
+
+  <view wx:if="{{btn}}" class="footBtn">
+    <button class="ltBtn" hover-class="none" open-type='share'>转发给好友/群聊</button>
+    <button class="rtBtn" hover-class="none" bindtap="authFn">分享到朋友圈</button>
+  </view>
+  <button class="footBtn" bindtap="robFn" wx:if="{{task.btn_type==1&&!btn}}">
+    立即抢单
+  </button>
+  <button class="footBtn bg3" bindtap="price" wx:if="{{task.btn_type==10&&!btn}}">
+    去付款
+  </button>
 </view>
-<button class="footBtn" bindtap="robFn" wx:if="{{task.btn_type==1&&!btn}}">
-  立即抢单
-</button>
-<button class="footBtn bg3" bindtap="price" wx:if="{{task.btn_type==10}}">
-  去付款
-</button>
+
 <popup bind:popupFn="popupFn" hide='{{is}}'></popup>
-<view class="foot">
-  <view class="foot-head">
-    <text class="line">“全国求购货源”类抢单须知</text>
-  </view>
-
-  <view>
-    1.个人用户、认证企业、VIP诚企均需支付5元加入抢单列队(限数5人),同时给出报价,等待发布者联系;
-  </view>
-
-  <view>
-    2.当发布者通过平台主动拨号联系您,即视为抢单成功;
-  </view>
-
-  <view>
-    3.若超过订单截止时间,发布者还未拨号联系您,即视为抢单失败,你支付的5元将退回您的账户。
-  </view>
-</view>
-
 <view class="bgp" wx:if="{{task.btn_type==5}}">
   <image src="{{baseSrc}}gq.png"></image>
 </view>

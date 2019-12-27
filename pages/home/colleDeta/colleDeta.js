@@ -53,7 +53,6 @@ Page({
       url: src
     })
   },
-  
   popupFn(e) {
     const code = e.detail.code;
     if (code == -1) {

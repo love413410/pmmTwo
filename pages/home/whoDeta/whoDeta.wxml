@@ -86,43 +86,46 @@
   </view>
 </view>
 
-<view class="foot">
-  <view class="foot-head">
-    <text class="line">“全国维修类”类抢单须知</text>
+<view wx:if="{{t!=2}}">
+  <view class="foot">
+    <view class="foot-head">
+      <text class="line">“全国维修类”类抢单须知</text>
+    </view>
+
+    <view>
+      1.个人用户、认证企业、VIP诚企均需支付5元加入抢单列队(限数5人),同时给出报价,等待发布者联系;
+    </view>
+
+    <view>
+      2.当发布者通过平台主动拨号联系您,即视为抢单成功;
+    </view>
+
+    <view>
+      3.若超过订单截止时间,发布者还未拨号联系您,即视为抢单失败,你支付的5元将退回您的账户。
+    </view>
   </view>
 
-  <view>
-    1.个人用户、认证企业、VIP诚企均需支付5元加入抢单列队(限数5人),同时给出报价,等待发布者联系;
+  <view wx:if="{{btn}}" class="footBtn">
+    <button class="ltBtn" hover-class="none" open-type='share'>转发给好友/群聊</button>
+    <button class="rtBtn" hover-class="none" bindtap="authFn">分享到朋友圈</button>
+  </view>
+  <view wx:if="{{!i&&!btn}}">
+    <button class="footBtn" bindtap="robFn" wx:if="{{task.btn_type==1}}">
+      立即抢单
+    </button>
+    <cover-view class="footBtn bg3" wx:if="{{task.btn_type==1}}" bindtap="price">
+      去付款
+    </cover-view>
   </view>
 
-  <view>
-    2.当发布者通过平台主动拨号联系您,即视为抢单成功;
-  </view>
-
-  <view>
-    3.若超过订单截止时间,发布者还未拨号联系您,即视为抢单失败,你支付的5元将退回您的账户。
-  </view>
-</view>
-
-<view wx:if="{{btn}}" class="footBtn">
-  <button class="ltBtn" hover-class="none" open-type='share'>转发给好友/群聊</button>
-  <button class="rtBtn" hover-class="none" bindtap="authFn">分享到朋友圈</button>
-</view>
-<view wx:if="{{!i&&!btn}}">
-  <button class="footBtn" bindtap="robFn" wx:if="{{task.btn_type==1}}">
-    立即抢单
-  </button>
-  <cover-view class="footBtn bg3" wx:if="{{task.btn_type==1}}" bindtap="price">
-    去付款
+  <cover-view class="footBtn bg3" wx:if="{{i>0&&!btn}}">
+    <cover-view class="footBtn bg3" wx:if="{{i==1}}" bindtap="price">
+      去付款
+    </cover-view>
+    <cover-view class="footBtn bg4" wx:if="{{i==2}}" bindtap="back">
+      评价
+    </cover-view>
   </cover-view>
+  
 </view>
-
-<cover-view class="footBtn bg3" wx:if="{{i>0}}">
-  <cover-view class="footBtn bg3" wx:if="{{i==1}}" bindtap="price">
-    去付款
-  </cover-view>
-  <cover-view class="footBtn bg4" wx:if="{{i==2}}" bindtap="back">
-    评价
-  </cover-view>
-</cover-view>
 <popup bind:popupFn="popupFn" hide='{{is}}'></popup>

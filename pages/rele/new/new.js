@@ -145,7 +145,6 @@ Page({
     var _this = this;
     var inputValue = e.detail.value;
     var ilen = inputValue.length;
-
     this.setData({
       Value: inputValue,
     })
@@ -155,6 +154,9 @@ Page({
         password: this.data.Value,
       }).then(res => {
         if (res.code == 1) {
+          wx.showLoading({
+            title: '正在支付中'
+          });
           const data = {
             userid: app.globalData.uid,
             payType: 2,
@@ -172,7 +174,8 @@ Page({
                   url: '../../tabbar/home/home'
                 })
               }, 1000);
-            }
+            };
+            wx.hideLoading();
             app.toast(res.msg)
           })
         } else {

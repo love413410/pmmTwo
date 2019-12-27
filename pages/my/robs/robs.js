@@ -213,6 +213,9 @@ Page({
         password: this.data.Value,
       }).then(res => {
         if (res.code == 1) {
+          wx.showLoading({
+            title: '正在支付中'
+          });
           _post(robPay, {
             userid: app.globalData.uid,
             payType: 2,
@@ -227,7 +230,8 @@ Page({
                 mask: -1
               });
               setTimeout(_this.decrDeta, 500);
-            }
+            };
+            wx.hideLoading();
             app.toast(res.msg)
           })
         } else {

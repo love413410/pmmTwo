@@ -131,6 +131,9 @@ Page({
         password: this.data.Value,
       }).then(res => {
         if (res.code == 1) {
+          wx.showLoading({
+            title: '正在支付中'
+          });
           const data = {
             userid: app.globalData.uid,
             type: 2
@@ -143,7 +146,8 @@ Page({
                 inputValue: '',
                 mask: -1
               })
-            }
+            };
+            wx.hideLoading();
             app.toast(res.msg)
           })
         } else {

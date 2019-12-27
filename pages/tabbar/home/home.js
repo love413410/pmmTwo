@@ -44,7 +44,10 @@ Page({
   },
   onShow: function() {
     this.setData({
-      mask:-1
+      mask:-1,
+      list: [],
+      page: 1,
+      tempPage: ''
     });
     this.getLoca();
   },
@@ -110,9 +113,7 @@ Page({
     const _this = this;
     app.getLocal(this.data.loc).then(res => {
       _this.setData({
-        city: res.result.address_component.province,
-        list: [],
-        page: 1
+        city: res.result.address_component.province
       })
       _this.getCity()
     })
@@ -124,10 +125,7 @@ Page({
     }).then(res => {
       const idcId = res.content.detail[0].region_id;
       _this.setData({
-        idp: idcId,
-        list: [],
-        page: 1,
-        tempPage: ''
+        idp: idcId
       })
       _this.decrList();
       _this.myDeta();

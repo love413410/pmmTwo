@@ -221,6 +221,9 @@ Page({
         password: _this.data.Value,
       }).then(res => {
         if (res.code == 1) {
+          wx.showLoading({
+            title: '正在支付中'
+          });
           _post(comCall, {
             userid: app.globalData.uid,
             payType: 2,
@@ -234,7 +237,8 @@ Page({
                 Value: ''
               })
               setTimeout(_this.compans, 500);
-            }
+            };
+            wx.hideLoading();
             app.toast(res.msg)
           })
         } else {

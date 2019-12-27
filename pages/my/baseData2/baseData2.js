@@ -55,6 +55,9 @@ Page({
     })
   },
   list() {
+    wx.showLoading({
+      title: '正在加载数据'
+    });
     _get(folder, {
       userid: app.globalData.uid,
       wjjid: this.data.id,
@@ -67,25 +70,16 @@ Page({
       }
       this.setData({
         list: [...this.data.list, ...list]
-      })
+      });
+      wx.hideLoading();
     })
   },
   navTo(e) {
     const type = e.currentTarget.dataset.type;
     if (type == 1) {
       const id = e.currentTarget.dataset.id;
-      wx.showLoading({
-        title: '正在打开文件夹'
-      });
-      wx.redirectTo({
-        url: '../baseData/baseData?id=' + id,
-        success: function () {
-          wx.hideLoading();
-        },
-        fail: function () {
-          app.toast('文件夹打开失败！');
-          wx.hideLoading();
-        }
+      wx.navigateTo({
+        url: '../baseData/baseData?id=' + id
       })
       return false;
     }

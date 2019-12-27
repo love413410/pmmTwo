@@ -141,6 +141,9 @@ Page({
         password: this.data.Value,
       }).then(res => {
         if (res.code == 1) {
+          wx.showLoading({
+            title: '正在支付中'
+          });
           const data = {
             userid: app.globalData.uid,
             payType: 2,
@@ -157,7 +160,8 @@ Page({
               wx.switchTab({
                 url: '../../tabbar/home/home'
               });
-            }
+            };
+            wx.hideLoading();
             app.toast(res.msg)
           })
         } else {

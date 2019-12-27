@@ -36,14 +36,7 @@ Page({
       })
       return
     };
-
     this.setData({
-      idx: 1,
-      pick1: '全部',
-      tle1: '需求类型',
-      tle2: '需求状态',
-      idx1: 0,
-      idx2: 0,
       page: 1,
       tempPage: "",
       list: []

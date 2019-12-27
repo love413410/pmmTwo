@@ -56,7 +56,6 @@ Page({
         break;
       default:
         src = '../../home/newDeta/newDeta?t=2&id=' + id;
-
     }
     wx.navigateTo({
       url: src

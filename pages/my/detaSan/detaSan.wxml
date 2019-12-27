@@ -381,17 +381,33 @@
     </view>
   </view>
 </view>
-<view class="desc">
+
+
+
+<!-- <view class="desc">
   <view class="tle">
     情况阐述
   </view>
   <view class="desc-b">
     <textarea placeholder="请具体阐述需求详情(0-50字)" value="{{ela}}" bindinput="valFn" data-val='ela'></textarea>
   </view>
+</view> -->
+<view class="desc">
+  <view class="tle">
+    情况阐述
+  </view>
+
+  <view class="desc-b">
+    <textarea wx:if="{{eye==1}}" placeholder="请具体阐述需求详情(0-50字)" value="{{ela}}" maxlength="50" bindinput="valFn" data-val='ela' bindblur="bindblurFn" data-is="2" auto-focus></textarea>
+    <view wx:if="{{eye==2}}" bindtap="bindblurFn" data-is="1" class="desc_text">{{ela==''?'请具体阐述需求详情(0-50字)':ela}}</view>
+  </view>
 </view>
 <button class="footBtn" bindtap="releFn" disabled="{{isDis}}">
   {{releText}}
 </button>
+
+
+
 <link bind:linkFn="linkFn" bool='{{is}}'></link>
 <paymen bind:payFn="payFn" bool='{{payIs}}'></paymen>
 <view class="mask" catchtouchmove bindtap="move" wx:if="{{mask==2?true:false}}">

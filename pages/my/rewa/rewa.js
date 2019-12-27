@@ -98,6 +98,9 @@ Page({
         userid: app.globalData.uid,
         password: _this.data.Value,
       }).then(res => {
+        wx.showLoading({
+          title: '正在支付中'
+        });
         if (res.code == 1) {
           _post(reward, {
             userid: app.globalData.uid,
@@ -115,7 +118,8 @@ Page({
               wx.navigateBack({
                 delta:1
               })
-            }
+            };
+            wx.hideLoading();
             app.toast(res.msg)
           })
         } else {

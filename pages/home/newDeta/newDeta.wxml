@@ -87,41 +87,50 @@
 <view class="desc">
   {{task.overview}}
 </view>
-<view wx:if="{{btn}}" class="footBtn">
-  <button class="ltBtn" hover-class="none" open-type='share'>转发给好友/群聊</button>
-  <button class="rtBtn" hover-class="none" bindtap="authFn">分享到朋友圈</button>
+
+<view wx:if="{{t!=2}}">
+  <view class="foot">
+    <view class="foot-head">
+      <text class="line">“新品促销/尾货处理”类抢单须知</text>
+    </view>
+    <view>
+      1.截止日期,个人用户、认证企业、VIP诚企均可参与抢单;
+    </view>
+    <view>
+      2.抢单需支付5元,即可通过平台联系发布者。
+    </view>
+  </view>
+
+  <view wx:if="{{btn}}" class="footBtn">
+    <button class="ltBtn" hover-class="none" open-type='share'>转发给好友/群聊</button>
+    <button class="rtBtn" hover-class="none" bindtap="authFn">分享到朋友圈</button>
+  </view>
+
+  <cover-view class="footBtn bg3" wx:if="{{!i&&!btn}}">
+    <cover-view class="footBtn bg1" wx:if="{{task.btn_type==1}}" bindtap="robFn">
+      立即抢单
+    </cover-view>
+    <cover-view class="footBtn bg2" wx:if="{{task.btn_type==3}}">
+      已结束
+    </cover-view>
+    <cover-view class="footBtn bg3" wx:if="{{task.btn_type==2}}" bindtap="dialFn">
+      立即拨号
+    </cover-view>
+    <cover-view class="footBtn bg3" wx:if="{{task.btn_type==10}}" bindtap="fuFn">
+      立即付款
+    </cover-view>
+  </cover-view>
+
+  <cover-view class="footBtn bg3" wx:if="{{i>0&&!btn}}">
+    <cover-view class="footBtn bg3" wx:if="{{i==1}}" bindtap="fuFn">
+      去付款
+    </cover-view>
+    <cover-view class="footBtn bg4" wx:if="{{i==2}}" bindtap="back">
+      评价
+    </cover-view>
+  </cover-view>
+
 </view>
-
-
-<cover-view class="footBtn bg3" wx:if="{{!i}}">
-  <cover-view class="footBtn bg1" wx:if="{{task.btn_type==1&&!btn}}" bindtap="robFn">
-    立即抢单
-  </cover-view>
-
-  <cover-view class="footBtn bg2" wx:if="{{task.btn_type==3}}">
-    已结束
-  </cover-view>
-
-  <cover-view class="footBtn bg3" wx:if="{{task.btn_type==2}}" bindtap="dialFn">
-    立即拨号
-  </cover-view>
-
-  <cover-view class="footBtn bg3" wx:if="{{task.btn_type==10}}" bindtap="fuFn">
-    立即付款
-  </cover-view>
-</cover-view>
-
-
-
-<cover-view class="footBtn bg3" wx:if="{{i>0}}">
-  <cover-view class="footBtn bg3" wx:if="{{i==1}}" bindtap="fuFn">
-    去付款
-  </cover-view>
-
-  <cover-view class="footBtn bg4" wx:if="{{i==2}}" bindtap="back">
-    评价
-  </cover-view>
-</cover-view>
 
 <popup bind:popupFn="popupFn" hide='{{is}}'></popup>
 <paymen bind:payFn="payFn" bool='{{payIs}}'></paymen>
@@ -159,19 +168,7 @@
     <input name="password" password type="number" class='pay_ipt_s' maxlength="6" focus="{{isFocus}}" bindinput="Focus"></input>
   </view>
 </view>
-<view class="foot">
-  <view class="foot-head">
-    <text class="line">“新品促销/尾货处理”类抢单须知</text>
-  </view>
 
-  <view>
-    1.截止日期,个人用户、认证企业、VIP诚企均可参与抢单;
-  </view>
-
-  <view>
-    2.抢单需支付5元,即可通过平台联系发布者。
-  </view>
-</view>
 
 <view class="bgp" wx:if="{{task.btn_type==5}}">
   <image src="{{baseSrc}}gq.png"></image>

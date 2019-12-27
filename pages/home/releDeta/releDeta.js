@@ -19,7 +19,8 @@ Page({
   onLoad: function(o) {
     if (o.id) {
       this.setData({
-        id: o.id
+        id: o.id,
+        t: o.t
       })
     } else {
       const scene = decodeURIComponent(o.scene);

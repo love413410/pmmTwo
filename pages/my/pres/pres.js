@@ -77,7 +77,6 @@ Page({
       })
     }
   },
-
   Focus(e) {
     var _this = this;
     var inputValue = e.detail.value;
@@ -92,18 +91,23 @@ Page({
         password: this.data.Value,
       }).then(res => {
         if (res.code == 1) {
+          wx.showLoading({
+            title: '正在支付中'
+          });
           _post(withdraw, {
             userid: app.globalData.uid,
             price: val
           }).then(res => {
             if (res.code == 1) {
               setTimeout(_this.back, 500)
-            }
+            };
+            wx.hideLoading();
             app.toast(res.msg)
           })
         } else {
           app.toast(res.msg)
-        }
+        };
+        
       })
     }
   },

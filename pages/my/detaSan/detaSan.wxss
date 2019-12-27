@@ -120,18 +120,46 @@ page {
 }
 
 .desc-b {
-  width: 100%;
+  /* width: 100%;
   height: 150rpx;
   border-radius: 10rpx;
   padding: 20rpx;
   box-sizing: border-box;
   font-size: 24rpx;
+  background-color: #f2f2f2; */
+  width: 100%;
+  height: 150rpx;
+  border-radius: 10rpx;
+  border-top: 20rpx solid #fff;
+  border-bottom: 20rpx solid #fff;
+  font-size: 24rpx;
   background-color: #f2f2f2;
+  position: relative;
 }
 
 .desc-b textarea {
+  /* width: 100%;
+  height: 100%; */
   width: 100%;
   height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 20rpx 10rpx;
+  box-sizing: border-box;
+  color: #808080;
+}
+
+.desc-b .desc_text {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 20rpx 10rpx;
+  box-sizing: border-box;
+  color: #808080;
+  word-break: break-all;
 }
 
 .footBtn {

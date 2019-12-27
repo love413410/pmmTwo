@@ -55,8 +55,9 @@ Page({
     regStr: '选择省、市、区',
     photos: [],
     isDis: false,
-    releText: '立即发布'
+    releText: '立即发布',
 
+    eye: 2
 
   },
   onLoad: function(o) {
@@ -343,39 +344,15 @@ Page({
       overview: this.data.ela
     };
     const _this = this;
-    const iss = _this.data.iss;
-    if (iss == 2) {
-      _post(decr, data).then(res => {
-        if (res.code != 1) {
-          app.toast(res.msg)
-        } else if (res.code == 1) {
-          this.setData({
-            payIs: false
-          })
-        }
-      })
-    } else if (iss == 3) {
-      _this.setData({
-        isDis: true,
-        releText: '发布中'
-      })
-      _post(decr, data).then(res => {
-        if (res.code == 1) {
-          app.toast('发布成功', 'success');
-          setTimeout(function() {
-            wx.redirectTo({
-              url: '../rele/rele',
-            })
-          }, 1500);
-        } else {
-          app.toast(res.msg);
-          _this.setData({
-            isDis: false,
-            releText: '立即发布'
-          })
-        }
-      })
-    }
+    _post(decr, data).then(res => {
+      if (res.code != 1) {
+        app.toast(res.msg)
+      } else if (res.code == 1) {
+        this.setData({
+          payIs: false
+        })
+      }
+    });
   },
   newFn() {
     const [a, b, c, d] = [this.data.pickIdx4, this.data.bra, this.data.goodname, this.data.pickIdx8];
@@ -415,39 +392,15 @@ Page({
       overview: this.data.ela
     };
     const _this = this;
-    const iss = _this.data.iss;
-    if (iss == 2) {
-      _post(decr, data).then(res => {
-        if (res.code != 1) {
-          app.toast(res.msg)
-        } else if (res.code == 1) {
-          this.setData({
-            payIs: false
-          })
-        }
-      })
-    } else if (iss == 3) {
-      _this.setData({
-        isDis: true,
-        releText: '发布中'
-      })
-      _post(decr, data).then(res => {
-        if (res.code == 1) {
-          app.toast('发布成功', 'success');
-          setTimeout(function() {
-            wx.redirectTo({
-              url: '../rele/rele',
-            })
-          }, 1500);
-        } else {
-          app.toast(res.msg);
-          _this.setData({
-            isDis: false,
-            releText: '立即发布'
-          })
-        }
-      })
-    }
+    _post(decr, data).then(res => {
+      if (res.code != 1) {
+        app.toast(res.msg)
+      } else if (res.code == 1) {
+        this.setData({
+          payIs: false
+        })
+      }
+    });
   },
   payFn(e) {
     const _this = this;
@@ -491,20 +444,22 @@ Page({
     var _this = this;
     var inputValue = e.detail.value;
     var ilen = inputValue.length;
-
     this.setData({
       Value: inputValue,
     })
     if (ilen == 6) {
       _get(passwo, {
         userid: app.globalData.uid,
-        password: this.data.Value,
+        password: _this.data.Value,
       }).then(res => {
         if (res.code == 1) {
+          wx.showLoading({
+            title: '正在支付中'
+          });
           const data = {
             userid: app.globalData.uid,
             payType: 2,
-            taskid: this.data.id
+            taskid: _this.data.id
           };
           _post(pay, data).then(res => {
             if (res.code == 1) {
@@ -517,7 +472,8 @@ Page({
               wx.redirectTo({
                 url: '../rele/rele',
               })
-            }
+            };
+            wx.hideLoading();
             app.toast(res.msg)
           })
         } else {
@@ -612,6 +568,11 @@ Page({
       _this.setData({
         iss: iss
       })
+    })
+  },
+  bindblurFn(e) {
+    this.setData({
+      eye: e.currentTarget.dataset.is
     })
   },
   onShareAppMessage: function() {
