@@ -10,7 +10,8 @@ const {
   robPay,
   passwo,
   gloss,
-  code
+  code,
+  link
 } = require('../../../utils/urls.js');
 Page({
   data: {

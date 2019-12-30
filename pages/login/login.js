@@ -175,11 +175,12 @@ Page({
       area: this.data.idd
     };
     _post(modiUser, data).then(r => {
-      setTimeout(function() {
+      // setTimeout(function() {
         wx.navigateBack({
-          delta: 1
+          delta: 1,
+          success:function(){console.log("11111")}
         });
-      }, 2000);
+      // }, 2000);
     })
   },
   onShareAppMessage: function() {

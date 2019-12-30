@@ -122,11 +122,14 @@
   </cover-view>
 
   <cover-view class="footBtn bg3" wx:if="{{i>0&&!btn}}">
-    <cover-view class="footBtn bg3" wx:if="{{i==1}}" bindtap="fuFn">
+    <cover-view class="footBtn bg3" wx:if="{{i==1&&task.btn_type!=2}}" bindtap="fuFn">
       去付款
     </cover-view>
-    <cover-view class="footBtn bg4" wx:if="{{i==2}}" bindtap="back">
+    <cover-view class="footBtn bg4" wx:if="{{i==3&&task.btn_type!=2}}" bindtap="back">
       评价
+    </cover-view>
+    <cover-view class="footBtn bg3" wx:if="{{task.btn_type==2}}" bindtap="dialFn">
+      立即拨号
     </cover-view>
   </cover-view>
 

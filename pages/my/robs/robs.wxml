@@ -63,7 +63,7 @@
         <text wx:if="{{item.reward==1&&item.profit==1}}">|</text>
         <text wx:if="{{item.profit==1}}">已分润{{item.profit_money}}元</text>
       </view>
-      <view class="sub_tle2" wx:if="{{idx!=1&&sub==2}}">
+      <view class="sub_tle2" wx:if="{{idx==3&&(sub==2||sub==0)&&item.price}}">
         我的报价:{{item.price}}
         <text wx:if="{{item.contract==1}}">(对方已联系)</text>
       </view>
