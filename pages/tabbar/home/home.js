@@ -203,11 +203,8 @@ Page({
         case '4':
           src = '../../home/couDeta/couDeta?id=' + id;
           break;
-        case '5':
-          src = '../../home/leaDeta/leaDeta?id=' + id;
-          break;
         default:
-          src = '../../home/newDeta/newDeta?id=' + id;
+          src = '../../home/leaDeta/leaDeta?id=' + id;
       }
       wx.navigateTo({
         url: src

@@ -53,43 +53,7 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": [
-				{
-					"id": -1,
-					"name": "pages/tabbar/rele/rele",
-					"pathName": "pages/tabbar/rele/rele",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/tabbar/my/my",
-					"pathName": "pages/tabbar/my/my",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/tabbar/test/test",
-					"pathName": "pages/tabbar/test/test",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/cartLet/cartLet/cartLet",
-					"pathName": "pages/cartLet/cartLet/cartLet",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/login/login",
-					"pathName": "pages/login/login",
-					"query": "",
-					"scene": null
-				}
-			]
+			"list": []
 		}
 	}
 }

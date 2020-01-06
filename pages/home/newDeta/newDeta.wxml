@@ -106,7 +106,7 @@
     <button class="rtBtn" hover-class="none" bindtap="authFn">分享到朋友圈</button>
   </view>
 
-  <cover-view class="footBtn bg3" wx:if="{{!i&&!btn}}">
+  <cover-view wx:if="{{!i&&!btn}}">
     <cover-view class="footBtn bg1" wx:if="{{task.btn_type==1}}" bindtap="robFn">
       立即抢单
     </cover-view>

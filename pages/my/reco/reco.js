@@ -56,6 +56,8 @@ Page({
     pagesize: 20,
     sort: 1,
     list: [],
+    idc: '',
+    idp: '',
     payIs: true
   },
   onLoad: function(options) {
@@ -117,7 +119,6 @@ Page({
   },
   compans() {
     const _this = this;
-    const cid = this.data.idc == '' ? this.data.idp : this.data.idc;
     const data = {
       userid: app.globalData.uid,
       page: this.data.page,
@@ -127,10 +128,11 @@ Page({
       lat: this.data.loc.lat,
       lng: this.data.loc.lng
     };
-    if (this.data.idc){
-      data.city = cid
-    }else{
-      data.province = cid
+    const idc = this.data.idc;
+    if (idc != '') {
+      data.city = idc
+    } else {
+      data.province = this.data.idp
     }
     _get(compan, data).then(res => {
       if (res.code == 1) {
@@ -272,12 +274,12 @@ Page({
     const _this = this;
     app.getLocal(loc).then(res => {
       _this.setData({
-        city: res.result.address_component.city,
+        city: res.result.address_component.province,
         list: [],
         page: 1
       })
       _this.getCity()
-    })
+    });
   },
   getCity() {
     const _this = this;
@@ -286,7 +288,7 @@ Page({
     }).then(res => {
       const idcId = res.content.detail[0].region_id;
       _this.setData({
-        idc: idcId,
+        idp: idcId,
         list: [],
         page: 1
       })

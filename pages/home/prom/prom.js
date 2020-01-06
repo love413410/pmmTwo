@@ -45,6 +45,18 @@ Page({
       })
     }
   },
+  popupFn(e) {
+    const code = e.detail.code;
+    if (code == -1) {
+      app.toast("获取用户信息失败")
+    } else if (code == 0) {
+      const openId = e.detail.openId;
+      app.globalData.openId = openId;
+      wx.navigateTo({
+        url: '../../login/login'
+      })
+    }
+  },
   onReachBottom: function () {
     const page = this.data.page;
     this.setData({

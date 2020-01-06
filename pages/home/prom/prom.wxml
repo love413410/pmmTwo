@@ -22,14 +22,11 @@
       <image src="{{baseSrc}}ionc-a.png" class="state" wx:if="{{item.overdue==1}}"></image>
       <image src="{{baseSrc}}ionc-b.png" class="state" wx:if="{{item.is_end==1&&item.overdue==0}}"></image>
     </view>
+
     <view class="item-t">
       <view class="lt">
         <view class="tle">
           {{item.title}}
-        </view>
-        <view class="add mar">
-          <image src="{{baseSrc}}ionc1.png"></image>
-          <text>{{item.provincename}}{{item.cityname}}</text>
         </view>
         <view class="add">
           <image src="{{baseSrc}}ionc2.png" class="lt"></image>
@@ -42,6 +39,8 @@
       <view class="cro_left_bottom"></view>
       <view class="cro_right_bottom"></view>
     </view>
+
+
     <view class="item-b">
       <view class="ltext">
         备注:

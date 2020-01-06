@@ -90,7 +90,7 @@ Page({
     })
   },
   login() {
-    const _this=this;
+    const _this = this;
     let check = this.data.check;
     if (check) {
       let data = {
@@ -130,11 +130,9 @@ Page({
       };
       _this.getLocal(loc)
     }).catch(err => {
-      setTimeout(function() {
-        wx.navigateBack({
-          delta: 1
-        });
-      }, 2000);
+      wx.navigateBack({
+        delta: 1
+      });
     })
   },
   getLocal(loc) {
@@ -162,7 +160,7 @@ Page({
         [x]: idcId
       })
       const [idp, idc, idd] = [_this.data.idp.length, _this.data.idc.length, _this.data.idd.length];
-      if (idp > 0 && idc > 0 && idd > 0 ){
+      if (idp > 0 && idc > 0 && idd > 0) {
         _this.change();
       }
     })
@@ -175,12 +173,9 @@ Page({
       area: this.data.idd
     };
     _post(modiUser, data).then(r => {
-      // setTimeout(function() {
-        wx.navigateBack({
-          delta: 1,
-          success:function(){console.log("11111")}
-        });
-      // }, 2000);
+      wx.navigateBack({
+        delta: 1
+      });
     })
   },
   onShareAppMessage: function() {
