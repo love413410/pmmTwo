@@ -35,7 +35,10 @@
           </view>
         </view>
       </view>
-      <image src="{{baseSrc}}q.png" class="rt" wx:if="{{item.is_end==0&&item.overdue==0&&item.is_show==0}}"></image>
+
+      <!-- <image src="{{baseSrc}}q.png" class="rt" wx:if="{{item.is_end==0&&item.overdue==0&&item.is_show==0}}"></image> -->
+      <image src="{{baseSrc}}q.png" class="rt" wx:if="{{item.is_end==0&&item.overdue==0&&item.is_show==0}}" catchtap="grabFn" data-ty="{{item.type}}" data-id="{{item.id}}"></image>
+
       <view class="cro_left_bottom"></view>
       <view class="cro_right_bottom"></view>
     </view>

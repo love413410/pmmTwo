@@ -25,11 +25,12 @@ Page({
       var payIs=true;
       if (o.s == 1) {
         payIs = false;
-      }
+      };
+      const i = o.is == undefined ? false : o.is;
       this.setData({
         id: o.id,
         t: o.t,
-        i: o.is,
+        i: i,
         payIs: payIs
       });
     } else {

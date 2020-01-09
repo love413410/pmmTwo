@@ -1,20 +1,31 @@
 const app = getApp();
 const {
-  _get
+  _get,
+  _post
 } = require('../../../utils/http.js')
 const {
   baseSrc,
-  decrList
+  decrList,
+  rob
 } = require('../../../utils/urls.js');
 Page({
   data: {
     baseSrc: baseSrc,
     is: false,
+    tempPage:"",
     page: 1,
     pagesize: 20,
     list: []
   },
-  onLoad: function (options) {
+  onLoad: function(options) {
+    this.decrList();
+  },
+  onShow:function(){
+    this.setData({
+      list: [],
+      page: 1,
+      tempPage: ''
+    });
     this.decrList();
   },
   decrList() {
@@ -27,12 +38,43 @@ Page({
     };
     _get(decrList, data).then(res => {
       const list = res.content.list;
-      _this.setData({
-        list: [..._this.data.list, ...list]
-      })
+      const page = res.content.page;
+      const tempPage = _this.data.tempPage;
+      if (page != tempPage) {
+        _this.setData({
+          list: [..._this.data.list, ...list],
+          tempPage: page
+        })
+      }
     })
   },
-  rouTo(e){
+
+  grabFn(e) {
+    if (!app.globalData.is) {
+      this.setData({
+        is: true
+      });
+      return false;
+    };
+    const ty = e.currentTarget.dataset.ty;
+    const id = e.currentTarget.dataset.id;
+    const url = '../../home/newDeta/newDeta?id=' + id + '&s=1';
+
+    const _this = this;
+    _post(rob, {
+      userid: app.globalData.uid,
+      id: id
+    }).then(res => {
+      if (res.code == 1) {
+        wx.navigateTo({
+          url: url
+        })
+      } else {
+        app.toast(res.msg)
+      }
+    })
+  },
+  rouTo(e) {
     if (!app.globalData.is) {
       this.setData({
         is: true
@@ -55,16 +97,23 @@ Page({
       wx.navigateTo({
         url: '../../login/login'
       })
+    } else {
+      this.setData({
+        list: [],
+        page: 1,
+        tempPage: ""
+      })
+      this.decrList();
     }
   },
-  onReachBottom: function () {
+  onReachBottom: function() {
     const page = this.data.page;
     this.setData({
       page: page + 1
     })
     this.decrList();
   },
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })
