@@ -13,11 +13,10 @@ Page({
   },
   onLoad: function (o) {
     if (o.id) {
-      const i = o.is == undefined ? false : o.is;
       this.setData({
         id: o.id,
         t: o.t,
-        i: i
+        i: o.is
       })
     } else {
       const scene = decodeURIComponent(o.scene);

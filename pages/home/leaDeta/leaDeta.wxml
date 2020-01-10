@@ -107,8 +107,12 @@
     </view>
   </view>
   <view wx:if="{{btn}}" class="footBtn">
-    <button class="ltBtn" hover-class="none" open-type='share'>转发给好友/群聊</button>
-    <button class="rtBtn" hover-class="none" bindtap="authFn">分享到朋友圈</button>
+    <button class="ltBtn" hover-class="none" open-type='share'>
+      转发给好友/群聊
+    </button>
+    <button class="rtBtn" hover-class="none" bindtap="authFn">
+      分享到朋友圈
+    </button>
   </view>
   <button class="footBtn bg1" wx:if="{{task.btn_type==1&&!btn}}" bindtap="robFn">
     立即抢单

@@ -110,7 +110,7 @@
     </button>
   </view>
 
-  <cover-view wx:if="{{!i&&!btn}}">
+  <cover-view class="footBtn" wx:if="{{!i&&!btn}}">
     <cover-view class="footBtn bg1" wx:if="{{task.btn_type==1}}" bindtap="robFn">
       立即抢单
     </cover-view>
@@ -125,7 +125,7 @@
     </cover-view>
   </cover-view>
 
-  <cover-view wx:if="{{i>0&&!btn}}">
+  <cover-view class="footBtn" wx:if="{{i>0&&!btn}}">
     <cover-view class="footBtn bg3" wx:if="{{i==1&&task.btn_type!=2}}" bindtap="fuFn">
       去付款
     </cover-view>

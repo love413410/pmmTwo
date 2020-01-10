@@ -14,7 +14,7 @@ const {
 Page({
   data: {
     baseSrc: baseSrc,
-    idx: 1,
+    idx: 3,
     page: 1,
     pagesize: 20,
     list: [],

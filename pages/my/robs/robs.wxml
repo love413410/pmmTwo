@@ -1,8 +1,9 @@
 <view class="head">
   <view class="head-top">
-    <view class="head-item" bindtap="headFn" data-idx='1'>
-      <view class="{{idx==1?'add':''}}">
-        询价/租赁
+  
+    <view class="head-item" bindtap="headFn" data-idx='3'>
+      <view class="{{idx==3?'add':''}}">
+        外包/维修/求购
       </view>
     </view>
 
@@ -10,13 +11,14 @@
       <view class="{{idx==2?'add':''}}">
         促销
       </view>
-    </view> 
+    </view>
 
-    <view class="head-item" bindtap="headFn" data-idx='3'>
-      <view class="{{idx==3?'add':''}}">
-        其他
+    <view class="head-item" bindtap="headFn" data-idx='1'>
+      <view class="{{idx==1?'add':''}}">
+        询价/租赁
       </view>
     </view>
+
   </view>
 
 
@@ -24,7 +26,7 @@
     <view class="lts {{sub==0?'add':''}}" bindtap="subFn" data-sub='0'>
       <view>全部</view>
       <view>
-        <image src="{{baseSrc}}y1.png" wx:if="{{sub==1}}"></image>
+        <image src="{{baseSrc}}y1.png" wx:if="{{sub==0}}"></image>
         <image src="{{baseSrc}}y2.png" wx:else></image>
       </view>
       <view>{{ztotal}}</view>
@@ -42,7 +44,7 @@
     <view class="lts {{sub==2?'add':''}}" bindtap="subFn" data-sub='2'>
       <view>已付款</view>
       <view>
-        <image src="{{baseSrc}}y1.png" wx:if="{{sub==1}}"></image>
+        <image src="{{baseSrc}}y1.png" wx:if="{{sub==2}}"></image>
         <image src="{{baseSrc}}y2.png" wx:else></image>
       </view>
       <view>{{ytotal}}</view>

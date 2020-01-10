@@ -22,7 +22,7 @@ page {
 }
 
 .head-item .add {
-  width: 150rpx;
+  /* width: 150rpx; */
   display: inline-block;
   height: 70rpx;
   border-bottom: 2px solid #fd8c67;

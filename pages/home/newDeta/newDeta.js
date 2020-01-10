@@ -26,11 +26,10 @@ Page({
       if (o.s == 1) {
         payIs = false;
       };
-      const i = o.is == undefined ? false : o.is;
       this.setData({
         id: o.id,
         t: o.t,
-        i: i,
+        i: o.is,
         payIs: payIs
       });
     } else {

@@ -122,7 +122,7 @@
     </cover-view>
   </view>
 
-  <cover-view class="footBtn bg3" wx:if="{{i>0&&!btn}}">
+  <cover-view class="footBtn" wx:if="{{i>0&&!btn}}">
     <cover-view class="footBtn bg3" wx:if="{{i==1}}" bindtap="price">
       去付款
     </cover-view>
